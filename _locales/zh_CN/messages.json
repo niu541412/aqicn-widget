@@ -23,19 +23,19 @@
       "message": "\u003Cb>데이터가 없습니다\u003C/b>, \u003Cb>파랑\u003C/b>, \u003Cb>초록\u003C/b>, \u003Cb>노랑\u003C/b>, \u003Cb>주황\u003C/b>, \u003Cb>빨강\u003C/b>, \u003Cb>갈색\u003C/b>"
    },
    "lang_cn": {
-      "message": "中国（简体）"
+      "message": "中文（简体）"
    },
    "lang_en": {
       "message": "英语"
    },
    "lang_hk": {
-      "message": "中国（传统）"
+      "message": "中文（繁体）"
    },
    "lang_jp": {
-      "message": "日本"
+      "message": "日语"
    },
    "lang_kr": {
-      "message": "韩国"
+      "message": "韩语"
    },
    "opt_engine": {
       "message": "顯示的空氣質量指數信息："
