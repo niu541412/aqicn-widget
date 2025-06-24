@@ -1026,7 +1026,7 @@
         }
         ,
         t.prototype.onWidgetLoaded = function(t, e) {
-            var xxl = t.xxl.replace('420px', '460px');
+            var xxl = t.xxl.replace('420px', '440px');
             console.log("Widget loaded!"),
             $("#cityaqiwidget").html(xxl).show(),
             $("#selectedcity").html("");
