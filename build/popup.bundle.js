@@ -972,17 +972,28 @@
       , o = function() {
         function t() {
             var t = this;
-            this.aqiSettings = new i.AqiSettings,
-            this.clearResultsTimer = null,
-            $("#searchresults").hide(),
-            $("#cityaqiwidget").hide(),
+            this.aqiSettings = new i.AqiSettings;
+            this.clearResultsTimer = null;
+            var e = document.getElementById("searchresults");
+            if (e) e.style.display = "none";
+            var n = document.getElementById("cityaqiwidget");
+            if (n) n.style.display = "none";
             this.aqiSettings.cityObject().then(function(e) {
-                e ? ($("#selectedcitytitle").html(e.name),
-                $("#selectedcity").html(chrome.i18n.getMessage("search_selected_city") + " <b> " + e.name),
-                $("#cityinput").attr("placeholder", chrome.i18n.getMessage("search_select_another")),
-                t.loadWidget()) : ($("#cityinput").attr("placeholder", chrome.i18n.getMessage("search_enter_city")),
-                $("#selectedcity").html(""))
-            }),
+                var n = document.getElementById("selectedcitytitle");
+                if (e) {
+                    if (n) n.innerHTML = e.name;
+                    var i = document.getElementById("selectedcity");
+                    if (i) i.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b> " + e.name;
+                    var o = document.getElementById("cityinput");
+                    if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_select_another"));
+                    t.loadWidget();
+                } else {
+                    var o = document.getElementById("cityinput");
+                    if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_enter_city"));
+                    var i = document.getElementById("selectedcity");
+                    if (i) i.innerHTML = "";
+                }
+            });
             document.getElementById("cityinput").onkeyup = function() {
                 t.onKeyUp()
             }
@@ -1011,7 +1022,9 @@
             }),
             0 == t.length && (i += "<tr><td class='cityentryname'>" + chrome.i18n.getMessage("search_no_result") + "</td></tr>"),
             i += "</table>",
-            $("#" + e).html(i).show(),
+            o = document.getElementById(e),
+            o.innerHTML = i, 
+            o.style.display = "",
             t.forEach(function(t, e) {
                 document.getElementById("cityitem" + e).onclick = function() {
                     var e = {
@@ -1027,57 +1040,100 @@
         ,
         t.prototype.onWidgetLoaded = function(t, e) {
             var xxl = t.xxl.replace('420px', '440px');
-            console.log("Widget loaded!"),
-            $("#cityaqiwidget").html(xxl).show(),
-            $("#selectedcity").html("");
-            $("#aqiwgttitle1").attr("target","_blank");
-            var n = $("#aqiwgtmsg").html()
-              , r = i.aqiLang.getAqiText(n, e);
-            $("#aqiwgtmsg").html(r)
+            console.log("Widget loaded!");
+            var n = document.getElementById("cityaqiwidget");
+            if (n) {
+                n.innerHTML = xxl;
+                n.style.display = "";
+            }
+            var r = document.getElementById("selectedcity");
+            if (r) r.innerHTML = "";
+            var o = document.getElementById("aqiwgttitle1");
+            if (o) o.setAttribute("target", "_blank");
+            var n = document.getElementById("aqiwgtmsg");
+            var r = i.aqiLang.getAqiText(n ? n.innerHTML : "", e);
+            if (n) n.innerHTML = r;
         }
         ,
         t.prototype.loadWidget = function() {
             var t = this;
-            $("#cityaqiwidget").html("<div style='width:100%'><div class='aqiloader'></div></div>").show(),
+            var e = document.getElementById("cityaqiwidget");
+            if (e) {
+                e.innerHTML = "<div style='width:100%'><div class='aqiloader'></div></div>";
+                e.style.display = "";
+            }
             this.aqiSettings.cityObject().then(function(e) {
                 if (e.key || e.idx) {
                     var n = "https://aqicn.org/webwgt/";
-                    e.idx ? n += "@" + e.idx : n += e.key,
-                    n += "/widget.v1.json?" + Date.now(),
-                    n += "&from=chrome-extension",
+                    n += e.idx ? "@" + e.idx : e.key;
+                    n += "/widget.v1.json?" + Date.now();
+                    n += "&from=chrome-extension";
                     fetch(n).then(function(t) {
-                        return t.json()
+                        return t.json();
                     }).then(function(n) {
-                        t.onWidgetLoaded(n, e.clang)
+                        t.onWidgetLoaded(n, e.clang);
                     }).catch(function(t) {
-                        var e = chrome.i18n.getMessage("search_load_error") + "<br>" + t;
-                        e = "<div style='width:100%'>" + e + "</div>",
-                        $("#cityaqiwidget").html(e).show()
-                    })
-                } else
-                    $("#cityaqiwidget").html("Oops.. can not load the widget").show()
-            })
+                        var n = chrome.i18n.getMessage("search_load_error") + "<br>" + t;
+                        var i = document.getElementById("cityaqiwidget");
+                        if (i) {
+                            i.innerHTML = "<div style='width:100%'>" + n + "</div>";
+                            i.style.display = "";
+                        }
+                    });
+                } else {
+                    var i = document.getElementById("cityaqiwidget");
+                    if (i) {
+                        i.innerHTML = "Oops.. can not load the widget";
+                        i.style.display = "";
+                    }
+                }
+            });
         }
-        ,
-        t.prototype.onClick = function(t) {
-            this.aqiSettings.setCityObject(t),
-            $("#selectedcitytitle").html(t.name),
-            $("#selectedcity").html(chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name),
-            this.loadWidget(),
-            this.clearResultsTimer && clearTimeout(this.clearResultsTimer),
-            this.clearResultsTimer = setTimeout(function() {
-                $("#searchresults").slideUp(200),
-                $("#cityinput").val("")
-            }, 1e3)
+,
+// t.prototype.onClick = function(t) {
+//     this.aqiSettings.setCityObject(t),
+//     $("#selectedcitytitle").html(t.name),
+//     $("#selectedcity").html(chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name),
+//     this.loadWidget(),
+//     this.clearResultsTimer && clearTimeout(this.clearResultsTimer),
+//     this.clearResultsTimer = setTimeout(function() {
+//         $("#searchresults").slideUp(200),
+//         $("#cityinput").val("")
+//     }, 1e3)
+// },
+t.prototype.onClick = function(t) {
+    this.aqiSettings.setCityObject(t);
+    var e = document.getElementById("selectedcitytitle");
+    if (e) e.innerHTML = t.name;
+    var n = document.getElementById("selectedcity");
+    if (n) n.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name;
+    this.loadWidget();
+    this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
+    this.clearResultsTimer = setTimeout(function() {
+        var e = document.getElementById("searchresults");
+        if (e) {
+            e.style.transition = "height 0.2s ease";
+            e.style.overflow = "hidden";
+            e.style.height = "0px";
+            setTimeout(function() {
+                e.style.display = "none";
+                e.style.height = "";
+                e.style.transition = "";
+                e.style.overflow = "";
+            }, 200);
         }
-        ,
-        t.prototype.onKeyUp = function() {
-            var t = this;
-            this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
-            var e = document.getElementById("cityinput").value;
-            "" != e && null != e && fetch(this.url(e)).then(function(t) {
-                return t.json()
-            }).then(function(e) {
+        var n = document.getElementById("cityinput");
+        if (n) n.value = "";
+    }, 1e3);
+}
+,
+t.prototype.onKeyUp = function() {
+    var t = this;
+    this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
+    var e = document.getElementById("cityinput").value;
+    "" != e && null != e && fetch(this.url(e)).then(function(t) {
+        return t.json()
+    }).then(function(e) {
                 document.getElementById("cityinput").className = "",
                 t.formatData(e.results, "searchresults")
             })
@@ -1087,18 +1143,34 @@
     }();
     e.CitySearch = o
 }
+// , , , function(t, e, n) {
+//     "use strict";
+//     e.__esModule = !0;
+//     var i = n(6);
+//     document.addEventListener("DOMContentLoaded", function() {
+//         new i.CitySearch,
+//         $(".i18n").each(function(t) {
+//             var e = $(this).attr("id")
+//               , n = chrome.i18n.getMessage(e);
+//             console.log("Localizing " + e + " -> " + n),
+//             $("#" + e).html(n)
+//         })
+//     })
+// }
 , , , function(t, e, n) {
     "use strict";
     e.__esModule = !0;
     var i = n(6);
     document.addEventListener("DOMContentLoaded", function() {
-        new i.CitySearch,
-        $(".i18n").each(function(t) {
-            var e = $(this).attr("id")
+        new i.CitySearch;
+        var r = document.querySelectorAll(".i18n");
+        r.forEach(function(t) {
+            var e = t.getAttribute("id")
               , n = chrome.i18n.getMessage(e);
-            console.log("Localizing " + e + " -> " + n),
-            $("#" + e).html(n)
-        })
-    })
+            console.log("Localizing " + e + " -> " + n);
+            var i = document.getElementById(e);
+            if (i) i.innerHTML = n;
+        });
+    });
 }
 ]);
