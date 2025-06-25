@@ -89,11 +89,11 @@
         t.prototype.getText = function(t, e) {
             var n = {
                 air_quality: {
-                    en: " Air Quality",
-                    cn: "ç©ºæ°”æ±¡æŸ“",
-                    hk: "ç©ºæ°£æ±¡æŸ“",
-                    jp: "å¤§æ°—æ±šæŸ“",
-                    kr: "ëŒ€ê¸° ì˜¤ì—¼"
+                    en: "Air Quality",
+                    cn: "空气污染",
+                    hk: "空氣污染",
+                    jp: "大気汚染",
+                    kr: "대기 오염"
                 }
             };
             return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
@@ -1090,17 +1090,6 @@
             });
         }
 ,
-// t.prototype.onClick = function(t) {
-//     this.aqiSettings.setCityObject(t),
-//     $("#selectedcitytitle").html(t.name),
-//     $("#selectedcity").html(chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name),
-//     this.loadWidget(),
-//     this.clearResultsTimer && clearTimeout(this.clearResultsTimer),
-//     this.clearResultsTimer = setTimeout(function() {
-//         $("#searchresults").slideUp(200),
-//         $("#cityinput").val("")
-//     }, 1e3)
-// },
 t.prototype.onClick = function(t) {
     this.aqiSettings.setCityObject(t);
     var e = document.getElementById("selectedcitytitle");
@@ -1143,20 +1132,6 @@ t.prototype.onKeyUp = function() {
     }();
     e.CitySearch = o
 }
-// , , , function(t, e, n) {
-//     "use strict";
-//     e.__esModule = !0;
-//     var i = n(6);
-//     document.addEventListener("DOMContentLoaded", function() {
-//         new i.CitySearch,
-//         $(".i18n").each(function(t) {
-//             var e = $(this).attr("id")
-//               , n = chrome.i18n.getMessage(e);
-//             console.log("Localizing " + e + " -> " + n),
-//             $("#" + e).html(n)
-//         })
-//     })
-// }
 , , , function(t, e, n) {
     "use strict";
     e.__esModule = !0;
