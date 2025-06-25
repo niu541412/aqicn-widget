@@ -72,8 +72,9 @@
 }([function(t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var i = n(2)
-      , r = function() {
+    // var i = n(2)
+    //   , r = function() {
+    var r = function() {
         function t() {}
         return t.prototype.getAqiText = function(t, e) {
             console.log("getAqiText(" + t + "," + e + ")");
@@ -89,7 +90,7 @@
         t.prototype.getText = function(t, e) {
             var n = {
                 air_quality: {
-                    en: "Air Quality",
+                    en: " Air Quality",
                     cn: "空气污染",
                     hk: "空氣污染",
                     jp: "大気汚染",
@@ -113,7 +114,8 @@
     var o = function() {
         function t() {}
         return t.prototype.cityObject = function() {
-            return new i.Promise(function(t) {
+            // return new i.Promise(function(t) {
+            return new Promise(function(t) {
                 chrome.runtime.sendMessage({
                     method: "getSelectedCity"
                 }, function(e) {
@@ -150,7 +152,8 @@
         }
         ,
         t.prototype.checkOption = function(t) {
-            return new i.Promise(function(e) {
+            // return new i.Promise(function(e) {
+            return new Promise(function(e) {
                 chrome.runtime.sendMessage({
                     method: "checkOption",
                     opt: t

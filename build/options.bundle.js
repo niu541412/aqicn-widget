@@ -46,8 +46,9 @@
 }([function(t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var i = n(2),
-        o = function() {
+    // var i = n(2),
+    //     o = function() {
+    var o = function() {
             function t() {}
             return t.prototype.getAqiText = function(t, e) {
                 console.log("getAqiText(" + t + "," + e + ")");
@@ -78,7 +79,8 @@
     var r = function() {
         function t() {}
         return t.prototype.cityObject = function() {
-            return new i.Promise(function(t) {
+            // return new i.Promise(function(t) {
+            return new Promise(function(t) {
                 chrome.runtime.sendMessage({
                     method: "getSelectedCity"
                 }, function(e) {
@@ -97,7 +99,8 @@
         }, t.prototype.updateData = function(t, e) {
             return "Aqi" == t ? this.updateAQI(e) : e
         }, t.prototype.checkOption = function(t) {
-            return new i.Promise(function(e) {
+            // return new i.Promise(function(e) {
+            return new Promise(function(e) {
                 chrome.runtime.sendMessage({
                     method: "checkOption",
                     opt: t

@@ -446,8 +446,9 @@
 }, , , function(module, exports, __webpack_require__) {
     "use strict";
     exports.__esModule = !0;
-    var es6_promise_1 = __webpack_require__(2),
-        decoder_1 = __webpack_require__(8),
+    // var es6_promise_1 = __webpack_require__(2),
+    //     decoder_1 = __webpack_require__(8),
+    var decoder_1 = __webpack_require__(8),
         Background = function() {
             function Background() {
                 var e = this;
