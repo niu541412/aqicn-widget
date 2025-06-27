@@ -312,7 +312,8 @@
                     if ("ok" == o.status) {
                         var i = o.msg,
                             s = r(i.iaqi);
-                        if (console.log("time:", moment(1e3 * i.timestamp).format("LLLL"), i.time), i.historic = s, "string" == typeof i.time.v) {
+                        // if (console.log("time:", moment(1e3 * i.timestamp).format("LLLL"), i.time), i.historic = s, "string" == typeof i.time.v) {
+                        if (console.log("time:", formatFullDate(i.timestamp * 1000, 'en'), i.time), i.historic = s, "string" == typeof i.time.v) {
                             var c = i.time.v.split(/[^0-9]/),
                                 u = new Date(c[0], c[1] - 1 || 0, c[2] || 1, c[3] || 0, c[4] || 0, c[5] || 0, c[6] || 0);
                             i.time.v = u.getTime()

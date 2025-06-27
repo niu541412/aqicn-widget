@@ -268,10 +268,11 @@
         return "-" != t && t ? t <= 50 ? "#ffffff" : t <= 100 ? "#000000" : t <= 150 ? "#000000" : "#ffffff" : "#eeeeee"
     }
     e.bgcolor = o, e.fgcolor = a, e.getWidget = function (t, e) {
-        var n = moment(t.time.v),
+        var //n = moment(t.time.v),
             s = t.rtsettings.design,
             u = t.rtsettings.lang;
-        "cn" == u ? u = "zh-CN" : "hk" == u ? u = "zh-TW" : "jp" == u ? u = "ja" : "kr" == u && (u = "ko"), moment.locale(u);
+        var locale_id;
+        "cn" == u ? u = "zh-CN" : "hk" == u ? u = "zh-TW" : "jp" == u ? u = "ja" : "kr" == u && (u = "ko"), locale_id = u;
         var c = r.aqiLang.getShortTitle(t),
             l = i.s3().c("div", {
                 fontSize: "13px"
@@ -283,7 +284,7 @@
         }), l.c("span", "waqi-widget-title").t(c), e && "tiny" != s || l.c("span", {
             color: "#aaa",
             padding: "0 3px 0 0"
-        }).c("small").t(n.format("hA"));
+        }).c("small").t(getHour12AMPM(t.time.v));
         var f = {
             minWidth: "20px",
             textAlign: "center",
@@ -293,7 +294,7 @@
         return e && (f.float = "right"), l.c("span", "waqi-widget-aqi", f).c("span").t(t.aqi.toString()), e && ("tiny" != s && (l.c("div", {
             color: "#aaa",
             marginTop: "3px"
-        }).c("small").t(n.format("LLL")), "small" != s && (l.c("div", {
+        }).c("small").t(formatFullDate(t.time.v, 'en', false)), "small" != s && (l.c("div", {
             borderTop: "1px solid #ccc",
             paddingTop: "5px"
         }), "forecast" != s && l.i(function (t, e) {
@@ -308,7 +309,7 @@
                     width: 120 + r + "px"
                 });
             try {
-                for (var s = 24 - moment(t.time.v).hour(), u = 0, c = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
+                for (var s = 24 - new Date(t.time.v).getHours(), u = 0, c = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
                     for (var d = null, h = null, p = l[f].replace(".", "").toLowerCase(), m = 0; m < e; m++) {
                         var v = e - m - 1;
                         if (t.historic[p] && t.historic[p][v]) {
@@ -385,7 +386,7 @@
                 var i = t.t.split(/[^0-9]/),
                     o = new Date(i[0], i[1] - 1 || 0, i[2] || 1, i[3] || 0, i[4] || 0, i[5] || 0, i[6] || 0);
                 if (!(o.getTime() < r.getTime())) {
-                    var a = "D" + moment(o).format("YMD");
+                    var a = "D" + formatYMD(o);
                     if (e.indexOf(a) < 0 && (e.push(a), n[a] = {
                         date: o
                     }), o.getHours() >= 7 && o.getHours() <= 21) {
@@ -408,7 +409,7 @@
                 if (n[t].aqi && 0 != n[t].aqi.count) {
                     n[t].aqi && n[t].aqi.min, n[t].aqi && n[t].aqi.max;
                     var r = n[t].aqi ? n[t].aqi.avg / n[t].aqi.count : "-",
-                        i = moment(n[t].date).format("ddd");
+                        i = formatShortWeekday(n[t].date, locale_id);
                     s.c("div", {
                         display: "inline-block"
                     }).c("div", "waqi-forecast-day-aqi", {

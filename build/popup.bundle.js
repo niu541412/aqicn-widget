@@ -398,11 +398,14 @@
         e.bgcolor = o,
             e.fgcolor = a,
             e.getWidget = function (t, e) {
-                var n = moment(t.time.v)
-                    , s = t.rtsettings.design
+                var //n = moment(t.time.v)
+                    // , 
+                    s = t.rtsettings.design
                     , c = t.rtsettings.lang;
+                var locale_id;
                 "cn" == c ? c = "zh-CN" : "hk" == c ? c = "zh-TW" : "jp" == c ? c = "ja" : "kr" == c && (c = "ko"),
-                    moment.locale(c);
+                    // moment.locale(c);
+                    locale_id = c;
                 var u = i.aqiLang.getShortTitle(t)
                     , l = r.s3().c("div", {
                         fontSize: "13px"
@@ -416,7 +419,8 @@
                     e && "tiny" != s || l.c("span", {
                         color: "#aaa",
                         padding: "0 3px 0 0"
-                    }).c("small").t(n.format("hA"));
+                    // }).c("small").t(n.format("hA"));
+                    }).c("small").t(getHour12AMPM(t.time.v));
                 var f = {
                     minWidth: "20px",
                     textAlign: "center",
@@ -428,7 +432,8 @@
                     e && ("tiny" != s && (l.c("div", {
                         color: "#aaa",
                         marginTop: "3px"
-                    }).c("small").t(n.format("LLL")),
+                    // }).c("small").t(n.format("LLL")),
+                    }).c("small").t(formatFullDate(t.time.v, 'en', false)),
                         "small" != s && (l.c("div", {
                             borderTop: "1px solid #ccc",
                             paddingTop: "5px"
@@ -445,7 +450,8 @@
                                         width: 120 + i + "px"
                                     });
                                 try {
-                                    for (var s = 24 - moment(t.time.v).hour(), c = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
+                                    // for (var s = 24 - moment(t.time.v).hour(), c = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
+                                    for (var s = 24 - new Date(t.time.v).getHours(), c = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
                                         for (var h = null, d = null, m = l[f].replace(".", "").toLowerCase(), p = 0; p < e; p++) {
                                             var g = e - p - 1;
                                             if (t.historic[m] && t.historic[m][g]) {
@@ -538,7 +544,8 @@
                                         var r = t.t.split(/[^0-9]/)
                                             , o = new Date(r[0], r[1] - 1 || 0, r[2] || 1, r[3] || 0, r[4] || 0, r[5] || 0, r[6] || 0);
                                         if (!(o.getTime() < i.getTime())) {
-                                            var a = "D" + moment(o).format("YMD");
+                                            // var a = "D" + moment(o).format("YMD");
+                                            var a = "D" + formatYMD(o);
                                             if (e.indexOf(a) < 0 && (e.push(a),
                                                 n[a] = {
                                                     date: o
@@ -569,7 +576,8 @@
                                             n[t].aqi && n[t].aqi.min,
                                                 n[t].aqi && n[t].aqi.max;
                                             var i = n[t].aqi ? n[t].aqi.avg / n[t].aqi.count : "-"
-                                                , r = moment(n[t].date).format("ddd");
+                                                // , r = moment(n[t].date).format("ddd");
+                                                , r = formatShortWeekday(n[t].date, locale_id);
                                             s.c("div", {
                                                 display: "inline-block"
                                             }).c("div", "waqi-forecast-day-aqi", {
@@ -631,7 +639,8 @@
                         t.forEach(function (e, n) {
                             e.uid;
                             e.station.url && e.station.url;
-                            var o = moment(1e3 * e.time.vtime).format("ddd, hA")
+                            // var o = moment(1e3 * e.time.vtime).format("ddd, hA")
+                            var o = `${formatShortWeekday(e.time.vtime * 1000, 'zh-CN')}, ${getHour12AMPM(e.time.vtime * 1000)}`
                                 , a = r.bgcolor(e.aqi)
                                 , s = r.fgcolor(e.aqi)
                                 , c = e.aqi
