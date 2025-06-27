@@ -285,7 +285,7 @@
         }), l.c("span", "waqi-widget-title").t(u), e && "tiny" != c || l.c("span", {
             color: "#aaa",
             padding: "0 3px 0 0"
-        // }).c("small").t(n.format("hA"));
+            // }).c("small").t(n.format("hA"));
         }).c("small").t(getHour12AMPM(t.time.v));
         var f = {
             minWidth: "20px",
@@ -296,7 +296,7 @@
         return e && (f.float = "right"), l.c("span", "waqi-widget-aqi", f).c("span").t(t.aqi.toString()), e && ("tiny" != c && (l.c("div", {
             color: "#aaa",
             marginTop: "3px"
-        // }).c("small").t(n.format("LLL")), "small" != c && (l.c("div", {
+            // }).c("small").t(n.format("LLL")), "small" != c && (l.c("div", {
         }).c("small").t(formatFullDate(t.time.v, 'en', false)), "small" != c && (l.c("div", {
             borderTop: "1px solid #ccc",
             paddingTop: "5px"
@@ -642,7 +642,7 @@
                 var i = document.getElementById(t + "_selection");
                 e.forEach(function (e) {
                     var o = document.createElement("input");
-                    o.id = t + "_" + e, o.type = "checkbox";
+                    o.id = t + "_" + e, o.type = "radio";
                     var r = document.createElement("img");
                     r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
                     var a = function () {
