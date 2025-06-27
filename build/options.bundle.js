@@ -1,4 +1,4 @@
-! function(t) {
+! function (t) {
     var e = {};
 
     function n(i) {
@@ -10,450 +10,149 @@
         };
         return t[i].call(o.exports, o, o.exports, n), o.l = !0, o.exports
     }
-    n.m = t, n.c = e, n.d = function(t, e, i) {
+    n.m = t, n.c = e, n.d = function (t, e, i) {
         n.o(t, e) || Object.defineProperty(t, e, {
             enumerable: !0,
             get: i
         })
-    }, n.r = function(t) {
+    }, n.r = function (t) {
         "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, {
             value: "Module"
         }), Object.defineProperty(t, "__esModule", {
             value: !0
         })
-    }, n.t = function(t, e) {
+    }, n.t = function (t, e) {
         if (1 & e && (t = n(t)), 8 & e) return t;
         if (4 & e && "object" == typeof t && t && t.__esModule) return t;
         var i = Object.create(null);
         if (n.r(i), Object.defineProperty(i, "default", {
-                enumerable: !0,
-                value: t
-            }), 2 & e && "string" != typeof t)
-            for (var o in t) n.d(i, o, function(e) {
+            enumerable: !0,
+            value: t
+        }), 2 & e && "string" != typeof t)
+            for (var o in t) n.d(i, o, function (e) {
                 return t[e]
             }.bind(null, o));
         return i
-    }, n.n = function(t) {
-        var e = t && t.__esModule ? function() {
+    }, n.n = function (t) {
+        var e = t && t.__esModule ? function () {
             return t.default
-        } : function() {
+        } : function () {
             return t
         };
         return n.d(e, "a", e), e
-    }, n.o = function(t, e) {
+    }, n.o = function (t, e) {
         return Object.prototype.hasOwnProperty.call(t, e)
     }, n.p = "", n(n.s = 10)
-}([function(t, e, n) {
+}([function (t, e, n) {
     "use strict";
     e.__esModule = !0;
-    // var i = n(2),
-    //     o = function() {
-    var o = function() {
-            function t() {}
-            return t.prototype.getAqiText = function(t, e) {
-                console.log("getAqiText(" + t + "," + e + ")");
-                var n = function(t) {
-                        return "-" == t ? 0 : t <= 50 ? 1 : t <= 100 ? 2 : t <= 150 ? 3 : t <= 200 ? 4 : t <= 300 ? 5 : 6
-                    },
-                    i = "aqivalues" + e,
-                    o = chrome.i18n.getMessage(i).split(",");
-                return console.log("labels:", i, "->", o), o[n(t = o[n(t)])].trim()
-            }, t.prototype.getText = function(t, e) {
-                var n = {
-                    air_quality: {
-                        en: " Air Quality",
-                        cn: "空气污染",
-                        hk: "空氣污染",
-                        jp: "大気汚染",
-                        kr: "대기 오염"
-                    }
-                };
-                return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
-            }, t.prototype.getTitle = function(t) {
-                return t.city.name + this.getText("air_quality", t.clang)
-            }, t.prototype.getShortTitle = function(t) {
-                return t.city.name + " AQI"
-            }, t
-        }();
+    var o = function () {
+        function t() { }
+        return t.prototype.getAqiText = function (t, e) {
+            console.log("getAqiText(" + t + "," + e + ")");
+            var n = function (t) {
+                return "-" == t ? 0 : t <= 50 ? 1 : t <= 100 ? 2 : t <= 150 ? 3 : t <= 200 ? 4 : t <= 300 ? 5 : 6
+            },
+                i = "aqivalues" + e,
+                o = chrome.i18n.getMessage(i).split(",");
+            return console.log("labels:", i, "->", o), o[n(t = o[n(t)])].trim()
+        }, t.prototype.getText = function (t, e) {
+            var n = {
+                air_quality: {
+                    en: " Air Quality",
+                    cn: "空气污染",
+                    hk: "空氣污染",
+                    jp: "大気汚染",
+                    kr: "대기 오염"
+                }
+            };
+            return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
+        }, t.prototype.getTitle = function (t) {
+            return t.city.name + this.getText("air_quality", t.clang)
+        }, t.prototype.getShortTitle = function (t) {
+            return t.city.name + " AQI"
+        }, t
+    }();
     e.aqiLang = new o;
-    var r = function() {
-        function t() {}
-        return t.prototype.cityObject = function() {
-            // return new i.Promise(function(t) {
-            return new Promise(function(t) {
+    var r = function () {
+        function t() { }
+        return t.prototype.cityObject = function () {
+            return new Promise(function (t) {
                 chrome.runtime.sendMessage({
                     method: "getSelectedCity"
-                }, function(e) {
+                }, function (e) {
                     t(e)
                 })
             })
-        }, t.prototype.setCityObject = function(t) {
+        }, t.prototype.setCityObject = function (t) {
             chrome.runtime.sendMessage({
                 method: "setSelectedCity",
                 city: t
-            }, function(t) {})
-        }, t.prototype.updateAQI = function(t) {
+            }, function (t) { })
+        }, t.prototype.updateAQI = function (t) {
             if (t) return t.forecast && (void 0 !== t.forecast[t.clang] ? t.weather = t.forecast[t.clang] : t.weather = t.forecast.en), void 0 !== t["info" + t.clang] && (t.info = t["info" + t.clang]), "hk" == t.clang && void 0 !== t.infocn && (t.info = t.infocn), void 0 !== t["utime" + t.clang] && (t.utime = t["utime" + t.clang]), "hk" == t.clang && void 0 !== t.utimecn && (t.utime = t.utimecn), "cn" == t.clang || "hk" == t.clang || "jp" == t.clang || "kr" == t.clang ? t.name = t.namena : t.name = t.nameen, t
-        }, t.prototype.updateFeed = function(t) {
+        }, t.prototype.updateFeed = function (t) {
             return t
-        }, t.prototype.updateData = function(t, e) {
+        }, t.prototype.updateData = function (t, e) {
             return "Aqi" == t ? this.updateAQI(e) : e
-        }, t.prototype.checkOption = function(t) {
-            // return new i.Promise(function(e) {
-            return new Promise(function(e) {
+        }, t.prototype.checkOption = function (t) {
+            return new Promise(function (e) {
                 chrome.runtime.sendMessage({
                     method: "checkOption",
                     opt: t
-                }, function(t) {
+                }, function (t) {
                     e(t)
                 })
             })
-        }, t.prototype.onFeedUpdate = function(t) {
+        }, t.prototype.onFeedUpdate = function (t) {
             this.onDataUpdate("Feed", t)
-        }, t.prototype.onDataUpdate = function(t, e) {
+        }, t.prototype.onDataUpdate = function (t, e) {
             var n = this,
                 i = "on" + t + "Update";
-            chrome.runtime.onMessage.addListener(function(o, r, a) {
+            chrome.runtime.onMessage.addListener(function (o, r, a) {
                 o.method == i ? e(n.updateData(t, o.aqi)) : console.log("Received unknown message:", o.method)
             }), chrome.runtime.sendMessage({
                 method: "load" + t
-            }, function(i) {
+            }, function (i) {
                 e(n.updateData(t, i))
             })
         }, t
     }();
     e.AqiSettings = r
-}, function(t, e, n) {
+}, function (t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var i = function() {
+    var i = function () {
         function t(t) {
             t && "string" == typeof t && "#" == t[0] ? this.node = document.getElementById(t.substr(1)) : t && "object" == typeof t && 1 == t.nodeType ? this.node = t : t && console.log("s3: Creating from unknown object", t)
         }
-        return t.prototype.c = function(e, n, i, o) {
+        return t.prototype.c = function (e, n, i, o) {
             var r;
             if (void 0 === n && (n = null), void 0 === i && (i = null), void 0 === o && (o = null), n && "string" != typeof n && (o = i, i = n, n = null), r = "svg:" == e.substr(0, 4) ? document.createElementNS("http://www.w3.org/2000/svg", e.substr(4)) : document.createElement(e), n && (r.className = n), i)
                 for (var a in i) r.style[a] = i[a];
             return o && (r.innerHTML = o), this.node && this.node.appendChild(r), new t(r)
-        }, t.prototype.a = function(t) {
+        }, t.prototype.a = function (t) {
             for (var e in t) this.node.setAttribute(e, t[e]);
             return this
-        }, t.prototype.i = function(t) {
+        }, t.prototype.i = function (t) {
             return t.node ? this.node.appendChild(t.node) : (console.log("i:", "trying to insert a non-existant node", t), window.sdlkfjslk()), this
-        }, t.prototype.t = function(t) {
+        }, t.prototype.t = function (t) {
             if ("string" == typeof t) {
                 var e = document.createTextNode(t);
                 this.node.appendChild(e)
             }
             return this
-        }, t.prototype.empty = function() {
+        }, t.prototype.empty = function () {
             for (; this.node && this.node.firstChild;) this.node.firstChild.remove();
             return this
-        }, t.prototype.up = function() {
+        }, t.prototype.up = function () {
             return this.node = this.node.parent(), this
         }, t
     }();
-    e.S3 = i, e.s3 = function(t) {
+    e.S3 = i, e.s3 = function (t) {
         return void 0 === t && (t = null), new i(t)
     }
-}, function(t, e, n) {
-    (function(e, n) {
-        /*!
-         * @overview es6-promise - a tiny implementation of Promises/A+.
-         * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
-         * @license   Licensed under MIT license
-         *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
-         * @version   v4.2.4+314e4831
-         */
-        ! function(e, n) {
-            t.exports = n()
-        }(0, function() {
-            "use strict";
-
-            function t(t) {
-                return "function" == typeof t
-            }
-            var i = Array.isArray ? Array.isArray : function(t) {
-                    return "[object Array]" === Object.prototype.toString.call(t)
-                },
-                o = 0,
-                r = void 0,
-                a = void 0,
-                c = function(t, e) {
-                    m[o] = t, m[o + 1] = e, 2 === (o += 2) && (a ? a(g) : p())
-                };
-            var s = "undefined" != typeof window ? window : void 0,
-                u = s || {},
-                l = u.MutationObserver || u.WebKitMutationObserver,
-                f = "undefined" == typeof self && void 0 !== e && "[object process]" === {}.toString.call(e),
-                d = "undefined" != typeof Uint8ClampedArray && "undefined" != typeof importScripts && "undefined" != typeof MessageChannel;
-
-            function h() {
-                var t = setTimeout;
-                return function() {
-                    return t(g, 1)
-                }
-            }
-            var m = new Array(1e3);
-
-            function g() {
-                for (var t = 0; t < o; t += 2) {
-                    (0, m[t])(m[t + 1]), m[t] = void 0, m[t + 1] = void 0
-                }
-                o = 0
-            }
-            var p = void 0;
-
-            function v(t, e) {
-                var n = this,
-                    i = new this.constructor(_);
-                void 0 === i[w] && D(i);
-                var o = n._state;
-                if (o) {
-                    var r = arguments[o - 1];
-                    c(function() {
-                        return L(o, i, r, n._result)
-                    })
-                } else j(n, i, t, e);
-                return i
-            }
-
-            function y(t) {
-                if (t && "object" == typeof t && t.constructor === this) return t;
-                var e = new this(_);
-                return E(e, t), e
-            }
-            p = f ? function() {
-                return e.nextTick(g)
-            } : l ? function() {
-                var t = 0,
-                    e = new l(g),
-                    n = document.createTextNode("");
-                return e.observe(n, {
-                        characterData: !0
-                    }),
-                    function() {
-                        n.data = t = ++t % 2
-                    }
-            }() : d ? function() {
-                var t = new MessageChannel;
-                return t.port1.onmessage = g,
-                    function() {
-                        return t.port2.postMessage(0)
-                    }
-            }() : void 0 === s ? function() {
-                try {
-                    var t = Function("return this")().require("vertx");
-                    return void 0 !== (r = t.runOnLoop || t.runOnContext) ? function() {
-                        r(g)
-                    } : h()
-                } catch (t) {
-                    return h()
-                }
-            }() : h();
-            var w = Math.random().toString(36).substring(2);
-
-            function _() {}
-            var b = void 0,
-                q = 1,
-                x = 2,
-                A = {
-                    error: null
-                };
-
-            function S(t) {
-                try {
-                    return t.then
-                } catch (t) {
-                    return A.error = t, A
-                }
-            }
-
-            function T(e, n, i) {
-                n.constructor === e.constructor && i === v && n.constructor.resolve === y ? function(t, e) {
-                    e._state === q ? M(t, e._result) : e._state === x ? C(t, e._result) : j(e, void 0, function(e) {
-                        return E(t, e)
-                    }, function(e) {
-                        return C(t, e)
-                    })
-                }(e, n) : i === A ? (C(e, A.error), A.error = null) : void 0 === i ? M(e, n) : t(i) ? function(t, e, n) {
-                    c(function(t) {
-                        var i = !1,
-                            o = function(t, e, n, i) {
-                                try {
-                                    t.call(e, n, i)
-                                } catch (t) {
-                                    return t
-                                }
-                            }(n, e, function(n) {
-                                i || (i = !0, e !== n ? E(t, n) : M(t, n))
-                            }, function(e) {
-                                i || (i = !0, C(t, e))
-                            }, t._label);
-                        !i && o && (i = !0, C(t, o))
-                    }, t)
-                }(e, n, i) : M(e, n)
-            }
-
-            function E(t, e) {
-                t === e ? C(t, new TypeError("You cannot resolve a promise with itself")) : ! function(t) {
-                    var e = typeof t;
-                    return null !== t && ("object" === e || "function" === e)
-                }(e) ? M(t, e) : T(t, e, S(e))
-            }
-
-            function k(t) {
-                t._onerror && t._onerror(t._result), O(t)
-            }
-
-            function M(t, e) {
-                t._state === b && (t._result = e, t._state = q, 0 !== t._subscribers.length && c(O, t))
-            }
-
-            function C(t, e) {
-                t._state === b && (t._state = x, t._result = e, c(k, t))
-            }
-
-            function j(t, e, n, i) {
-                var o = t._subscribers,
-                    r = o.length;
-                t._onerror = null, o[r] = e, o[r + q] = n, o[r + x] = i, 0 === r && t._state && c(O, t)
-            }
-
-            function O(t) {
-                var e = t._subscribers,
-                    n = t._state;
-                if (0 !== e.length) {
-                    for (var i = void 0, o = void 0, r = t._result, a = 0; a < e.length; a += 3) i = e[a], o = e[a + n], i ? L(n, i, o, r) : o(r);
-                    t._subscribers.length = 0
-                }
-            }
-
-            function L(e, n, i, o) {
-                var r = t(i),
-                    a = void 0,
-                    c = void 0,
-                    s = void 0,
-                    u = void 0;
-                if (r) {
-                    if ((a = function(t, e) {
-                            try {
-                                return t(e)
-                            } catch (t) {
-                                return A.error = t, A
-                            }
-                        }(i, o)) === A ? (u = !0, c = a.error, a.error = null) : s = !0, n === a) return void C(n, new TypeError("A promises callback cannot return that same promise."))
-                } else a = o, s = !0;
-                n._state !== b || (r && s ? E(n, a) : u ? C(n, c) : e === q ? M(n, a) : e === x && C(n, a))
-            }
-            var I = 0;
-
-            function D(t) {
-                t[w] = I++, t._state = void 0, t._result = void 0, t._subscribers = []
-            }
-            var P = function() {
-                function t(t, e) {
-                    this._instanceConstructor = t, this.promise = new t(_), this.promise[w] || D(this.promise), i(e) ? (this.length = e.length, this._remaining = e.length, this._result = new Array(this.length), 0 === this.length ? M(this.promise, this._result) : (this.length = this.length || 0, this._enumerate(e), 0 === this._remaining && M(this.promise, this._result))) : C(this.promise, new Error("Array Methods must be provided an Array"))
-                }
-                return t.prototype._enumerate = function(t) {
-                    for (var e = 0; this._state === b && e < t.length; e++) this._eachEntry(t[e], e)
-                }, t.prototype._eachEntry = function(t, e) {
-                    var n = this._instanceConstructor,
-                        i = n.resolve;
-                    if (i === y) {
-                        var o = S(t);
-                        if (o === v && t._state !== b) this._settledAt(t._state, e, t._result);
-                        else if ("function" != typeof o) this._remaining--, this._result[e] = t;
-                        else if (n === $) {
-                            var r = new n(_);
-                            T(r, t, o), this._willSettleAt(r, e)
-                        } else this._willSettleAt(new n(function(e) {
-                            return e(t)
-                        }), e)
-                    } else this._willSettleAt(i(t), e)
-                }, t.prototype._settledAt = function(t, e, n) {
-                    var i = this.promise;
-                    i._state === b && (this._remaining--, t === x ? C(i, n) : this._result[e] = n), 0 === this._remaining && M(i, this._result)
-                }, t.prototype._willSettleAt = function(t, e) {
-                    var n = this;
-                    j(t, void 0, function(t) {
-                        return n._settledAt(q, e, t)
-                    }, function(t) {
-                        return n._settledAt(x, e, t)
-                    })
-                }, t
-            }();
-            var $ = function() {
-                function t(e) {
-                    this[w] = I++, this._result = this._state = void 0, this._subscribers = [], _ !== e && ("function" != typeof e && function() {
-                        throw new TypeError("You must pass a resolver function as the first argument to the promise constructor")
-                    }(), this instanceof t ? function(t, e) {
-                        try {
-                            e(function(e) {
-                                E(t, e)
-                            }, function(e) {
-                                C(t, e)
-                            })
-                        } catch (e) {
-                            C(t, e)
-                        }
-                    }(this, e) : function() {
-                        throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.")
-                    }())
-                }
-                return t.prototype.catch = function(t) {
-                    return this.then(null, t)
-                }, t.prototype.finally = function(t) {
-                    var e = this.constructor;
-                    return this.then(function(n) {
-                        return e.resolve(t()).then(function() {
-                            return n
-                        })
-                    }, function(n) {
-                        return e.resolve(t()).then(function() {
-                            throw n
-                        })
-                    })
-                }, t
-            }();
-            return $.prototype.then = v, $.all = function(t) {
-                return new P(this, t).promise
-            }, $.race = function(t) {
-                var e = this;
-                return i(t) ? new e(function(n, i) {
-                    for (var o = t.length, r = 0; r < o; r++) e.resolve(t[r]).then(n, i)
-                }) : new e(function(t, e) {
-                    return e(new TypeError("You must pass an array to race."))
-                })
-            }, $.resolve = y, $.reject = function(t) {
-                var e = new this(_);
-                return C(e, t), e
-            }, $._setScheduler = function(t) {
-                a = t
-            }, $._setAsap = function(t) {
-                c = t
-            }, $._asap = c, $.polyfill = function() {
-                var t = void 0;
-                if (void 0 !== n) t = n;
-                else if ("undefined" != typeof self) t = self;
-                else try {
-                    t = Function("return this")()
-                } catch (t) {
-                    throw new Error("polyfill failed because global object is unavailable in this environment")
-                }
-                var e = t.Promise;
-                if (e) {
-                    var i = null;
-                    try {
-                        i = Object.prototype.toString.call(e.resolve())
-                    } catch (t) {}
-                    if ("[object Promise]" === i && !e.cast) return
-                }
-                t.Promise = $
-            }, $.Promise = $, $
-        })
-    }).call(this, n(3), n(4))
-}, function(t, e) {
+}, , function (t, e) {
     var n, i, o = t.exports = {};
 
     function r() {
@@ -476,7 +175,7 @@
                 return n.call(this, t, 0)
             }
         }
-    }! function() {
+    } ! function () {
         try {
             n = "function" == typeof setTimeout ? setTimeout : r
         } catch (t) {
@@ -505,7 +204,7 @@
                 f = -1, e = u.length
             }
             s = null, l = !1,
-                function(t) {
+                function (t) {
                     if (i === clearTimeout) return clearTimeout(t);
                     if ((i === a || !i) && clearTimeout) return i = clearTimeout, clearTimeout(t);
                     try {
@@ -525,28 +224,28 @@
         this.fun = t, this.array = e
     }
 
-    function g() {}
-    o.nextTick = function(t) {
+    function g() { }
+    o.nextTick = function (t) {
         var e = new Array(arguments.length - 1);
         if (arguments.length > 1)
             for (var n = 1; n < arguments.length; n++) e[n - 1] = arguments[n];
         u.push(new m(t, e)), 1 !== u.length || l || c(h)
-    }, m.prototype.run = function() {
+    }, m.prototype.run = function () {
         this.fun.apply(null, this.array)
-    }, o.title = "browser", o.browser = !0, o.env = {}, o.argv = [], o.version = "", o.versions = {}, o.on = g, o.addListener = g, o.once = g, o.off = g, o.removeListener = g, o.removeAllListeners = g, o.emit = g, o.prependListener = g, o.prependOnceListener = g, o.listeners = function(t) {
+    }, o.title = "browser", o.browser = !0, o.env = {}, o.argv = [], o.version = "", o.versions = {}, o.on = g, o.addListener = g, o.once = g, o.off = g, o.removeListener = g, o.removeAllListeners = g, o.emit = g, o.prependListener = g, o.prependOnceListener = g, o.listeners = function (t) {
         return []
-    }, o.binding = function(t) {
+    }, o.binding = function (t) {
         throw new Error("process.binding is not supported")
-    }, o.cwd = function() {
+    }, o.cwd = function () {
         return "/"
-    }, o.chdir = function(t) {
+    }, o.chdir = function (t) {
         throw new Error("process.chdir is not supported")
-    }, o.umask = function() {
+    }, o.umask = function () {
         return 0
     }
-}, function(t, e) {
+}, function (t, e) {
     var n;
-    n = function() {
+    n = function () {
         return this
     }();
     try {
@@ -555,7 +254,7 @@
         "object" == typeof window && (n = window)
     }
     t.exports = n
-}, function(t, e, n) {
+}, function (t, e, n) {
     "use strict";
     e.__esModule = !0;
     var i = n(0),
@@ -568,7 +267,7 @@
     function a(t) {
         return "-" != t && t ? t <= 50 ? "#ffffff" : t <= 100 ? "#000000" : t <= 150 ? "#000000" : "#ffffff" : "#eeeeee"
     }
-    e.bgcolor = r, e.fgcolor = a, e.getWidget = function(t, e) {
+    e.bgcolor = r, e.fgcolor = a, e.getWidget = function (t, e) {
         var n = moment(t.time.v),
             c = t.rtsettings.design,
             s = t.rtsettings.lang;
@@ -597,7 +296,7 @@
         }).c("small").t(n.format("LLL")), "small" != c && (l.c("div", {
             borderTop: "1px solid #ccc",
             paddingTop: "5px"
-        }), "forecast" != c && l.i(function(t, e) {
+        }), "forecast" != c && l.i(function (t, e) {
             void 0 === e && (e = 24);
             var n = "iaqi" == t.rtsettings.design,
                 i = n ? 30 : 20,
@@ -631,17 +330,17 @@
                     m = l[f].replace(".", "").toLowerCase();
                     var y = l[f];
                     for ("time" != y && a.c("svg:text", {
-                            fontFamily: "sans-serif",
-                            fontSize: 9
-                        }).a({
-                            x: 0,
-                            y: s + 18 - 2
-                        }).t(y), g = 0; g < e; g++) {
+                        fontFamily: "sans-serif",
+                        fontSize: 9
+                    }).a({
+                        x: 0,
+                        y: s + 18 - 2
+                    }).t(y), g = 0; g < e; g++) {
                         var w = g - c + e;
                         w < 24 && (w += 24), w > 24 && (w -= 24), 24 == w && (w = 0), p = e - g - 1;
                         var _ = 120 / e,
                             b = i + _ * g;
-                        if ("time" == m)(6 == w || 12 == w || 0 == w || 18 == w) && (a.c("svg:rect", {
+                        if ("time" == m) (6 == w || 12 == w || 0 == w || 18 == w) && (a.c("svg:rect", {
                             fill: "#888"
                         }).a({
                             x: b,
@@ -678,18 +377,18 @@
                 console.log("Error " + t)
             }
             return a
-        }(t)), l.c("center").i(function(t) {
+        }(t)), l.c("center").i(function (t) {
             var e = [],
                 n = {},
                 i = new Date;
-            i.setHours(0), t.forecast.aqi.forEach(function(t) {
+            i.setHours(0), t.forecast.aqi.forEach(function (t) {
                 var o = t.t.split(/[^0-9]/),
                     r = new Date(o[0], o[1] - 1 || 0, o[2] || 1, o[3] || 0, o[4] || 0, o[5] || 0, o[6] || 0);
                 if (!(r.getTime() < i.getTime())) {
                     var a = "D" + moment(r).format("YMD");
                     if (e.indexOf(a) < 0 && (e.push(a), n[a] = {
-                            date: r
-                        }), r.getHours() >= 7 && r.getHours() <= 21) {
+                        date: r
+                    }), r.getHours() >= 7 && r.getHours() <= 21) {
                         var c = t;
                         if (!(c = c.v.pm25 ? c.v.pm25 : c.v).o3) {
                             var s = c[0],
@@ -705,7 +404,7 @@
                 }
             });
             var c = o.s3().c("div");
-            return e.sort(), e.slice(0, 4).forEach(function(t, e) {
+            return e.sort(), e.slice(0, 4).forEach(function (t, e) {
                 if (n[t].aqi && 0 != n[t].aqi.count) {
                     n[t].aqi && n[t].aqi.min, n[t].aqi && n[t].aqi.max;
                     var i = n[t].aqi ? n[t].aqi.avg / n[t].aqi.count : "-",
@@ -721,12 +420,12 @@
             }), c
         }(t)))), l = o.s3().c("div", "waqi-widget-outer").i(l)), l
     }
-}, function(t, e, n) {
+}, function (t, e, n) {
     "use strict";
     e.__esModule = !0;
     var i = n(0),
         o = n(5),
-        r = function() {
+        r = function () {
             function t() {
                 var t = this;
                 this.aqiSettings = new i.AqiSettings;
@@ -735,7 +434,7 @@
                 if (e) e.style.display = "none";
                 var n = document.getElementById("cityaqiwidget");
                 if (n) n.style.display = "none";
-                this.aqiSettings.cityObject().then(function(e) {
+                this.aqiSettings.cityObject().then(function (e) {
                     if (e) {
                         var n = document.getElementById("selectedcitytitle");
                         if (n) n.innerHTML = e.name;
@@ -751,16 +450,16 @@
                         if (i) i.innerHTML = "";
                     }
                 });
-                document.getElementById("cityinput").onkeyup = function() {
+                document.getElementById("cityinput").onkeyup = function () {
                     t.onKeyUp();
                 }
             }
-            return t.prototype.url = function(t) {
+            return t.prototype.url = function (t) {
                 var e = "https://aqicn.org/browser-widget/xsearch/places/" + t + "?";
                 return e += "&t=" + (new Date).getTime(), e += "&from=chrome-extension"
-            }, t.prototype.formatData = function(t, e) {
+            }, t.prototype.formatData = function (t, e) {
                 var n = this, i = "<table class='citysearch'>";
-                t.forEach(function(e, n) {
+                t.forEach(function (e, n) {
                     e.uid;
                     e.station.url && e.station.url;
                     var r = moment(1e3 * e.time.vtime).format("ddd, hA"),
@@ -780,9 +479,9 @@
                     r.innerHTML = i;
                     r.style.display = "";
                 }
-                t.forEach(function(t, e) {
+                t.forEach(function (t, e) {
                     var i = document.getElementById("cityitem" + e);
-                    if (i) i.onclick = function() {
+                    if (i) i.onclick = function () {
                         var e = {
                             utime: t.time.vtime,
                             name: t.station.name,
@@ -792,7 +491,7 @@
                         n.onClick(e);
                     }
                 })
-            }, t.prototype.onWidgetLoaded = function(t, e) {
+            }, t.prototype.onWidgetLoaded = function (t, e) {
                 console.log("Widget loaded!");
                 var r = document.getElementById("cityaqiwidget");
                 if (r) {
@@ -805,24 +504,24 @@
                 var a = o ? o.innerHTML : "";
                 var c = i.aqiLang.getAqiText(a, e);
                 if (o) o.innerHTML = c;
-            }, t.prototype.loadWidget = function() {
+            }, t.prototype.loadWidget = function () {
                 var t = this;
                 var r = document.getElementById("cityaqiwidget");
                 if (r) {
                     r.innerHTML = "<div style='width:100%'><div class='aqiloader'></div></div>";
                     r.style.display = "";
                 }
-                this.aqiSettings.cityObject().then(function(e) {
+                this.aqiSettings.cityObject().then(function (e) {
                     if (e.key || e.idx) {
                         var n = "https://aqicn.org/webwgt/";
                         n += e.idx ? "@" + e.idx : e.key;
                         n += "/widget.v1.json?" + Date.now();
                         n += "&from=chrome-extension";
-                        fetch(n).then(function(t) {
+                        fetch(n).then(function (t) {
                             return t.json();
-                        }).then(function(n) {
+                        }).then(function (n) {
                             t.onWidgetLoaded(n, e.clang);
-                        }).catch(function(t) {
+                        }).catch(function (t) {
                             var e = chrome.i18n.getMessage("search_load_error") + "<br>" + t;
                             var o = document.getElementById("cityaqiwidget");
                             if (o) {
@@ -838,7 +537,7 @@
                         }
                     }
                 });
-            }, t.prototype.onClick = function(t) {
+            }, t.prototype.onClick = function (t) {
                 this.aqiSettings.setCityObject(t);
                 var e = document.getElementById("selectedcitytitle");
                 if (e) e.innerHTML = t.name;
@@ -846,13 +545,13 @@
                 if (n) n.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name;
                 this.loadWidget();
                 this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
-                this.clearResultsTimer = setTimeout(function() {
+                this.clearResultsTimer = setTimeout(function () {
                     var r = document.getElementById("searchresults");
                     if (r) {
                         r.style.transition = "height 0.2s ease";
                         r.style.overflow = "hidden";
                         r.style.height = "0px";
-                        setTimeout(function() {
+                        setTimeout(function () {
                             r.style.display = "none";
                             r.style.height = "";
                             r.style.transition = "";
@@ -862,19 +561,19 @@
                     var o = document.getElementById("cityinput");
                     if (o) o.value = "";
                 }, 1e3)
-            }, t.prototype.onKeyUp = function() {
+            }, t.prototype.onKeyUp = function () {
                 var t = this;
                 this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
                 var e = document.getElementById("cityinput").value;
-                "" != e && null != e && fetch(this.url(e)).then(function(t) {
+                "" != e && null != e && fetch(this.url(e)).then(function (t) {
                     return t.json()
-                }).then(function(e) {
+                }).then(function (e) {
                     document.getElementById("cityinput").className = "", t.formatData(e.results, "searchresults")
                 })
             }, t
         }();
     e.CitySearch = r
-}, , , , function(t, e, n) {
+}, , , , function (t, e, n) {
     "use strict";
     e.__esModule = !0;
     var i = n(0),
@@ -891,75 +590,75 @@
             o = document.getElementById("langcn");
         1 == i.checked ? (console.log("EN"), o.checked = !1) : (console.log("CN"), o.checked = !0, i.checked = !1);
         var r = document.getElementById("status");
-        r.innerHTML = "Options Saved.", setTimeout(function() {
+        r.innerHTML = "Options Saved.", setTimeout(function () {
             r.innerHTML = ""
         }, 750), chrome.extension.sendMessage({
             method: "saveOptions",
             options: localStorage
-        }, function(t) {
+        }, function (t) {
             console.log(t)
         })
     }
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         new o.CitySearch,
-            function() {
+            function () {
                 var t = ["cn", "en", "hk", "jp", "kr"];
 
                 function e(e) {
-                    t.forEach(function(t) {
+                    t.forEach(function (t) {
                         var n = document.getElementById("lang" + t);
                         n && (n.checked = e == t)
                     })
                 }
-                null != typeof localStorage.xlang && "false" != localStorage.xlang && null != localStorage.xlang || (localStorage.xlang = "en"), e(localStorage.xlang), t.forEach(function(t) {
+                null != typeof localStorage.xlang && "false" != localStorage.xlang && null != localStorage.xlang || (localStorage.xlang = "en"), e(localStorage.xlang), t.forEach(function (t) {
                     var n = document.getElementById("lang" + t);
-                    n && (n.onclick = function() {
+                    n && (n.onclick = function () {
                         e(t), localStorage.xlang = t, chrome.extension && chrome.extension.sendMessage({
                             method: "setLang",
                             lang: t
-                        }, function(t) {})
+                        }, function (t) { })
                     })
                 })
             }(),
-            function() {
+            function () {
                 var t = "design",
                     e = ["tiny", "small", "forecast", "aqi", "iaqi"];
 
                 function n(n) {
-                    console.log("Set[" + t + "]: ", n), e.forEach(function(e) {
+                    console.log("Set[" + t + "]: ", n), e.forEach(function (e) {
                         var i = document.getElementById(t + "_" + e);
                         i && (i.checked = n == e)
                     })
                 }
                 null != typeof localStorage[t] && "false" != localStorage[t] && null != localStorage[t] || (localStorage[t] = "aqi");
                 var i = document.getElementById(t + "_selection");
-                e.forEach(function(e) {
+                e.forEach(function (e) {
                     var o = document.createElement("input");
                     o.id = t + "_" + e, o.type = "checkbox";
                     var r = document.createElement("img");
                     r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
-                    var a = function() {
+                    var a = function () {
                         localStorage[t] = e, n(e), chrome.extension && chrome.extension.sendMessage({
                             method: "setDesign",
                             design: e
-                        }, function(t) {})
+                        }, function (t) { })
                     };
                     o.onclick = a, r.onclick = a, i.appendChild(o), i.appendChild(r), i.appendChild(document.createElement("div"))
                 }), n(localStorage[t])
             }(),
-            function() {
+            function () {
                 var t = ["baidu", "bing", "google", "qwant"];
                 for (var e in t) {
                     e = t[e];
                     var n = localStorage["optchecked" + e];
                     void 0 === n && (n = "true");
                     var i = document.getElementById(e);
-                    i && (i.checked = "true" == n, i.onclick = function() {
+                    i && (i.checked = "true" == n, i.onclick = function () {
                         r()
                     })
                 }
-            }(), 
-            document.querySelectorAll(".i18n").forEach(function(t) {
+            }(),
+            document.querySelectorAll(".i18n").forEach(function (t) {
                 var e = t.getAttribute("id");
                 if (chrome.i18n) {
                     var n = chrome.i18n.getMessage(e);
@@ -967,6 +666,6 @@
                     var r = document.getElementById(e);
                     if (r) r.innerHTML = n;
                 }
-            }), (new i.AqiSettings).onFeedUpdate(function(t) {})
+            }), (new i.AqiSettings).onFeedUpdate(function (t) { })
     })
 }]);
