@@ -1,11 +1,11 @@
 {
    "appDesc": {
-      "description": "aqicn.org 插件Chrome浏览器.",
-      "message": "aqicn.orgプラグインChromeブラウザ。"
+      "description": "Chrome 用 aqicn.org プラグイン",
+      "message": "Chrome 用 aqicn.org プラグイン"
    },
    "appName": {
-      "description": "世界空气质量指数",
-      "message": "ワールド·エア·クオリティ·インデックス"
+      "description": "世界大気質指数",
+      "message": "世界大気質指数"
    },
    "aqivaluescn": {
       "message": "\u003Cb> 没有数据 \u003C/b>, \u003Cb>优\u003C/b> , \u003Cb>良\u003C/b>, \u003Cb>轻度污染\u003C/b> , \u003Cb>中度污染\u003C/b>, \u003Cb>重度污染\u003C/b> , \u003Cb>严重污染\u003C/b>"
@@ -37,17 +37,20 @@
    "lang_kr": {
       "message": "韓国語"
    },
+   "opt_design": {
+      "message": "AQI ウィジェットの表示スタイル："
+   },
    "opt_engine": {
-      "message": "空気の品質インデックス情報が表示されます。"
+      "message": "AQI 情報を表示する場所："
    },
    "opt_lang": {
-      "message": "空気の品質インデックス情報が表示されます。"
+      "message": "AQI 情報の表示言語："
    },
    "search_current_city": {
-      "message": "都市を選択："
+      "message": "都市選択："
    },
    "search_enter_city": {
-      "message": "都市名を入力"
+      "message": "都市名を入力してください"
    },
    "search_load_error": {
       "message": "データのロード中に申し訳ありませんが、エラーが発生しました..."
@@ -62,6 +65,6 @@
       "message": "選択した都市："
    },
    "waqi_title": {
-      "message": "ワールド·エア·クオリティ·インデックス"
+      "message": "世界大気質指数"
    }
 }
