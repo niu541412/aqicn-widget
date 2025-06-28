@@ -14,6 +14,7 @@ A chrome extension ‘world-air-quality-index’ with bug-fixed.
 2. 完全移除moment.js
 3. 完全移除jQuery
 4. 完全移除es6-promise
+5. 使用OffscreenCanvas绘制图标，移除静态图片
 
 ### 使用方法：
 

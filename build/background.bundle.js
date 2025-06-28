@@ -188,11 +188,31 @@
                         return console.log("getCityObject -> null"), null
                     }, Background.prototype.setIcon = function (e) {
                         if (console.log("Set Icon:", e), null != e) {
-                            var t = "../img/aqicons/aqi." + e.aqi + ".png";
-                            console.log("Setting icon " + t), chrome.browserAction.setIcon({
-                                path: t
-                            })
-                        } else console.log("Data is null in the local storage!")
+                            const aqi = e.aqi;
+                            const color = aqi <= 50 ? "#009966" :
+                                aqi <= 100 ? "#ffde33" :
+                                    aqi <= 150 ? "#ff9933" :
+                                        aqi <= 200 ? "#cc0033" :
+                                            aqi <= 300 ? "#660099" : "#7e0023";
+                            const textColor = aqi <= 50 ? "#fff" :
+                                aqi <= 150 ? "#000" : "#fff";
+                            const iconsize = 32;
+                            const cvs = new OffscreenCanvas(iconsize, iconsize);
+                            const ctx = cvs.getContext('2d');
+                            ctx.roundRect(0, 0, iconsize, iconsize, 6);
+                            ctx.fillStyle = color;
+                            ctx.fill();
+                            ctx.font = 'bold 16px sans-serif, "Noto Serif", Cambria, "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif';
+                            ctx.fillStyle = textColor;
+                            ctx.textAlign = "center";
+                            ctx.textBaseline = "middle";
+                            ctx.fillText(aqi, iconsize / 2, iconsize / 2);
+                            ctx.globalAlpha = 1;
+                            console.log("Setting AQI" + aqi + "icon...");
+                            chrome.browserAction.setIcon({
+                                imageData: { 32: ctx.getImageData(0, 0, iconsize, iconsize) },
+                            });
+                        } else console.log("Draw logo error!")
                     }, Background.prototype.loadFeed = function (e) {
                         var t = this;
                         void 0 === e && (e = !1);
