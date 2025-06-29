@@ -46,6 +46,9 @@
    "opt_lang": {
       "message": "AQI 정보 표시 언어:"
    },
+   "opt_save": {
+      "message": "옵션이 저장되었습니다"
+   },
    "search_current_city": {
       "message": "도시 선택:"
    },

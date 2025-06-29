@@ -152,7 +152,7 @@
         function (module, exports, __webpack_require__) {
             "use strict";
             exports.__esModule = !0;
-            var decoder_1 = __webpack_require__(8),
+            var Decoder = __webpack_require__(8),
                 Background = function () {
                     function Background() {
                         var e = this;
@@ -176,26 +176,29 @@
                             }, xhttp.send()
                         })
                     }, Background.prototype.getCityObject = function () {
-                        try {
-                            var obj = localStorage.selectedCity;
-                            if (obj) {
-                                var o = eval("(" + obj + ")");
-                                return o.clang = this.getLang(), o
-                            }
-                        } catch (e) {
-                            console.log("getCityObject -> error " + e)
-                        }
-                        return console.log("getCityObject -> null"), null
+                        return new Promise((resolve) => {
+                            chrome.storage.local.get(["selectedCity", "lang"], (result) => {
+                                const obj = result.selectedCity;
+                                if (obj) {
+                                    try {
+                                        const o = JSON.parse(obj);
+                                        o.clang = result.lang;
+                                        resolve(o);
+                                    } catch (e) {
+                                        console.error("getCityObject -> parse error:", e);
+                                        resolve(null);
+                                    }
+                                } else {
+                                    console.log("getCityObject -> null");
+                                    resolve(null)
+                                }
+                            });
+                        });
                     }, Background.prototype.setIcon = function (e) {
                         if (console.log("Set Icon:", e), null != e) {
                             const aqi = e.aqi;
-                            const color = aqi <= 50 ? "#009966" :
-                                aqi <= 100 ? "#ffde33" :
-                                    aqi <= 150 ? "#ff9933" :
-                                        aqi <= 200 ? "#cc0033" :
-                                            aqi <= 300 ? "#660099" : "#7e0023";
-                            const textColor = aqi <= 50 ? "#fff" :
-                                aqi <= 150 ? "#000" : "#fff";
+                            const color = "-" != aqi && aqi ? aqi <= 50 ? "#009966" : aqi <= 100 ? "#ffde33" : aqi <= 150 ? "#ff9933" : aqi <= 200 ? "#cc0033" : aqi <= 300 ? "#660099" : "#7e0023" : "#aaaaaa";
+                            const textColor = "-" != aqi && aqi ? aqi <= 50 ? "#ffffff" : aqi <= 150 ? "#000000" : "#ffffff" : "#eeeeee"; 
                             const iconsize = 32;
                             const cvs = new OffscreenCanvas(iconsize, iconsize);
                             const ctx = cvs.getContext('2d');
@@ -216,57 +219,73 @@
                     }, Background.prototype.loadFeed = function (e) {
                         var t = this;
                         void 0 === e && (e = !1);
-                        var n = localStorage.FeedTime,
-                            r = Math.abs(n - Date.now());
-                        if (!e && r < 6e4) console.log("Using cached data");
-                        else {
-                            var o = this.getCityObject();
-                            if (null != o) {
-                                var i = "http://api.waqi.info/api/feed/";
-                                o.idx ? i += "@" + o.idx : i += "!" + o.key, i += "/obs." + this.getLang() + ".json", console.log("Loading " + i + " (dt=" + r + ") - type=", o), i += "?_t=" + (new Date).getTime(), i += "&from=chrome-extension", this.loadJSON(i).then(function (e) {
-                                    if (null != e) {
-                                        console.log("Loaded!");
-                                        try {
-                                            var n = decoder_1.decodeFeed(e);
-                                            localStorage.FeedData = JSON.stringify(n), localStorage.FeedTime = Date.now(), t.setIcon(n), n.rtsettings = {
-                                                design: t.getDesign(),
-                                                lang: t.getLang()
-                                            };
-                                            chrome.runtime.sendMessage({
-                                                method: "onFeedUpdate",
-                                                aqi: n
-                                            }), chrome.tabs.getSelected(null, function (e) {
-                                                e.id >= 0 ? (console.log("Sending to tab", e), chrome.tabs.sendMessage(e.id, {
-                                                    method: "onFeedUpdate",
-                                                    aqi: n
-                                                })) : console.log("Not sending to tab (none active)")
+                        chrome.storage.local.get(["FeedTime"], (result) => {
+                            var n = result.FeedTime;
+                            var r = Math.abs(n - Date.now());
+                            if (!e && r < 6e4) console.log("Using cached data");
+                            else {
+                                this.getCityObject().then((o) => {
+                                    if (null != o) {
+                                        var i = "http://api.waqi.info/api/feed/";
+                                        o.idx ? i += "@" + o.idx : i += "!" + o.key, i += "/obs." + this.getLang() + ".json", console.log("Loading " + i + " (dt=" + r + ") - type=", o), i += "?_t=" + Date.now(), i += "&from=chrome-extension", this.loadJSON(i).then(
+                                            function (e) {
+                                                if (e != null) {
+                                                    console.log("Loaded!");
+                                                    try {
+                                                        var n = Decoder.decodeFeed(e);
+                                                        console.log("icon #######", n);
+                                                        t.setIcon(n);
+                                                        chrome.storage.local.set({
+                                                            "FeedData": JSON.stringify(n),
+                                                            "FeedTime": Date.now()
+                                                        });
+                                                        Promise.all([t.getDesign(), t.getLang()]).then(([design, lang]) => {
+                                                            n.rtsettings = {
+                                                                design: design,
+                                                                lang: lang
+                                                            };
+                                                            chrome.runtime.sendMessage({
+                                                                method: "onFeedUpdate",
+                                                                aqi: n
+                                                            });
+                                                            chrome.tabs.getSelected(null, function (e) {
+                                                                e.id >= 0 ? (console.log("Sending to tab", e), chrome.tabs.sendMessage(e.id, {
+                                                                    method: "onFeedUpdate",
+                                                                    aqi: n
+                                                                })) : console.log("Not sending to tab (none active)")
+                                                            })
+                                                        });
+                                                    } catch (err) {
+                                                        console.log("Oops, error with feed: ", err);
+                                                    }
+                                                } else console.log("Loading error!");
                                             })
-                                        } catch (e) {
-                                            console.log("Oops, error with feed: ", e)
-                                        }
-                                    } else console.log("Loading error!")
+                                    } else console.log("Can not get the city Object!")
                                 })
-                            } else console.log("Can not get the city Object!")
-                        }
-                    }, Background.prototype.saveOptions = function (e) {
-                        var t = {};
-                        return ["optcheckedbaidu", "optcheckedbing", "optcheckedgoogle", "optcheckedqwant", "lang"].forEach(function (n) {
-                            var r = e[n];
-                            void 0 === r && (r = "true"), r = "true" == r, t.opt = r, localStorage[n] = r
-                        }), t
+                            }
+                        })
                     }, Background.prototype.getLang = function () {
-                        var e = localStorage.lang;
-                        return void 0 === e && (e = "zh-CN" == (e = chrome.i18n.getUILanguage()) ? "cn" : "zh-HK" == e ? "hk" : "zh-TW" == e ? "hk" : "ja" == e ? "jp" : "ko" == e ? "kr" : "en"), ["kr", "jp", "hk", "cn"].indexOf(e) < 0 && (e = "en"), console.log("getLang() -> " + e + " (" + chrome.i18n.getUILanguage() + ")"), e
+                        return new Promise((resolve) => {
+                            chrome.storage.local.get(["lang"], (result) => {
+                                let e = result.lang;
+                                void 0 === e && (e = "zh-CN" == (e = chrome.i18n.getUILanguage()) ? "cn" : "zh-HK" == e ? "hk" : "zh-TW" == e ? "hk" : "ja" == e ? "jp" : "ko" == e ? "kr" : "en"), ["kr", "jp", "hk", "cn"].indexOf(e) < 0 && (e = "en"), console.log("getLang() -> " + e + " (" + chrome.i18n.getUILanguage() + ")");
+                                resolve(e);
+                            });
+                        });
                     }, Background.prototype.setLang = function (e) {
-                        return localStorage.lang = e, localStorage.lang
+                        chrome.storage.local.set({ "lang": e });
+                        return e;
                     }, Background.prototype.getDesign = function () {
-                        var e = localStorage.design || "aqi";
-                        return ["tiny", "small", "forecast", "aqi", "iaqi"].indexOf(e) < 0 && (e = "aqi"), e
+                        return new Promise((resolve) => {
+                            chrome.storage.local.get(["design"], (result) => {
+                                let e = result.design || "aqi";
+                                ["tiny", "small", "forecast", "aqi", "iaqi"].indexOf(e) < 0 && (e = "aqi");
+                                resolve(e);
+                            });
+                        });
                     }, Background.prototype.setDesign = function (e) {
-                        return localStorage.design = e, localStorage.design
-                    }, Background.prototype.checkOption = function (e) {
-                        var t = localStorage["optchecked" + e];
-                        return console.log("checkOption", e, ":", t), console.log("checkOption", e, ":", typeof t), void 0 === t && (console.log("checkOption", e, ":", "It is undefined!"), t = "true"), console.log("checkOption", e, ":", "true" == t ? "checked" : "unchecked"), "true" == t
+                        chrome.storage.local.set({ "design": e });
+                        return e;
                     }, Background.prototype.loader = function (e) {
                         var t = this;
                         void 0 === e && (e = 0), console.log("AQI feed loader - count = " + e), this.timeout && clearTimeout(this.timeout), this.loadFeed(0 == e), e > 300 || (this.timeout = setTimeout(function () {
@@ -276,14 +295,35 @@
                 }(),
                 background = new Background;
             chrome.runtime && chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-                if (console.log("received Message ", request.method, " from the UI"), "getSelectedCity" == request.method) sendResponse(background.getCityObject());
-                else if ("setSelectedCity" == request.method) localStorage.selectedCity = JSON.stringify(request.city), background.loadFeed(!0);
+                if (console.log("received Message ", request.method, " from the UI"), "getSelectedCity" == request.method) {
+                    background.getCityObject().then((cityObj) => {
+                        sendResponse(cityObj);
+                    }).catch((err) => {
+                        console.error("getCityObject failed:", err);
+                        sendResponse(null);
+                    });
+                    return true;
+                }
+                else if ("setSelectedCity" == request.method) {
+                    chrome.storage.local.set({ "selectedCity": JSON.stringify(request.city) });
+                    background.loadFeed(!0);
+                }
                 else if ("loadFeed" == request.method) {
-                    var aqi = localStorage.FeedData;
-                    aqi = eval("(" + aqi + ")"), null != aqi && (aqi.rtsettings = {
-                        lang: background.getLang(),
-                        design: background.getDesign()
-                    }, sendResponse(aqi)), background.loadFeed()
+                    chrome.storage.local.get(["FeedData"], (result) => {
+                        var aqi = result.FeedData;
+                        aqi = JSON.parse(aqi);
+                        if (aqi != null) {
+                            Promise.all([background.getLang(), background.getDesign()])
+                                .then(([lang, design]) => {
+                                    aqi.rtsettings = { lang, design };
+                                    sendResponse(aqi);
+                                }).catch(err => {
+                                    console.error("Failed to get lang/design:", err);
+                                    sendResponse(null);
+                                });
+                            background.loadFeed();
+                        }
+                    });
                 } else "setLang" == request.method ? (sendResponse(background.setLang(request.lang)), background.loadFeed(!0)) : "setDesign" == request.method ? (sendResponse(background.setDesign(request.design)), background.loadFeed(!0)) : "saveOptions" == request.method ? (sendResponse(background.saveOptions(request.options)), background.loadFeed(!0)) : "checkOption" == request.method ? (sendResponse(background.checkOption(request.opt)), background.loadFeed(!0)) : sendResponse({})
             })
         },
@@ -332,7 +372,6 @@
                     if ("ok" == o.status) {
                         var i = o.msg,
                             s = r(i.iaqi);
-                        // if (console.log("time:", moment(1e3 * i.timestamp).format("LLLL"), i.time), i.historic = s, "string" == typeof i.time.v) {
                         if (console.log("time:", formatFullDate(i.timestamp * 1000, 'en'), i.time), i.historic = s, "string" == typeof i.time.v) {
                             var c = i.time.v.split(/[^0-9]/),
                                 u = new Date(c[0], c[1] - 1 || 0, c[2] || 1, c[3] || 0, c[4] || 0, c[5] || 0, c[6] || 0);

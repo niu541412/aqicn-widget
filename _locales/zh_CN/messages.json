@@ -46,6 +46,9 @@
    "opt_lang": {
       "message": "AQI 信息的显示语言："
    },
+   "opt_save": {
+      "message": "选项已保存"
+   },
    "search_current_city": {
       "message": "城市选择："
    },

@@ -10,11 +10,12 @@ A chrome extension ‘world-air-quality-index’ with bug-fixed.
 
 ### 其他更改:
 
-1. 修正部分翻译
+1. 修正并添加部分翻译
 2. 完全移除moment.js
 3. 完全移除jQuery
 4. 完全移除es6-promise
 5. 使用OffscreenCanvas绘制图标，移除静态图片
+6. 迁移同步localStorage到异步chrome.storage.local
 
 ### 使用方法：
 

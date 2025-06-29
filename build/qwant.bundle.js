@@ -268,8 +268,7 @@
         return "-" != t && t ? t <= 50 ? "#ffffff" : t <= 100 ? "#000000" : t <= 150 ? "#000000" : "#ffffff" : "#eeeeee"
     }
     e.bgcolor = o, e.fgcolor = a, e.getWidget = function (t, e) {
-        var //n = moment(t.time.v),
-            s = t.rtsettings.design,
+        var s = t.rtsettings.design,
             u = t.rtsettings.lang;
         var locale_id;
         "cn" == u ? u = "zh-CN" : "hk" == u ? u = "zh-TW" : "jp" == u ? u = "ja" : "kr" == u && (u = "ko"), locale_id = u;

@@ -255,6 +255,7 @@
     }
     t.exports = n
 }, function (t, e, n) {
+    // useless in option.js
     "use strict";
     e.__esModule = !0;
     var i = n(0),
@@ -267,413 +268,432 @@
     function a(t) {
         return "-" != t && t ? t <= 50 ? "#ffffff" : t <= 100 ? "#000000" : t <= 150 ? "#000000" : "#ffffff" : "#eeeeee"
     }
-    e.bgcolor = r, e.fgcolor = a, e.getWidget = function (t, e) {
-        var //n = moment(t.time.v),
-            c = t.rtsettings.design,
-            s = t.rtsettings.lang;
-        // "cn" == s ? s = "zh-CN" : "hk" == s ? s = "zh-TW" : "jp" == s ? s = "ja" : "kr" == s && (s = "ko"), moment.locale(s);
-        var locale_id;
-        "cn" == s ? s = "zh-CN" : "hk" == s ? s = "zh-TW" : "jp" == s ? s = "ja" : "kr" == s && (s = "ko"), locale_id = s;
-        var u = i.aqiLang.getShortTitle(t),
-            l = o.s3().c("div", {
-                fontSize: "13px"
-            });
-        l.c("img", {
-            verticalAlign: "text-top"
-        }).a({
-            src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABXElEQVQokZ2Tu0pDQRCGvzlZYqJRUEKMGgQJ2Ild7G2Sylax1cYX8BEsVQRLfQpLS228NcEiEFRMQI2XxCORg5ozFmsuGA+of7HMzs6//+zMrGS3lm6ApAio8hdUjIgkmztpLT9AO86snTAL6ec/yXVC3gtZbet25u2AhEG9QLJpx7eJEpvFSSyDGQDvisbtOrxddCu7O1ntfIwMTdI3t4E4IetRResP1PdWoeGhXhURaSoLqorExjDjGczIdIsI2MC+OLH5XQDeC/t4h5sIPqZ09EEklSK1soaEozbAdYOLNDqD62dwTw4w5eMPhuNpaufF7shme7616akU5u6kgfEJ8XJZpucsH6j2/b5qvkBDHWRxalslJIxODNLb3xM4I83i1R5fuS+7oFhl9ZXrYg3HkeAJw46v+goSQlBMLnr6q3R/gslF/k92gIr9EDZfOwCCiCC07ZbvywYqnwLPdpYyuPVQAAAAAElFTkSuQmCC"
-        }), l.c("span", "waqi-widget-title").t(u), e && "tiny" != c || l.c("span", {
-            color: "#aaa",
-            padding: "0 3px 0 0"
-            // }).c("small").t(n.format("hA"));
-        }).c("small").t(getHour12AMPM(t.time.v));
-        var f = {
-            minWidth: "20px",
-            textAlign: "center",
-            backgroundColor: r(t.aqi),
-            color: a(t.aqi)
-        };
-        return e && (f.float = "right"), l.c("span", "waqi-widget-aqi", f).c("span").t(t.aqi.toString()), e && ("tiny" != c && (l.c("div", {
-            color: "#aaa",
-            marginTop: "3px"
-            // }).c("small").t(n.format("LLL")), "small" != c && (l.c("div", {
-        }).c("small").t(formatFullDate(t.time.v, 'en', false)), "small" != c && (l.c("div", {
-            borderTop: "1px solid #ccc",
-            paddingTop: "5px"
-        }), "forecast" != c && l.i(function (t, e) {
-            void 0 === e && (e = 24);
-            var n = "iaqi" == t.rtsettings.design,
-                i = n ? 30 : 20,
-                a = o.s3().c("svg:svg", {
-                    margin: 0,
-                    padding: 0,
-                    borderBottom: "1px solid #eee",
-                    height: 18 * (n ? 3 : 1) + 12 + "px",
-                    width: 120 + i + "px"
+    e.bgcolor = r, e.fgcolor = a
+        , e.getWidget = function (t, e) {
+            var c = t.rtsettings.design,
+                s = t.rtsettings.lang;
+            var locale_id;
+            "cn" == s ? s = "zh-CN" : "hk" == s ? s = "zh-TW" : "jp" == s ? s = "ja" : "kr" == s && (s = "ko"), locale_id = s;
+            var u = i.aqiLang.getShortTitle(t),
+                l = o.s3().c("div", {
+                    fontSize: "13px"
                 });
-            try {
-                // for (var c = 24 - moment(t.time.v).hour(), s = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
-                for (var c = 24 - new Date(t.time.v).getHours(), s = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
-                    for (var d = null, h = null, m = l[f].replace(".", "").toLowerCase(), g = 0; g < e; g++) {
-                        var p = e - g - 1;
-                        if (t.historic[m] && t.historic[m][p]) {
-                            var v = t.historic[m][p].v;
-                            (null == d || d > v) && (d = v), (null == h || h < v) && (h = v), t[p] ? t[p].v = Math.max(t[p].v, v) : t[p] = {
-                                v: v
+            l.c("img", {
+                verticalAlign: "text-top"
+            }).a({
+                src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABXElEQVQokZ2Tu0pDQRCGvzlZYqJRUEKMGgQJ2Ild7G2Sylax1cYX8BEsVQRLfQpLS228NcEiEFRMQI2XxCORg5ozFmsuGA+of7HMzs6//+zMrGS3lm6ApAio8hdUjIgkmztpLT9AO86snTAL6ec/yXVC3gtZbet25u2AhEG9QLJpx7eJEpvFSSyDGQDvisbtOrxddCu7O1ntfIwMTdI3t4E4IetRResP1PdWoeGhXhURaSoLqorExjDjGczIdIsI2MC+OLH5XQDeC/t4h5sIPqZ09EEklSK1soaEozbAdYOLNDqD62dwTw4w5eMPhuNpaufF7shme7616akU5u6kgfEJ8XJZpucsH6j2/b5qvkBDHWRxalslJIxODNLb3xM4I83i1R5fuS+7oFhl9ZXrYg3HkeAJw46v+goSQlBMLnr6q3R/gslF/k92gIr9EDZfOwCCiCC07ZbvywYqnwLPdpYyuPVQAAAAAElFTkSuQmCC"
+            }), l.c("span", "waqi-widget-title").t(u), e && "tiny" != c || l.c("span", {
+                color: "#aaa",
+                padding: "0 3px 0 0"
+            }).c("small").t(getHour12AMPM(t.time.v));
+            var f = {
+                minWidth: "20px",
+                textAlign: "center",
+                backgroundColor: r(t.aqi),
+                color: a(t.aqi)
+            };
+            return e && (f.float = "right"), l.c("span", "waqi-widget-aqi", f).c("span").t(t.aqi.toString()), e && ("tiny" != c && (l.c("div", {
+                color: "#aaa",
+                marginTop: "3px"
+            }).c("small").t(formatFullDate(t.time.v, 'en', false)), "small" != c && (l.c("div", {
+                borderTop: "1px solid #ccc",
+                paddingTop: "5px"
+            }), "forecast" != c && l.i(function (t, e) {
+                void 0 === e && (e = 24);
+                var n = "iaqi" == t.rtsettings.design,
+                    i = n ? 30 : 20,
+                    a = o.s3().c("svg:svg", {
+                        margin: 0,
+                        padding: 0,
+                        borderBottom: "1px solid #eee",
+                        height: 18 * (n ? 3 : 1) + 12 + "px",
+                        width: 120 + i + "px"
+                    });
+                try {
+                    for (var c = 24 - new Date(t.time.v).getHours(), s = 0, u = {}, l = ["PM2.5", "PM10", "O3", "time"], f = 0; f < l.length; f++) {
+                        for (var d = null, h = null, m = l[f].replace(".", "").toLowerCase(), g = 0; g < e; g++) {
+                            var p = e - g - 1;
+                            if (t.historic[m] && t.historic[m][p]) {
+                                var v = t.historic[m][p].v;
+                                (null == d || d > v) && (d = v), (null == h || h < v) && (h = v), t[p] ? t[p].v = Math.max(t[p].v, v) : t[p] = {
+                                    v: v
+                                }
                             }
                         }
+                        u[m] = {
+                            min: d,
+                            max: h
+                        }, u.aqi || (u.aqi = {
+                            min: d,
+                            max: h
+                        }), u.aqi.min > d && (u.aqi.min = d), u.aqi.max < h && (u.aqi.max = h)
                     }
-                    u[m] = {
-                        min: d,
-                        max: h
-                    }, u.aqi || (u.aqi = {
-                        min: d,
-                        max: h
-                    }), u.aqi.min > d && (u.aqi.min = d), u.aqi.max < h && (u.aqi.max = h)
-                }
-                for (t.historic.aqi = t, n || (l = ["AQI", "time"]), f = 0; f < l.length; f++) {
-                    m = l[f].replace(".", "").toLowerCase();
-                    var y = l[f];
-                    for ("time" != y && a.c("svg:text", {
-                        fontFamily: "sans-serif",
-                        fontSize: 9
-                    }).a({
-                        x: 0,
-                        y: s + 18 - 2
-                    }).t(y), g = 0; g < e; g++) {
-                        var w = g - c + e;
-                        w < 24 && (w += 24), w > 24 && (w -= 24), 24 == w && (w = 0), p = e - g - 1;
-                        var _ = 120 / e,
-                            b = i + _ * g;
-                        if ("time" == m) (6 == w || 12 == w || 0 == w || 18 == w) && (a.c("svg:rect", {
-                            fill: "#888"
-                        }).a({
-                            x: b,
-                            y: 0,
-                            width: .5,
-                            height: 18 * (l.length - 1) + 2
-                        }), a.c("svg:text", {
+                    for (t.historic.aqi = t, n || (l = ["AQI", "time"]), f = 0; f < l.length; f++) {
+                        m = l[f].replace(".", "").toLowerCase();
+                        var y = l[f];
+                        for ("time" != y && a.c("svg:text", {
                             fontFamily: "sans-serif",
-                            fontSize: 8,
-                            textAnchor: "middle",
-                            fill: "#bbb"
+                            fontSize: 9
                         }).a({
-                            x: b,
-                            y: s + 18 - 8
-                        }).t(w.toString()));
-                        else if (t.historic[m] && t.historic[m][p]) {
-                            var q = t.historic[m][p].v,
-                                x = u[m],
-                                A = (d = x.min, 15 * (q - (d = 0)) / ((h = x.max) - d)),
-                                S = r(q);
-                            a.c("svg:rect", {
-                                fill: S
+                            x: 0,
+                            y: s + 18 - 2
+                        }).t(y), g = 0; g < e; g++) {
+                            var w = g - c + e;
+                            w < 24 && (w += 24), w > 24 && (w -= 24), 24 == w && (w = 0), p = e - g - 1;
+                            var _ = 120 / e,
+                                b = i + _ * g;
+                            if ("time" == m) (6 == w || 12 == w || 0 == w || 18 == w) && (a.c("svg:rect", {
+                                fill: "#888"
                             }).a({
                                 x: b,
-                                y: s + 18 - A,
-                                width: _ - .5,
-                                height: A
+                                y: 0,
+                                width: .5,
+                                height: 18 * (l.length - 1) + 2
+                            }), a.c("svg:text", {
+                                fontFamily: "sans-serif",
+                                fontSize: 8,
+                                textAnchor: "middle",
+                                fill: "#bbb"
+                            }).a({
+                                x: b,
+                                y: s + 18 - 8
+                            }).t(w.toString()));
+                            else if (t.historic[m] && t.historic[m][p]) {
+                                var q = t.historic[m][p].v,
+                                    x = u[m],
+                                    A = (d = x.min, 15 * (q - (d = 0)) / ((h = x.max) - d)),
+                                    S = r(q);
+                                a.c("svg:rect", {
+                                    fill: S
+                                }).a({
+                                    x: b,
+                                    y: s + 18 - A,
+                                    width: _ - .5,
+                                    height: A
+                                })
+                            }
+                        }
+                        s += 18
+                    }
+                } catch (t) {
+                    console.log("Error " + t)
+                }
+                return a
+            }(t)), l.c("center").i(function (t) {
+                var e = [],
+                    n = {},
+                    i = new Date;
+                i.setHours(0), t.forecast.aqi.forEach(function (t) {
+                    var o = t.t.split(/[^0-9]/),
+                        r = new Date(o[0], o[1] - 1 || 0, o[2] || 1, o[3] || 0, o[4] || 0, o[5] || 0, o[6] || 0);
+                    if (!(r.getTime() < i.getTime())) {
+                        var a = "D" + formatYMD(r);
+                        if (e.indexOf(a) < 0 && (e.push(a), n[a] = {
+                            date: r
+                        }), r.getHours() >= 7 && r.getHours() <= 21) {
+                            var c = t;
+                            if (!(c = c.v.pm25 ? c.v.pm25 : c.v).o3) {
+                                var s = c[0],
+                                    u = c[1];
+                                n[a].aqi = n[a].aqi || {
+                                    min: s,
+                                    max: u,
+                                    count: 0,
+                                    avg: 0
+                                }, n[a].aqi.min = Math.min(n[a].aqi.min, s), n[a].aqi.max = Math.max(n[a].aqi.max, u), n[a].aqi.avg += (s + u) / 2, n[a].aqi.count += 1
+                            }
+                        }
+                    }
+                });
+                var c = o.s3().c("div");
+                return e.sort(), e.slice(0, 4).forEach(function (t, e) {
+                    if (n[t].aqi && 0 != n[t].aqi.count) {
+                        n[t].aqi && n[t].aqi.min, n[t].aqi && n[t].aqi.max;
+                        var i = n[t].aqi ? n[t].aqi.avg / n[t].aqi.count : "-",
+                            o = formatShortWeekday(n[t].date, locale_id);
+                        c.c("div", {
+                            display: "inline-block"
+                        }).c("div", "waqi-forecast-day-aqi", {
+                            fontSize: "10px",
+                            backgroundColor: r(i),
+                            color: a(i) + "cc"
+                        }).t(o)
+                    }
+                }), c
+            }(t)))), l = o.s3().c("div", "waqi-widget-outer").i(l)), l
+        }
+}
+    , function (t, e, n) {
+        "use strict";
+        e.__esModule = !0;
+        var i = n(0),
+            o = n(5),
+            r = function () {
+                function t() {
+                    var t = this;
+                    this.aqiSettings = new i.AqiSettings;
+                    this.clearResultsTimer = null;
+                    var e = document.getElementById("searchresults");
+                    if (e) e.style.display = "none";
+                    var n = document.getElementById("cityaqiwidget");
+                    if (n) n.style.display = "none";
+                    this.aqiSettings.cityObject().then(function (e) {
+                        if (e) {
+                            var n = document.getElementById("selectedcitytitle");
+                            if (n) n.innerHTML = e.name;
+                            var i = document.getElementById("selectedcity");
+                            if (i) i.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b> " + e.name;
+                            var o = document.getElementById("cityinput");
+                            if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_select_another"));
+                            t.loadWidget();
+                        } else {
+                            var o = document.getElementById("cityinput");
+                            if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_enter_city"));
+                            var i = document.getElementById("selectedcity");
+                            if (i) i.innerHTML = "";
+                        }
+                    });
+                    document.getElementById("cityinput").onkeyup = function () {
+                        t.onKeyUp();
+                    }
+                }
+                return t.prototype.url = function (t) {
+                    var e = "https://aqicn.org/browser-widget/xsearch/places/" + t + "?";
+                    return e += "&t=" + (new Date).getTime(), e += "&from=chrome-extension"
+                }, t.prototype.formatData = function (t, e) {
+                    var n = this, i = "<table class='citysearch'>";
+                    t.forEach(function (e, n) {
+                        e.uid;
+                        e.station.url && e.station.url;
+                        var r = `${formatShortWeekday(e.time.vtime * 1000, 'en')}, ${getHour12AMPM(e.time.vtime * 1000)}`,
+                            a = o.bgcolor(e.aqi),
+                            c = o.fgcolor(e.aqi),
+                            s = e.aqi,
+                            u = e.station.name,
+                            l = n != t.length - 1 ? "marker" : "";
+                        i += "<tr class='" + l + "' id='cityitem" + n + "' >";
+                        i += "<td class='cityentryname'>" + u + "<small> " + r + "</small></span>";
+                        i += "<td><span class='cityentryaqitag' style='background-color:" + a + ";color:" + c + "'>" + s + "</span>";
+                    });
+                    if (t.length == 0) i += "<tr><td class='cityentryname'>" + chrome.i18n.getMessage("search_no_result") + "</td></tr>";
+                    i += "</table>";
+                    var r = document.getElementById(e);
+                    if (r) {
+                        r.innerHTML = i;
+                        r.style.display = "";
+                    }
+                    t.forEach(function (t, e) {
+                        var i = document.getElementById("cityitem" + e);
+                        if (i) i.onclick = function () {
+                            var e = {
+                                utime: t.time.vtime,
+                                name: t.station.name,
+                                aqi: t.aqi,
+                                idx: t.uid
+                            };
+                            n.onClick(e);
+                        }
+                    })
+                }, t.prototype.onWidgetLoaded = function (t, e) {
+                    console.log("Widget loaded!");
+                    var r = document.getElementById("cityaqiwidget");
+                    if (r) {
+                        r.innerHTML = t.xxl;
+                        r.style.display = "";
+                    }
+                    var n = document.getElementById("selectedcity");
+                    if (n) n.innerHTML = "";
+                    var o = document.getElementById("aqiwgtmsg");
+                    var a = o ? o.innerHTML : "";
+                    var c = i.aqiLang.getAqiText(a, e);
+                    if (o) o.innerHTML = c;
+                }, t.prototype.loadWidget = function () {
+                    var t = this;
+                    var r = document.getElementById("cityaqiwidget");
+                    if (r) {
+                        r.innerHTML = "<div style='width:100%'><div class='aqiloader'></div></div>";
+                        r.style.display = "";
+                    }
+                    this.aqiSettings.cityObject().then(function (e) {
+                        if (e.key || e.idx) {
+                            var n = "https://aqicn.org/webwgt/";
+                            n += e.idx ? "@" + e.idx : e.key;
+                            n += "/widget.v1.json?" + Date.now();
+                            n += "&from=chrome-extension";
+                            fetch(n).then(function (t) {
+                                return t.json();
+                            }).then(function (n) {
+                                t.onWidgetLoaded(n, e.clang);
+                            }).catch(function (t) {
+                                var e = chrome.i18n.getMessage("search_load_error") + "<br>" + t;
+                                var o = document.getElementById("cityaqiwidget");
+                                if (o) {
+                                    o.innerHTML = "<div style='width:100%'>" + e + "</div>";
+                                    o.style.display = "";
+                                }
                             })
-                        }
-                    }
-                    s += 18
-                }
-            } catch (t) {
-                console.log("Error " + t)
-            }
-            return a
-        }(t)), l.c("center").i(function (t) {
-            var e = [],
-                n = {},
-                i = new Date;
-            i.setHours(0), t.forecast.aqi.forEach(function (t) {
-                var o = t.t.split(/[^0-9]/),
-                    r = new Date(o[0], o[1] - 1 || 0, o[2] || 1, o[3] || 0, o[4] || 0, o[5] || 0, o[6] || 0);
-                if (!(r.getTime() < i.getTime())) {
-                    // var a = "D" + moment(r).format("YMD");
-                    var a = "D" + formatYMD(r);
-                    if (e.indexOf(a) < 0 && (e.push(a), n[a] = {
-                        date: r
-                    }), r.getHours() >= 7 && r.getHours() <= 21) {
-                        var c = t;
-                        if (!(c = c.v.pm25 ? c.v.pm25 : c.v).o3) {
-                            var s = c[0],
-                                u = c[1];
-                            n[a].aqi = n[a].aqi || {
-                                min: s,
-                                max: u,
-                                count: 0,
-                                avg: 0
-                            }, n[a].aqi.min = Math.min(n[a].aqi.min, s), n[a].aqi.max = Math.max(n[a].aqi.max, u), n[a].aqi.avg += (s + u) / 2, n[a].aqi.count += 1
-                        }
-                    }
-                }
-            });
-            var c = o.s3().c("div");
-            return e.sort(), e.slice(0, 4).forEach(function (t, e) {
-                if (n[t].aqi && 0 != n[t].aqi.count) {
-                    n[t].aqi && n[t].aqi.min, n[t].aqi && n[t].aqi.max;
-                    var i = n[t].aqi ? n[t].aqi.avg / n[t].aqi.count : "-",
-                        // o = moment(n[t].date).format("ddd");
-                        o = formatShortWeekday(n[t].date, locale_id);
-                    c.c("div", {
-                        display: "inline-block"
-                    }).c("div", "waqi-forecast-day-aqi", {
-                        fontSize: "10px",
-                        backgroundColor: r(i),
-                        color: a(i) + "cc"
-                    }).t(o)
-                }
-            }), c
-        }(t)))), l = o.s3().c("div", "waqi-widget-outer").i(l)), l
-    }
-}, function (t, e, n) {
-    "use strict";
-    e.__esModule = !0;
-    var i = n(0),
-        o = n(5),
-        r = function () {
-            function t() {
-                var t = this;
-                this.aqiSettings = new i.AqiSettings;
-                this.clearResultsTimer = null;
-                var e = document.getElementById("searchresults");
-                if (e) e.style.display = "none";
-                var n = document.getElementById("cityaqiwidget");
-                if (n) n.style.display = "none";
-                this.aqiSettings.cityObject().then(function (e) {
-                    if (e) {
-                        var n = document.getElementById("selectedcitytitle");
-                        if (n) n.innerHTML = e.name;
-                        var i = document.getElementById("selectedcity");
-                        if (i) i.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b> " + e.name;
-                        var o = document.getElementById("cityinput");
-                        if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_select_another"));
-                        t.loadWidget();
-                    } else {
-                        var o = document.getElementById("cityinput");
-                        if (o) o.setAttribute("placeholder", chrome.i18n.getMessage("search_enter_city"));
-                        var i = document.getElementById("selectedcity");
-                        if (i) i.innerHTML = "";
-                    }
-                });
-                document.getElementById("cityinput").onkeyup = function () {
-                    t.onKeyUp();
-                }
-            }
-            return t.prototype.url = function (t) {
-                var e = "https://aqicn.org/browser-widget/xsearch/places/" + t + "?";
-                return e += "&t=" + (new Date).getTime(), e += "&from=chrome-extension"
-            }, t.prototype.formatData = function (t, e) {
-                var n = this, i = "<table class='citysearch'>";
-                t.forEach(function (e, n) {
-                    e.uid;
-                    e.station.url && e.station.url;
-                    // var r = moment(1e3 * e.time.vtime).format("ddd, hA"),
-                    var r = `${formatShortWeekday(e.time.vtime * 1000, 'en')}, ${getHour12AMPM(e.time.vtime * 1000)}`,
-                        a = o.bgcolor(e.aqi),
-                        c = o.fgcolor(e.aqi),
-                        s = e.aqi,
-                        u = e.station.name,
-                        l = n != t.length - 1 ? "marker" : "";
-                    i += "<tr class='" + l + "' id='cityitem" + n + "' >";
-                    i += "<td class='cityentryname'>" + u + "<small> " + r + "</small></span>";
-                    i += "<td><span class='cityentryaqitag' style='background-color:" + a + ";color:" + c + "'>" + s + "</span>";
-                });
-                if (t.length == 0) i += "<tr><td class='cityentryname'>" + chrome.i18n.getMessage("search_no_result") + "</td></tr>";
-                i += "</table>";
-                var r = document.getElementById(e);
-                if (r) {
-                    r.innerHTML = i;
-                    r.style.display = "";
-                }
-                t.forEach(function (t, e) {
-                    var i = document.getElementById("cityitem" + e);
-                    if (i) i.onclick = function () {
-                        var e = {
-                            utime: t.time.vtime,
-                            name: t.station.name,
-                            aqi: t.aqi,
-                            idx: t.uid
-                        };
-                        n.onClick(e);
-                    }
-                })
-            }, t.prototype.onWidgetLoaded = function (t, e) {
-                console.log("Widget loaded!");
-                var r = document.getElementById("cityaqiwidget");
-                if (r) {
-                    r.innerHTML = t.xxl;
-                    r.style.display = "";
-                }
-                var n = document.getElementById("selectedcity");
-                if (n) n.innerHTML = "";
-                var o = document.getElementById("aqiwgtmsg");
-                var a = o ? o.innerHTML : "";
-                var c = i.aqiLang.getAqiText(a, e);
-                if (o) o.innerHTML = c;
-            }, t.prototype.loadWidget = function () {
-                var t = this;
-                var r = document.getElementById("cityaqiwidget");
-                if (r) {
-                    r.innerHTML = "<div style='width:100%'><div class='aqiloader'></div></div>";
-                    r.style.display = "";
-                }
-                this.aqiSettings.cityObject().then(function (e) {
-                    if (e.key || e.idx) {
-                        var n = "https://aqicn.org/webwgt/";
-                        n += e.idx ? "@" + e.idx : e.key;
-                        n += "/widget.v1.json?" + Date.now();
-                        n += "&from=chrome-extension";
-                        fetch(n).then(function (t) {
-                            return t.json();
-                        }).then(function (n) {
-                            t.onWidgetLoaded(n, e.clang);
-                        }).catch(function (t) {
-                            var e = chrome.i18n.getMessage("search_load_error") + "<br>" + t;
+                        } else {
                             var o = document.getElementById("cityaqiwidget");
                             if (o) {
-                                o.innerHTML = "<div style='width:100%'>" + e + "</div>";
+                                o.innerHTML = "Oops.. can not load the widget";
                                 o.style.display = "";
                             }
-                        })
-                    } else {
-                        var o = document.getElementById("cityaqiwidget");
-                        if (o) {
-                            o.innerHTML = "Oops.. can not load the widget";
-                            o.style.display = "";
                         }
-                    }
-                });
-            }, t.prototype.onClick = function (t) {
-                this.aqiSettings.setCityObject(t);
-                var e = document.getElementById("selectedcitytitle");
-                if (e) e.innerHTML = t.name;
-                var n = document.getElementById("selectedcity");
-                if (n) n.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name;
-                this.loadWidget();
-                this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
-                this.clearResultsTimer = setTimeout(function () {
-                    var r = document.getElementById("searchresults");
-                    if (r) {
-                        r.style.transition = "height 0.2s ease";
-                        r.style.overflow = "hidden";
-                        r.style.height = "0px";
-                        setTimeout(function () {
-                            r.style.display = "none";
-                            r.style.height = "";
-                            r.style.transition = "";
-                            r.style.overflow = "";
-                        }, 200);
-                    }
-                    var o = document.getElementById("cityinput");
-                    if (o) o.value = "";
-                }, 1e3)
-            }, t.prototype.onKeyUp = function () {
-                var t = this;
-                this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
-                var e = document.getElementById("cityinput").value;
-                "" != e && null != e && fetch(this.url(e)).then(function (t) {
-                    return t.json()
-                }).then(function (e) {
-                    document.getElementById("cityinput").className = "", t.formatData(e.results, "searchresults")
-                })
-            }, t
-        }();
-    e.CitySearch = r
-}, , , , function (t, e, n) {
-    "use strict";
-    e.__esModule = !0;
-    var i = n(0),
-        o = n(6);
-
-    function r() {
-        var t = ["baidu", "bing", "google", "qwant"];
-        for (var e in t) {
-            e = t[e];
-            var n = document.getElementById(e).checked;
-            localStorage["optchecked" + e] = n
+                    });
+                }, t.prototype.onClick = function (t) {
+                    this.aqiSettings.setCityObject(t);
+                    var e = document.getElementById("selectedcitytitle");
+                    if (e) e.innerHTML = t.name;
+                    var n = document.getElementById("selectedcity");
+                    if (n) n.innerHTML = chrome.i18n.getMessage("search_selected_city") + " <b>" + t.name;
+                    this.loadWidget();
+                    this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
+                    this.clearResultsTimer = setTimeout(function () {
+                        var r = document.getElementById("searchresults");
+                        if (r) {
+                            r.style.transition = "height 0.2s ease";
+                            r.style.overflow = "hidden";
+                            r.style.height = "0px";
+                            setTimeout(function () {
+                                r.style.display = "none";
+                                r.style.height = "";
+                                r.style.transition = "";
+                                r.style.overflow = "";
+                            }, 200);
+                        }
+                        var o = document.getElementById("cityinput");
+                        if (o) o.value = "";
+                    }, 1e3)
+                }, t.prototype.onKeyUp = function () {
+                    var t = this;
+                    this.clearResultsTimer && clearTimeout(this.clearResultsTimer);
+                    var e = document.getElementById("cityinput").value;
+                    "" != e && null != e && fetch(this.url(e)).then(function (t) {
+                        return t.json()
+                    }).then(function (e) {
+                        document.getElementById("cityinput").className = "", t.formatData(e.results, "searchresults")
+                    })
+                }, t
+            }();
+        e.CitySearch = r
+    }, , , , function (t, e, n) {
+        "use strict";
+        e.__esModule = !0;
+        var i = n(0),
+            o = n(6);
+        function saveMessage(msg = "Hello World") {
+            const r = document.getElementById("status");
+            if (r) {
+                r.innerHTML = msg;
+                r.style.display = "block";
+                r.style.opacity = "1";
+                setTimeout(() => {
+                    r.style.opacity = "0";
+                    setTimeout(() => {
+                        r.style.display = "none";
+                    }, 300);
+                }, 750);
+            }
         }
-        var i = document.getElementById("langen"),
-            o = document.getElementById("langcn");
-        1 == i.checked ? (console.log("EN"), o.checked = !1) : (console.log("CN"), o.checked = !0, i.checked = !1);
-        var r = document.getElementById("status");
-        r.innerHTML = "Options Saved.", setTimeout(function () {
-            r.innerHTML = ""
-        }, 750), chrome.extension.sendMessage({
-            method: "saveOptions",
-            options: localStorage
-        }, function (t) {
-            console.log(t)
+        function r() {
+            var t = ["baidu", "bing", "google", "qwant"];
+            for (var e in t) {
+                e = t[e];
+                var n = document.getElementById(e).checked;
+                console.log(e, n);
+                chrome.storage.local.set({ ["optchecked" + e]: n });
+            }
+            saveMessage(chrome.i18n.getMessage("opt_save"));
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            new o.CitySearch,
+                function () {
+                    var t = ["cn", "en", "hk", "jp", "kr"];
+
+                    function e(e) {
+                        t.forEach(function (t) {
+                            var n = document.getElementById("lang" + t);
+                            n && (n.checked = e == t)
+                        });
+                    }
+                    chrome.storage.local.get("lang", function (r) {
+                        if (r.lang === undefined || r.lang === "false" || r.lang === null) {
+                            chrome.storage.local.set({ lang: "en" }, function () {
+                                e("en");
+                            });
+                        } else {
+                            e(r.lang);
+                        }
+                        t.forEach(function (t) {
+                            var n = document.getElementById("lang" + t);
+                            n && (n.onclick = function () {
+                                e(t);
+                                chrome.storage.local.set({ "lang": t });
+                                chrome.extension && chrome.runtime.sendMessage({
+                                    method: "setLang",
+                                    lang: t
+                                }, function (t) { });
+                                saveMessage(chrome.i18n.getMessage("opt_save"));
+                            });
+                        });
+                    });
+                }(),
+                function () {
+                    var t = "design",
+                        e = ["tiny", "small", "forecast", "aqi", "iaqi"];
+
+                    function n(n) {
+                        console.log("Set[" + t + "]: ", n), e.forEach(function (e) {
+                            var i = document.getElementById(t + "_" + e);
+                            i && (i.checked = n == e)
+                        })
+                    }
+                    chrome.storage.local.get([t], result => {
+                        if (typeof result[t] == "undefined" || result[t] == "false" || result[t] == null)
+                            chrome.storage.local.set({ [t]: "aqi" });
+                        var i = document.getElementById(t + "_selection");
+                        e.forEach(function (e) {
+                            var o = document.createElement("input");
+                            o.id = t + "_" + e, o.type = "radio";
+                            var r = document.createElement("img");
+                            r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
+                            var a = function () {
+                                chrome.storage.local.set({ [t]: e });
+                                chrome.extension && chrome.runtime.sendMessage({
+                                    method: "setDesign",
+                                    design: e
+                                }, function (t) { })
+                                saveMessage(chrome.i18n.getMessage("opt_save"));
+                            };
+                            o.onclick = a, r.onclick = a, i.appendChild(o), i.appendChild(r), i.appendChild(document.createElement("div"))
+                        })//, n(localStorage[t])
+                            , chrome.storage.local.get(t, result => {
+                                n(result[t]);
+                            });
+                    });
+
+                }(),
+                function () {
+                    var t = ["baidu", "bing", "google", "qwant"];
+                    t.forEach(e => {
+                        chrome.storage.local.get(["optchecked" + e], result => {
+                            let n = String(result["optchecked" + e]);
+                            void 0 === n && (n = "true");
+                            var i = document.getElementById(e);
+                            i && (i.checked = "true" == n, i.onclick = function () {
+                                r()
+                            })
+                        });
+                    });
+                }(),
+                document.querySelectorAll(".i18n").forEach(function (t) {
+                    var e = t.getAttribute("id");
+                    if (chrome.i18n) {
+                        var n = chrome.i18n.getMessage(e);
+                        console.log("Localizing " + e + " -> " + n);
+                        var r = document.getElementById(e);
+                        if (r) r.innerHTML = n;
+                    }
+                }), (new i.AqiSettings).onFeedUpdate(function (t) { })
         })
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-        new o.CitySearch,
-            function () {
-                var t = ["cn", "en", "hk", "jp", "kr"];
-
-                function e(e) {
-                    t.forEach(function (t) {
-                        var n = document.getElementById("lang" + t);
-                        n && (n.checked = e == t)
-                    })
-                }
-                null != typeof localStorage.xlang && "false" != localStorage.xlang && null != localStorage.xlang || (localStorage.xlang = "en"), e(localStorage.xlang), t.forEach(function (t) {
-                    var n = document.getElementById("lang" + t);
-                    n && (n.onclick = function () {
-                        e(t), localStorage.xlang = t, chrome.extension && chrome.extension.sendMessage({
-                            method: "setLang",
-                            lang: t
-                        }, function (t) { })
-                    })
-                })
-            }(),
-            function () {
-                var t = "design",
-                    e = ["tiny", "small", "forecast", "aqi", "iaqi"];
-
-                function n(n) {
-                    console.log("Set[" + t + "]: ", n), e.forEach(function (e) {
-                        var i = document.getElementById(t + "_" + e);
-                        i && (i.checked = n == e)
-                    })
-                }
-                null != typeof localStorage[t] && "false" != localStorage[t] && null != localStorage[t] || (localStorage[t] = "aqi");
-                var i = document.getElementById(t + "_selection");
-                e.forEach(function (e) {
-                    var o = document.createElement("input");
-                    o.id = t + "_" + e, o.type = "radio";
-                    var r = document.createElement("img");
-                    r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
-                    var a = function () {
-                        localStorage[t] = e, n(e), chrome.extension && chrome.extension.sendMessage({
-                            method: "setDesign",
-                            design: e
-                        }, function (t) { })
-                    };
-                    o.onclick = a, r.onclick = a, i.appendChild(o), i.appendChild(r), i.appendChild(document.createElement("div"))
-                }), n(localStorage[t])
-            }(),
-            function () {
-                var t = ["baidu", "bing", "google", "qwant"];
-                for (var e in t) {
-                    e = t[e];
-                    var n = localStorage["optchecked" + e];
-                    void 0 === n && (n = "true");
-                    var i = document.getElementById(e);
-                    i && (i.checked = "true" == n, i.onclick = function () {
-                        r()
-                    })
-                }
-            }(),
-            document.querySelectorAll(".i18n").forEach(function (t) {
-                var e = t.getAttribute("id");
-                if (chrome.i18n) {
-                    var n = chrome.i18n.getMessage(e);
-                    console.log("Localizing " + e + " -> " + n);
-                    var r = document.getElementById(e);
-                    if (r) r.innerHTML = n;
-                }
-            }), (new i.AqiSettings).onFeedUpdate(function (t) { })
-    })
-}]);
+    }]);
