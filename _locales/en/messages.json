@@ -46,6 +46,9 @@
    "opt_lang": {
       "message": "Display the AQI information in:"
    },
+   "opt_save": {
+      "message": "Options Saved"
+   },
    "search_current_city": {
       "message": "City Selection: "
    },

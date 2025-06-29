@@ -5,7 +5,7 @@ window.onload = function() {
         event.preventDefault();
         event.stopPropagation();
 
-        chrome.extension.sendMessage({
+        chrome.runtime.sendMessage({
             uninstall: true
         });
 

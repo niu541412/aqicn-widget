@@ -1,11 +1,11 @@
 {
    "appDesc": {
-      "description": "Chrome 的 aqicn.org 插件",
-      "message": "Chrome 的 aqicn.org 插件"
+      "description": "Chrome용 aqicn.org 플러그인",
+      "message": "Chrome용 aqicn.org 플러그인"
    },
    "appName": {
-      "description": "世界空氣品質指標",
-      "message": "世界空氣品質指標"
+      "description": "세계 대기질 지수",
+      "message": "세계 대기질 지수"
    },
    "aqivaluescn": {
       "message": "\u003Cb> 没有数据 \u003C/b>, \u003Cb>优\u003C/b> , \u003Cb>良\u003C/b>, \u003Cb>轻度污染\u003C/b> , \u003Cb>中度污染\u003C/b>, \u003Cb>重度污染\u003C/b> , \u003Cb>严重污染\u003C/b>"
@@ -23,51 +23,51 @@
       "message": "\u003Cb>데이터가 없습니다\u003C/b>, \u003Cb>파랑\u003C/b>, \u003Cb>초록\u003C/b>, \u003Cb>노랑\u003C/b>, \u003Cb>주황\u003C/b>, \u003Cb>빨강\u003C/b>, \u003Cb>갈색\u003C/b>"
    },
    "lang_cn": {
-      "message": "中文（簡體）"
+      "message": "중국어(간체)"
    },
    "lang_en": {
-      "message": "英文"
+      "message": "영어"
    },
    "lang_hk": {
-      "message": "中文（繁體）"
+      "message": "중국어(번체)"
    },
    "lang_jp": {
-      "message": "日文"
+      "message": "일본어"
    },
    "lang_kr": {
-      "message": "韓文"
+      "message": "한국어"
    },
    "opt_design": {
-      "message": "AQI 小部件的顯示樣式："
+      "message": "AQI 위젯 시각 스타일:"
    },
    "opt_engine": {
-      "message": "顯示 AQI 資訊的網站："
+      "message": "AQI 정보를 표시할 사이트:"
    },
    "opt_lang": {
-      "message": "顯示 AQI 資訊的語言："
+      "message": "AQI 정보 표시 언어:"
    },
    "opt_save": {
-      "message": "選項已保存"
+      "message": "옵션이 저장되었습니다"
    },
    "search_current_city": {
-      "message": "城市選擇："
+      "message": "도시 선택:"
    },
    "search_enter_city": {
-      "message": "輸入城市名稱"
+      "message": "도시 이름을 입력하세요"
    },
    "search_load_error": {
-      "message": "很抱歉，載入 AQI 資料時發生錯誤..."
+      "message": "죄송합니다. AQI 데이터를 불러오는 중 오류가 발생했습니다..."
    },
    "search_no_result": {
-      "message": "很抱歉，沒有找到結果！"
+      "message": "죄송합니다. 결과가 없습니다!"
    },
    "search_select_another": {
-      "message": "選擇另一個城市..."
+      "message": "다른 도시 선택..."
    },
    "search_selected_city": {
-      "message": "已選擇城市："
+      "message": "선택된 도시:"
    },
    "waqi_title": {
-      "message": "世界空氣品質指標"
+      "message": "세계 대기질 지수"
    }
 }

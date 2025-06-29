@@ -1,7 +1,7 @@
 {
    "appDesc": {
-      "description": "aqicn.org 插件Chrome浏览器.",
-      "message": "aqicn.org 插件Chrome浏览器."
+      "description": "Chrome 的 aqicn.org 插件",
+      "message": "Chrome 的 aqicn.org 插件"
    },
    "appName": {
       "description": "世界空气质量指数",
@@ -26,22 +26,28 @@
       "message": "中文（简体）"
    },
    "lang_en": {
-      "message": "英语"
+      "message": "英文"
    },
    "lang_hk": {
       "message": "中文（繁体）"
    },
    "lang_jp": {
-      "message": "日语"
+      "message": "日文"
    },
    "lang_kr": {
-      "message": "韩语"
+      "message": "韩文"
+   },
+   "opt_design": {
+      "message": "AQI 小部件的显示样式："
    },
    "opt_engine": {
-      "message": "顯示的空氣質量指數信息："
+      "message": "显示 AQI 信息的网站："
    },
    "opt_lang": {
-      "message": "显示空气质量指数信息："
+      "message": "AQI 信息的显示语言："
+   },
+   "opt_save": {
+      "message": "选项已保存"
    },
    "search_current_city": {
       "message": "城市选择："
@@ -50,16 +56,16 @@
       "message": "输入城市名称"
    },
    "search_load_error": {
-      "message": "對不起，在加載數據時發生錯誤..."
+      "message": "很抱歉，加载 AQI 数据时发生错误..."
    },
    "search_no_result": {
-      "message": "很抱歉，没有结果！"
+      "message": "很抱歉，没有找到结果！"
    },
    "search_select_another": {
       "message": "选择另一个城市..."
    },
    "search_selected_city": {
-      "message": "所选城市："
+      "message": "已选择城市："
    },
    "waqi_title": {
       "message": "世界空气质量指数"
