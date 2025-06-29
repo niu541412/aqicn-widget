@@ -153,107 +153,13 @@
         return void 0 === t && (t = null), new r(t)
     }
 }, , function (t, e) {
-    var n, r, i = t.exports = {};
-
-    function o() {
-        throw new Error("setTimeout has not been defined")
-    }
-
-    function a() {
-        throw new Error("clearTimeout has not been defined")
-    }
-
-    function s(t) {
-        if (n === setTimeout) return setTimeout(t, 0);
-        if ((n === o || !n) && setTimeout) return n = setTimeout, setTimeout(t, 0);
-        try {
-            return n(t, 0)
-        } catch (e) {
-            try {
-                return n.call(null, t, 0)
-            } catch (e) {
-                return n.call(this, t, 0)
-            }
-        }
-    } ! function () {
-        try {
-            n = "function" == typeof setTimeout ? setTimeout : o
-        } catch (t) {
-            n = o
-        }
-        try {
-            r = "function" == typeof clearTimeout ? clearTimeout : a
-        } catch (t) {
-            r = a
-        }
-    }();
-    var c, u = [],
-        l = !1,
-        f = -1;
-
-    function d() {
-        l && c && (l = !1, c.length ? u = c.concat(u) : f = -1, u.length && h())
-    }
-
-    function h() {
-        if (!l) {
-            var t = s(d);
-            l = !0;
-            for (var e = u.length; e;) {
-                for (c = u, u = []; ++f < e;) c && c[f].run();
-                f = -1, e = u.length
-            }
-            c = null, l = !1,
-                function (t) {
-                    if (r === clearTimeout) return clearTimeout(t);
-                    if ((r === a || !r) && clearTimeout) return r = clearTimeout, clearTimeout(t);
-                    try {
-                        r(t)
-                    } catch (e) {
-                        try {
-                            return r.call(null, t)
-                        } catch (e) {
-                            return r.call(this, t)
-                        }
-                    }
-                }(t)
-        }
-    }
-
-    function p(t, e) {
-        this.fun = t, this.array = e
-    }
-
-    function v() { }
-    i.nextTick = function (t) {
-        var e = new Array(arguments.length - 1);
-        if (arguments.length > 1)
-            for (var n = 1; n < arguments.length; n++) e[n - 1] = arguments[n];
-        u.push(new p(t, e)), 1 !== u.length || l || s(h)
-    }, p.prototype.run = function () {
-        this.fun.apply(null, this.array)
-    }, i.title = "browser", i.browser = !0, i.env = {}, i.argv = [], i.version = "", i.versions = {}, i.on = v, i.addListener = v, i.once = v, i.off = v, i.removeListener = v, i.removeAllListeners = v, i.emit = v, i.prependListener = v, i.prependOnceListener = v, i.listeners = function (t) {
-        return []
-    }, i.binding = function (t) {
-        throw new Error("process.binding is not supported")
-    }, i.cwd = function () {
-        return "/"
-    }, i.chdir = function (t) {
-        throw new Error("process.chdir is not supported")
-    }, i.umask = function () {
-        return 0
-    }
-}, function (t, e) {
-    var n;
-    n = function () {
-        return this
-    }();
-    try {
-        n = n || Function("return this")() || (0, eval)("this")
-    } catch (t) {
-        "object" == typeof window && (n = window)
-    }
-    t.exports = n
+}, function (e, t) {
+    var n = (typeof globalThis !== 'undefined') ? globalThis :
+        (typeof self !== 'undefined') ? self :
+            (typeof window !== 'undefined') ? window :
+                (typeof global !== 'undefined') ? global :
+                    {};
+    e.exports = n;
 }, function (t, e, n) {
     "use strict";
     e.__esModule = !0;

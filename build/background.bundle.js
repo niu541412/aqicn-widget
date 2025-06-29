@@ -46,108 +46,14 @@
 }
     ([, , ,
         function (e, t) {
-            var n, r, o = e.exports = {};
-
-            function i() {
-                throw new Error("setTimeout has not been defined")
-            }
-
-            function s() {
-                throw new Error("clearTimeout has not been defined")
-            }
-
-            function c(e) {
-                if (n === setTimeout) return setTimeout(e, 0);
-                if ((n === i || !n) && setTimeout) return n = setTimeout, setTimeout(e, 0);
-                try {
-                    return n(e, 0)
-                } catch (t) {
-                    try {
-                        return n.call(null, e, 0)
-                    } catch (t) {
-                        return n.call(this, e, 0)
-                    }
-                }
-            } ! function () {
-                try {
-                    n = "function" == typeof setTimeout ? setTimeout : i
-                } catch (e) {
-                    n = i
-                }
-                try {
-                    r = "function" == typeof clearTimeout ? clearTimeout : s
-                } catch (e) {
-                    r = s
-                }
-            }();
-            var u, a = [],
-                l = !1,
-                f = -1;
-
-            function d() {
-                l && u && (l = !1, u.length ? a = u.concat(a) : f = -1, a.length && h())
-            }
-
-            function h() {
-                if (!l) {
-                    var e = c(d);
-                    l = !0;
-                    for (var t = a.length; t;) {
-                        for (u = a, a = []; ++f < t;) u && u[f].run();
-                        f = -1, t = a.length
-                    }
-                    u = null, l = !1,
-                        function (e) {
-                            if (r === clearTimeout) return clearTimeout(e);
-                            if ((r === s || !r) && clearTimeout) return r = clearTimeout, clearTimeout(e);
-                            try {
-                                r(e)
-                            } catch (t) {
-                                try {
-                                    return r.call(null, e)
-                                } catch (t) {
-                                    return r.call(this, e)
-                                }
-                            }
-                        }(e)
-                }
-            }
-
-            function g(e, t) {
-                this.fun = e, this.array = t
-            }
-
-            function p() { }
-            o.nextTick = function (e) {
-                var t = new Array(arguments.length - 1);
-                if (arguments.length > 1)
-                    for (var n = 1; n < arguments.length; n++) t[n - 1] = arguments[n];
-                a.push(new g(e, t)), 1 !== a.length || l || c(h)
-            }, g.prototype.run = function () {
-                this.fun.apply(null, this.array)
-            }, o.title = "browser", o.browser = !0, o.env = {}, o.argv = [], o.version = "", o.versions = {}, o.on = p, o.addListener = p, o.once = p, o.off = p, o.removeListener = p, o.removeAllListeners = p, o.emit = p, o.prependListener = p, o.prependOnceListener = p, o.listeners = function (e) {
-                return []
-            }, o.binding = function (e) {
-                throw new Error("process.binding is not supported")
-            }, o.cwd = function () {
-                return "/"
-            }, o.chdir = function (e) {
-                throw new Error("process.chdir is not supported")
-            }, o.umask = function () {
-                return 0
-            }
         },
         function (e, t) {
-            var n;
-            n = function () {
-                return this
-            }();
-            try {
-                n = n || Function("return this")() || (0, eval)("this")
-            } catch (e) {
-                "object" == typeof window && (n = window)
-            }
-            e.exports = n
+            var n = (typeof globalThis !== 'undefined') ? globalThis :
+                (typeof self !== 'undefined') ? self :
+                    (typeof window !== 'undefined') ? window :
+                        (typeof global !== 'undefined') ? global :
+                            {};
+            e.exports = n;
         }, , ,
         function (module, exports, __webpack_require__) {
             "use strict";
@@ -161,20 +67,13 @@
                         }), this.loader()
                     }
                     return Background.prototype.loadJSON = function (dname) {
-                        return new Promise(function (resolve, reject) {
-                            var xhttp;
-                            xhttp = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP"), xhttp.open("GET", dname), xhttp.onload = function () {
-                                var obj;
-                                try {
-                                    obj = eval("(" + xhttp.response + ")")
-                                } catch (e) {
-                                    return void reject(e)
+                        return fetch(dname)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! status: ${response.status}`);
                                 }
-                                resolve(obj)
-                            }, xhttp.onerror = function (e) {
-                                reject(e)
-                            }, xhttp.send()
-                        })
+                                return response.json(); // 自动解析 JSON
+                            });
                     }, Background.prototype.getCityObject = function () {
                         return new Promise((resolve) => {
                             chrome.storage.local.get(["selectedCity", "lang"], (result) => {
@@ -198,7 +97,7 @@
                         if (console.log("Set Icon:", e), null != e) {
                             const aqi = e.aqi;
                             const color = "-" != aqi && aqi ? aqi <= 50 ? "#009966" : aqi <= 100 ? "#ffde33" : aqi <= 150 ? "#ff9933" : aqi <= 200 ? "#cc0033" : aqi <= 300 ? "#660099" : "#7e0023" : "#aaaaaa";
-                            const textColor = "-" != aqi && aqi ? aqi <= 50 ? "#ffffff" : aqi <= 150 ? "#000000" : "#ffffff" : "#eeeeee"; 
+                            const textColor = "-" != aqi && aqi ? aqi <= 50 ? "#ffffff" : aqi <= 150 ? "#000000" : "#ffffff" : "#eeeeee";
                             const iconsize = 32;
                             const cvs = new OffscreenCanvas(iconsize, iconsize);
                             const ctx = cvs.getContext('2d');
@@ -227,39 +126,46 @@
                                 this.getCityObject().then((o) => {
                                     if (null != o) {
                                         var i = "http://api.waqi.info/api/feed/";
-                                        o.idx ? i += "@" + o.idx : i += "!" + o.key, i += "/obs." + this.getLang() + ".json", console.log("Loading " + i + " (dt=" + r + ") - type=", o), i += "?_t=" + Date.now(), i += "&from=chrome-extension", this.loadJSON(i).then(
-                                            function (e) {
-                                                if (e != null) {
-                                                    console.log("Loaded!");
-                                                    try {
-                                                        var n = Decoder.decodeFeed(e);
-                                                        console.log("icon #######", n);
-                                                        t.setIcon(n);
-                                                        chrome.storage.local.set({
-                                                            "FeedData": JSON.stringify(n),
-                                                            "FeedTime": Date.now()
-                                                        });
-                                                        Promise.all([t.getDesign(), t.getLang()]).then(([design, lang]) => {
-                                                            n.rtsettings = {
-                                                                design: design,
-                                                                lang: lang
-                                                            };
-                                                            chrome.runtime.sendMessage({
-                                                                method: "onFeedUpdate",
-                                                                aqi: n
+                                        t.getLang().then(lang => {
+                                            o.idx ? i += "@" + o.idx : i += "!" + o.key, i += "/obs." + lang + ".json", console.log("Loading " + i + " (dt=" + r + ") - type=", o), i += "?_t=" + Date.now(), i += "&from=chrome-extension", this.loadJSON(i).then(
+                                                function (e) {
+                                                    if (e != null) {
+                                                        console.log("Loaded!");
+                                                        try {
+                                                            var n = Decoder.decodeFeed(e);
+                                                            t.setIcon(n);
+                                                            chrome.storage.local.set({
+                                                                "FeedData": JSON.stringify(n),
+                                                                "FeedTime": Date.now()
                                                             });
-                                                            chrome.tabs.getSelected(null, function (e) {
-                                                                e.id >= 0 ? (console.log("Sending to tab", e), chrome.tabs.sendMessage(e.id, {
+                                                            t.getDesign().then(design => {
+                                                                n.rtsettings = {
+                                                                    design: design,
+                                                                    lang: lang
+                                                                };
+                                                                chrome.runtime.sendMessage({
                                                                     method: "onFeedUpdate",
                                                                     aqi: n
-                                                                })) : console.log("Not sending to tab (none active)")
-                                                            })
-                                                        });
-                                                    } catch (err) {
-                                                        console.log("Oops, error with feed: ", err);
-                                                    }
-                                                } else console.log("Loading error!");
-                                            })
+                                                                });
+                                                                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                                                                    if (tabs.length > 0 && tabs[0].id >= 0) {
+                                                                        const tab = tabs[0];
+                                                                        console.log("Sending to tab", tab);
+                                                                        chrome.tabs.sendMessage(tab.id, {
+                                                                            method: "onFeedUpdate",
+                                                                            aqi: n
+                                                                        });
+                                                                    } else {
+                                                                        console.log("Not sending to tab (none active)");
+                                                                    }
+                                                                });
+                                                            });
+                                                        } catch (err) {
+                                                            console.log("Oops, error with feed: ", err);
+                                                        }
+                                                    } else console.log("Loading error!");
+                                                })
+                                        })
                                     } else console.log("Can not get the city Object!")
                                 })
                             }
@@ -294,7 +200,7 @@
                     }, Background
                 }(),
                 background = new Background;
-            chrome.runtime && chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+            chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 if (console.log("received Message ", request.method, " from the UI"), "getSelectedCity" == request.method) {
                     background.getCityObject().then((cityObj) => {
                         sendResponse(cityObj);

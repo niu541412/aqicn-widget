@@ -153,107 +153,13 @@
         return void 0 === t && (t = null), new i(t)
     }
 }, , function (t, e) {
-    var n, i, o = t.exports = {};
-
-    function r() {
-        throw new Error("setTimeout has not been defined")
-    }
-
-    function a() {
-        throw new Error("clearTimeout has not been defined")
-    }
-
-    function c(t) {
-        if (n === setTimeout) return setTimeout(t, 0);
-        if ((n === r || !n) && setTimeout) return n = setTimeout, setTimeout(t, 0);
-        try {
-            return n(t, 0)
-        } catch (e) {
-            try {
-                return n.call(null, t, 0)
-            } catch (e) {
-                return n.call(this, t, 0)
-            }
-        }
-    } ! function () {
-        try {
-            n = "function" == typeof setTimeout ? setTimeout : r
-        } catch (t) {
-            n = r
-        }
-        try {
-            i = "function" == typeof clearTimeout ? clearTimeout : a
-        } catch (t) {
-            i = a
-        }
-    }();
-    var s, u = [],
-        l = !1,
-        f = -1;
-
-    function d() {
-        l && s && (l = !1, s.length ? u = s.concat(u) : f = -1, u.length && h())
-    }
-
-    function h() {
-        if (!l) {
-            var t = c(d);
-            l = !0;
-            for (var e = u.length; e;) {
-                for (s = u, u = []; ++f < e;) s && s[f].run();
-                f = -1, e = u.length
-            }
-            s = null, l = !1,
-                function (t) {
-                    if (i === clearTimeout) return clearTimeout(t);
-                    if ((i === a || !i) && clearTimeout) return i = clearTimeout, clearTimeout(t);
-                    try {
-                        i(t)
-                    } catch (e) {
-                        try {
-                            return i.call(null, t)
-                        } catch (e) {
-                            return i.call(this, t)
-                        }
-                    }
-                }(t)
-        }
-    }
-
-    function m(t, e) {
-        this.fun = t, this.array = e
-    }
-
-    function g() { }
-    o.nextTick = function (t) {
-        var e = new Array(arguments.length - 1);
-        if (arguments.length > 1)
-            for (var n = 1; n < arguments.length; n++) e[n - 1] = arguments[n];
-        u.push(new m(t, e)), 1 !== u.length || l || c(h)
-    }, m.prototype.run = function () {
-        this.fun.apply(null, this.array)
-    }, o.title = "browser", o.browser = !0, o.env = {}, o.argv = [], o.version = "", o.versions = {}, o.on = g, o.addListener = g, o.once = g, o.off = g, o.removeListener = g, o.removeAllListeners = g, o.emit = g, o.prependListener = g, o.prependOnceListener = g, o.listeners = function (t) {
-        return []
-    }, o.binding = function (t) {
-        throw new Error("process.binding is not supported")
-    }, o.cwd = function () {
-        return "/"
-    }, o.chdir = function (t) {
-        throw new Error("process.chdir is not supported")
-    }, o.umask = function () {
-        return 0
-    }
-}, function (t, e) {
-    var n;
-    n = function () {
-        return this
-    }();
-    try {
-        n = n || Function("return this")() || (0, eval)("this")
-    } catch (t) {
-        "object" == typeof window && (n = window)
-    }
-    t.exports = n
+}, function (e, t) {
+    var n = (typeof globalThis !== 'undefined') ? globalThis :
+        (typeof self !== 'undefined') ? self :
+            (typeof window !== 'undefined') ? window :
+                (typeof global !== 'undefined') ? global :
+                    {};
+    e.exports = n;
 }, function (t, e, n) {
     // useless in option.js
     "use strict";
@@ -629,7 +535,7 @@
                             n && (n.onclick = function () {
                                 e(t);
                                 chrome.storage.local.set({ "lang": t });
-                                chrome.extension && chrome.runtime.sendMessage({
+                                chrome.runtime.sendMessage({
                                     method: "setLang",
                                     lang: t
                                 }, function (t) { });
@@ -659,7 +565,7 @@
                             r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
                             var a = function () {
                                 chrome.storage.local.set({ [t]: e });
-                                chrome.extension && chrome.runtime.sendMessage({
+                                chrome.runtime.sendMessage({
                                     method: "setDesign",
                                     design: e
                                 }, function (t) { })
