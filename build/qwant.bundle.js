@@ -330,51 +330,47 @@
     "use strict";
     e.__esModule = !0;
     var r = n(0),
-        i = n(5),
-        o = n(1);
+        o = n(5),
+        i = n(1);
     ! function () {
-        var t = function (t, e) {
+        function t(t) {
             if (null != t) {
-                var n = !0;
+                var e = document.getElementById("gbqfq");
+                null == e && (e = document.getElementById("lst-ib"));
+                var n = 0;
                 try {
-                    var r = document.getElementsByClassName("sidebar__inner");
-                    r.length > 0 && r[0].clientHeight && (n = !1)
+                    document.getElementById("hptl") && document.getElementById("gb").clientHeight > 0 && (n = 42), "visible" == document.getElementById("logocont").style.visibility && (n = 60)
                 } catch (t) { }
-                var a = i.getWidget(t, !e),
-                    s = "waqi-qwant-tile",
-                    u = document.getElementById(s);
-                if (u && (u.remove(), u = null), !u) {
-                    if (u = document.createElement("div"), e) {
-                        var c = document.getElementsByClassName("header__user")[0];
-                        c.insertBefore(u, c.firstChild)
-                    } else document.body.insertBefore(u, document.body.firstChild);
-                    u.id = s
-                }
-                var l = "waqi-widget waqi-widget-" + (e ? "small" : "large");
-                n && (l += "-mobile"), u.className = l, o.s3(u).empty().i(a), u.onclick = function () {
+                var r = -1 != window.location.hash.indexOf("q=") || e && "" != e.value;
+                r && (n = 60);
+                var a = o.getWidget(t, !r);
+                n && (a = i.s3().c("div", {
+                    marginTop: n + "px"
+                }).i(a)), r && (a = i.s3().c("div", "waqi-widget-small").i(a));
+                var u = "waqi-widget",
+                    c = document.getElementById(u);
+                c || (c = document.createElement("div"), document.body.insertBefore(c, document.body.firstChild), c.id = u), i.s3(c).empty().i(a), c.onclick = function () {
                     location.assign(t.city.url)
                 }
             }
-        },
-            e = new r.AqiSettings;
+        }
+        var e = new r.AqiSettings;
         e.checkOption("qwant").then(function (n) {
             if (n) {
-                var r = 0;
-                ! function n() {
-                    var i = !1;
-                    document.getElementsByClassName("results-page").length > 0 && document.getElementsByClassName("header__user").length > 0 && (i = !0);
-                    var o, a = document.getElementsByClassName("search_bar__form__input");
-                    if (a.length > 0 ? (i = !0, o = a.item(0)) : o = null, i) {
-                        console.log("Qwant:", o);
-                        var s = !o || "" != o.value,
-                            u = null;
-                        o && o.addEventListener("change", function () {
-                            console.log("Qwant: input has changed"), s = s || "" != o.value, t(u, s)
-                        }), e.onFeedUpdate(function (e) {
-                            t(e, s), u = e
-                        })
-                    } else r++ < 30 ? setTimeout(n, 50 * r) : console.log("This is not qwant landing page...")
-                }()
+                var r = (
+                    document.getElementsByClassName("vz3ON").length > 0
+                );
+                const o = document.querySelector('input[type="search"][name="q"]');
+                if (o) var i = 1;
+                if (r && null != o && 1 == i) {
+                    console.log("This is the qwant landing page...");
+                    var f = null;
+                    o.onkeyup = function () {
+                        t(f)
+                    }, e.onFeedUpdate(function (e) {
+                        t(e), f = e
+                    })
+                } else r++ < 30 ? setTimeout(n, 50 * r) : console.log("This is not qwant landing page...")
             }
         })
     }()

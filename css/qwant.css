@@ -5,11 +5,14 @@
 * @Last Modified time: 2018-03-13 15:01:39
 */
 .waqi-widget {
+	position: absolute;
+	padding: 24px;
+	padding-top: 50px;
 	cursor: pointer;
 }
 
 .waqi-widget-large-mobile {
-	z-index:8;
+	z-index: 8;
 	position: fixed;
 	right: 25%;
 	bottom: 0;
@@ -23,7 +26,8 @@
 	margin-left: 20px;
 }
 
-.waqi-widget-small, .waqi-widget-small-mobile {
+.waqi-widget-small,
+.waqi-widget-small-mobile {
 	display: inline-block;
 	padding-right: 20px;
 }

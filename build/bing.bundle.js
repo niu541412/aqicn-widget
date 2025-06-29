@@ -332,36 +332,51 @@
     e.__esModule = !0;
     var r = n(0),
         i = n(5);
-    ! function () {
+    !function () {
         var t = new r.AqiSettings;
         t.checkOption("bing").then(function (e) {
-            e && t.onFeedUpdate(function (t) {
-                ! function t(e, n) {
-                    if (void 0 === n && (n = 0), null == document.getElementById("crs_pane")) {
-                        var r = 200;
-                        ++n > 5 && (r = 300), n > 10 && (r = 200), n > 15 && (r = 300), n > 20 && (r = 500), n < 30 && setTimeout(function () {
-                            return t(e, n)
-                        }, r)
-                    } else e()
-                }(function () {
-                    return function (t) {
-                        if (null != t) {
-                            var e = document.getElementById("crs_pane");
-                            if (null != e) {
-                                var n = '<div class="hp_text">' + r.aqiLang.getTitle(t) + "</div>",
-                                    o = `${formatShortWeekday(t.time.v, 'en')}, ${getHour12AMPM(t.time.v)}`,
-                                    a = n;
-                                a += '<span class="aqi_tile" style="background-color:' + i.bgcolor(t.aqi) + ";color:" + i.fgcolor(t.aqi) + '">', a += '<span class="aqi_val segoe_reg" >' + t.aqi + "</span><br>", a += '<span class="aqi_time">' + o, a += "</span>", a += "</span>";
-                                var s = "waqi-bing-title",
-                                    c = document.getElementById(s);
-                                c || ((c = document.createElement("li")).className = "no_margin_left pntile", c.id = s, e.insertBefore(c, e.firstChild)), c.innerHTML = a, c.onclick = function () {
-                                    location.assign(t.city.url)
-                                }
-                            }
-                        }
-                    }(t)
-                })
-            })
-        })
-    }()
+            if (!e) return;
+            t.onFeedUpdate(function (t) {
+                function waitForPane(callback, retries) {
+                    retries = retries || 0;
+                    var r = 200;
+                    if (retries > 5) r = 300;
+                    if (retries > 10) r = 200;
+                    if (retries > 15) r = 300;
+                    if (retries > 20) r = 500;
+                    if (document.getElementById("idCont") == null && retries < 30) {
+                        setTimeout(() => waitForPane(callback, retries + 1), r);
+                    } else {
+                        callback();
+                    }
+                }
+                function insertAQIInfo(t) {
+                    if (!t) return;
+                    var e = document.getElementById("idCont");
+                    if (!e) return;
+                    var n = '<div class="hp_text">' + r.aqiLang.getTitle(t) + '</div>';
+                    var o = `${formatShortWeekday(t.time.v, 'en')}, ${getHour12AMPM(t.time.v)}`;
+                    var a = n;
+                    a += '<span class="aqi_tile" style="background-color:' + i.bgcolor(t.aqi) + ';color:' + i.fgcolor(t.aqi) + '">';
+                    a += '<span class="aqi_val segoe_reg">' + t.aqi + '</span><br>';
+                    a += '<span class="aqi_time">' + o + '</span>';
+                    a += '</span>';
+                    var s = "waqi-bing-title";
+                    var c = document.getElementById(s);
+                    if (!c) {
+                        c = document.createElement("li");
+                        c.className = "no_margin_left pntile";
+                        c.id = s;
+                        e.insertBefore(c, e.firstChild);
+                    }
+                    c.innerHTML = a;
+                    c.onclick = function () {
+                        location.assign(t.city.url);
+                    };
+                }
+                waitForPane(() => insertAQIInfo(t));
+            });
+        });
+    }();
+
 }]);

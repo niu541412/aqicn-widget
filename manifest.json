@@ -21,7 +21,9 @@
          ],
          "matches": [
             "http://www.bing.com/*",
-            "https://www.bing.com/*"
+            "https://www.bing.com/*",
+            "http://cn.bing.com/*",
+            "https://cn.bing.com/*"
          ]
       },
       {
@@ -45,7 +47,7 @@
          ],
          "js": [
             "js/date-tools.js",
-            "build/baidu.bundle.js"
+            "build/qwant.bundle.js"
          ],
          "matches": [
             "http://www.qwant.com/",
@@ -460,5 +462,5 @@
       "storage"
    ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.6.0"
+   "version": "1.7.0"
 }

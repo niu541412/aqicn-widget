@@ -357,14 +357,14 @@
         var e = new r.AqiSettings;
         e.checkOption("google").then(function (n) {
             if (n) {
-                var r = !0;
-                ["hplogo", "viewport"].forEach(function (t) {
-                    r = r && null != document.getElementById(t)
-                });
-                for (var o, i = 0, a = document.getElementsByTagName("input"), u = 0; u < a.length; u++)
+                var r = (
+                    document.getElementsByClassName("lnXdpd").length > 0 &&
+                    document.getElementsByClassName("RNmpXc").length > 0
+                );
+                for (var o, i = 0, a = document.getElementsByTagName("textarea"), u = 0; u < a.length; u++)
                     for (var c = a[u].attributes, s = 0; s < c.length; s++) {
                         var l = c[s];
-                        "type" == l.name && "text" == l.nodeValue && (i++, o = a[u])
+                        "name" == l.name && "q" == l.nodeValue && (i++, o = a[u])
                     }
                 if (r && null != o && 1 == i) {
                     console.log("This is the google landing page...");

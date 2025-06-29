@@ -192,6 +192,19 @@
                     }, Background.prototype.setDesign = function (e) {
                         chrome.storage.local.set({ "design": e });
                         return e;
+                    }, Background.prototype.checkOption = function (e) {
+                        return new Promise((resolve) => {
+                            const key = "optchecked" + e;
+                            chrome.storage.local.get([key], (result) => {
+                                let t = result[key];
+                                console.log("checkOption", e, ":", t, 'type:', typeof t);
+                                if (typeof t === "undefined") {
+                                    console.log("checkOption", e, ":", "It is undefined!");
+                                    t = true;
+                                }
+                                resolve(t);
+                            });
+                        });
                     }, Background.prototype.loader = function (e) {
                         var t = this;
                         void 0 === e && (e = 0), console.log("AQI feed loader - count = " + e), this.timeout && clearTimeout(this.timeout), this.loadFeed(0 == e), e > 300 || (this.timeout = setTimeout(function () {
@@ -209,12 +222,10 @@
                         sendResponse(null);
                     });
                     return true;
-                }
-                else if ("setSelectedCity" == request.method) {
+                } else if ("setSelectedCity" == request.method) {
                     chrome.storage.local.set({ "selectedCity": JSON.stringify(request.city) });
                     background.loadFeed(!0);
-                }
-                else if ("loadFeed" == request.method) {
+                } else if ("loadFeed" == request.method) {
                     chrome.storage.local.get(["FeedData"], (result) => {
                         var aqi = result.FeedData;
                         aqi = JSON.parse(aqi);
@@ -229,8 +240,25 @@
                                 });
                             background.loadFeed();
                         }
+                    })
+                } else if ("setLang" == request.method) {
+                    sendResponse(background.setLang(request.lang));
+                    background.loadFeed(true);
+                } else if ("setDesign" == request.method) {
+                    sendResponse(background.setDesign(request.design));
+                    background.loadFeed(true);
+                } else if ("saveOptions" == request.method) {
+                    sendResponse(background.saveOptions(request.options));
+                    background.loadFeed(true);
+                } else if ("checkOption" == request.method) {
+                    background.checkOption(request.opt).then(result => {
+                        sendResponse(result);
+                        background.loadFeed(true);
                     });
-                } else "setLang" == request.method ? (sendResponse(background.setLang(request.lang)), background.loadFeed(!0)) : "setDesign" == request.method ? (sendResponse(background.setDesign(request.design)), background.loadFeed(!0)) : "saveOptions" == request.method ? (sendResponse(background.saveOptions(request.options)), background.loadFeed(!0)) : "checkOption" == request.method ? (sendResponse(background.checkOption(request.opt)), background.loadFeed(!0)) : sendResponse({})
+                    return true;
+                } else {
+                    sendResponse({});
+                }
             })
         },
         function (e, t, n) {

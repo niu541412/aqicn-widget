@@ -41,7 +41,7 @@
       "message": "AQI ウィジェットの表示スタイル："
    },
    "opt_engine": {
-      "message": "AQI 情報を表示する場所："
+      "message": "AQI 情報を表示するサイト："
    },
    "opt_lang": {
       "message": "AQI 情報の表示言語："

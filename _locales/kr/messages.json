@@ -41,7 +41,7 @@
       "message": "AQI 위젯 시각 스타일:"
    },
    "opt_engine": {
-      "message": "AQI 정보를 표시할 위치:"
+      "message": "AQI 정보를 표시할 사이트:"
    },
    "opt_lang": {
       "message": "AQI 정보 표시 언어:"

@@ -183,19 +183,14 @@ table.citysearch tr:hover {
    left: 50%;
    transform: translate(-50%, -50%);
    background: rgba(0, 0, 0, 0.6);
-   /* 稍淡一些，更柔和 */
    color: #f0f0f0;
-   /* 柔和白色 */
    padding: 12px 24px;
-   /* 缩小一点，更轻巧 */
    border-radius: 10px;
    font-size: 18px;
-   /* 减小字体，更平衡 */
    font-weight: 500;
    z-index: 9999;
    display: none;
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-   /* 更自然的阴影 */
    text-align: center;
    transition: opacity 0.3s ease;
    opacity: 0;

@@ -41,7 +41,7 @@
       "message": "AQI 小部件的显示样式："
    },
    "opt_engine": {
-      "message": "显示 AQI 信息的位置："
+      "message": "显示 AQI 信息的网站："
    },
    "opt_lang": {
       "message": "AQI 信息的显示语言："
