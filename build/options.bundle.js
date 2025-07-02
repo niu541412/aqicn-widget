@@ -362,10 +362,11 @@
                     document.getElementById("cityinput").onkeyup = function () {
                         t.onKeyUp();
                     }
+                    t.locateMyself();
                 }
                 return t.prototype.url = function (t) {
                     var e = "https://aqicn.org/browser-widget/xsearch/places/" + t + "?";
-                    return e += "&t=" + (new Date).getTime(), e += "&from=chrome-extension"
+                    return e += "&t=" + Date.now(), e += "&from=chrome-extension"
                 }, t.prototype.formatData = function (t, e) {
                     var n = this, i = "<table class='citysearch'>";
                     t.forEach(function (e, n) {
@@ -478,6 +479,39 @@
                         return t.json()
                     }).then(function (e) {
                         document.getElementById("cityinput").className = "", t.formatData(e.results, "searchresults")
+                    })
+                }, t.prototype.locateMyself = function () {
+                    var n = this
+                    const locateBtn = document.getElementById("locate-btn");
+                    locateBtn.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAatJREFUSEvVVb0yBEEQ7p4n8AgIyRDzAjjB9FxChiqRkhA6IYkSqUJGctsT+LkXcDEyQu4R7gm2mauZqzG3d7elbHCTbG1tb3/d3/d1D0LJY4xpiMixC0fEkyzLGmV+xTJBLmZyAbTWNQDQiLgKAFO+466ItADAWmsfRrEwlKJ6vb6Q5/k5ACyPobGtlDpoNptvRXGFAES0DgChso6IXCJii5k/XBIimhORVUTcA4Bpn7jGzI8pyACAr/zVu+Umy7KdER2gMeZKRLZdjFJqMe1kAICInh0tiDgueR/XGHPtQdrMvBIX9AvACYqI9wDQYeZZABAX7LtyvndCu9NSSjXiaonoy9ElIhux8CnALSJuisiRtfYsSv7i5iuhSpRSSwFEa32IiKcicmet3QqxjsP+RIrIvrfifCSoE25tiA5PzOwM0RP+5/EOAF1EvOgDEFGPhvgwc79aIsoLqg/hwswqvBTlwsoBKqcopkZr/f8iJwCxTWfCtxI2dVR/jrWpd0N1gxb5Pl4Vu2HgiqwaTXG5VeG7qG7ZJbxXs65T4Su5cFK+J/dODp38tYNvnVpLKPvXIUEAAAAASUVORK5CYII=";
+                    locateBtn.addEventListener("click", function () {
+                        fetch("https://mapq.waqi.info/mapq/nearest/?n=10")
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                console.log(JSON.stringify(data.d, null, 2));
+                                for (const station of data.d) {
+                                    const vNum = Number(station.v);
+                                    if (!isNaN(vNum)) {
+                                        var my_location = {
+                                            utime: station.t,
+                                            name: `${station.nlo} (${station.nna})`,
+                                            aqi: station.v,
+                                            idx: station.x
+                                        }
+                                        break;
+                                    }
+                                }
+                                console.log("My location is ", my_location.nna);
+                                n.onClick(my_location);
+                            })
+                            .catch(error => {
+                                console.error("Fetch error:", error);
+                            });
                     })
                 }, t
             }();

@@ -24,8 +24,12 @@
       <span class="i18n" id="search_current_city"></span> <span id="selectedcitytitle" style="color:#888;"></span>
       <span id="selectedcityextrainfo" style="color:#888;font-size:18px;">...</span>
       <ul>
-        <input type="text" autocomplete="off" id="cityinput" name="q" placeholder="Select another city ..."
-          value="" /><br><br>
+        <div class="input-wrapper">
+          <input type="text" autocomplete="off" id="cityinput" name="q" placeholder="Select another city ..."
+            value="" />
+          <img id="locate-btn" alt="find AQI for my location" />
+        </div>
+        <br><br>
         <div id="searchresults"></div>
       </ul>
       <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
