@@ -4,6 +4,7 @@ A chrome extension ‘world-air-quality-index’ with bug-fixed.
 
 ### 新增功能：
 1. 增加自动判断当前位置空气质量的按钮
+2. 兼容Firefox
 
 ### 修复内容：
 
