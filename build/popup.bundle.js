@@ -634,7 +634,6 @@
                                     return response.json();
                                 })
                                 .then(data => {
-                                    console.log(JSON.stringify(data.d, null, 2));
                                     for (const station of data.d) {
                                         const vNum = Number(station.v);
                                         if (!isNaN(vNum)) {
@@ -647,7 +646,7 @@
                                             break;
                                         }
                                     }
-                                    console.log("My location is ", my_location.nna);
+                                    console.log("My location is ", my_location.name);
                                     n.onClick(my_location);
                                 })
                                 .catch(error => {

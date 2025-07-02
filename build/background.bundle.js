@@ -1,4 +1,11 @@
-importScripts("../js/date-tools.js");
+if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrowserInfo) {
+    browser.runtime.getBrowserInfo().then(info => {
+        console.log("Running in Firefox:", info.name, info.version);
+    });
+} else {
+    console.log("Running in Chrome or other Chromium-based browser");
+    importScripts("../js/date-tools.js");
+}
 ! function (e) {
     var t = {};
 
@@ -217,6 +224,7 @@ importScripts("../js/date-tools.js");
                 background = new Background;
             chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 if (console.log("received Message ", request.method, " from the UI"), "getSelectedCity" == request.method) {
+                    console.log("getSelectedCity@getSelectedCity@getSelectedCity");
                     background.getCityObject().then((cityObj) => {
                         sendResponse(cityObj);
                     }).catch((err) => {
