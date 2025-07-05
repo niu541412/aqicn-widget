@@ -101,11 +101,28 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                                 }
                             });
                         });
+                    }, Background.prototype.getAqiColor = function (aqi) {
+                        if (aqi === "-" || aqi == null) return { color: "#aaaaaa", textColor: "#eeeeee" };
+                        let color = "#aaaaaa";
+                        let textColor = "#eeeeee";
+                        if (aqi <= 50) {
+                            color = "#009966"; textColor = "#ffffff";
+                        } else if (aqi <= 100) {
+                            color = "#ffde33"; textColor = "#000000";
+                        } else if (aqi <= 150) {
+                            color = "#ff9933"; textColor = "#000000";
+                        } else if (aqi <= 200) {
+                            color = "#cc0033"; textColor = "#ffffff";
+                        } else if (aqi <= 300) {
+                            color = "#660099"; textColor = "#ffffff";
+                        } else {
+                            color = "#7e0023"; textColor = "#ffffff";
+                        }
+                        return { color, textColor };
                     }, Background.prototype.setIcon = function (e) {
                         if (console.log("Set Icon:", e), null != e) {
                             const aqi = e.aqi;
-                            const color = "-" != aqi && aqi ? aqi <= 50 ? "#009966" : aqi <= 100 ? "#ffde33" : aqi <= 150 ? "#ff9933" : aqi <= 200 ? "#cc0033" : aqi <= 300 ? "#660099" : "#7e0023" : "#aaaaaa";
-                            const textColor = "-" != aqi && aqi ? aqi <= 50 ? "#ffffff" : aqi <= 150 ? "#000000" : "#ffffff" : "#eeeeee";
+                            const { color, textColor } = this.getAqiColor(aqi);
                             const iconsize = 32;
                             const cvs = new OffscreenCanvas(iconsize, iconsize);
                             const ctx = cvs.getContext('2d');
@@ -183,7 +200,7 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                         return new Promise((resolve) => {
                             chrome.storage.local.get(["lang"], (result) => {
                                 let e = result.lang;
-                                void 0 === e && (e = "zh-CN" == (e = chrome.i18n.getUILanguage()) ? "cn" : "zh-HK" == e ? "hk" : "zh-TW" == e ? "hk" : "ja" == e ? "jp" : "ko" == e ? "kr" : "en"), ["kr", "jp", "hk", "cn"].indexOf(e) < 0 && (e = "en"), console.log("getLang() -> " + e + " (" + chrome.i18n.getUILanguage() + ")");
+                                void 0 === e && (e = "zh-CN" == (e = chrome.i18n.getUILanguage()) ? "cn" : "zh-HK" == e ? "hk" : "zh-TW" == e ? "hk" : "ja" == e ? "jp" : "ru" == e ? "ru" : "es" == e ? "es" : "ko" == e ? "kr" : "en"), ["cn", "hk", "jp", "ru", "es", "kr"].indexOf(e) < 0 && (e = "en"), console.log("getLang() -> " + e + " (" + chrome.i18n.getUILanguage() + ")");
                                 resolve(e);
                             });
                         });
@@ -224,7 +241,6 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                 background = new Background;
             chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 if (console.log("received Message ", request.method, " from the UI"), "getSelectedCity" == request.method) {
-                    console.log("getSelectedCity@getSelectedCity@getSelectedCity");
                     background.getCityObject().then((cityObj) => {
                         sendResponse(cityObj);
                     }).catch((err) => {

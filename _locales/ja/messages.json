@@ -1,41 +1,11 @@
 {
    "appDesc": {
-      "description": "Chrome 用 aqicn.org プラグイン",
-      "message": "Chrome 用 aqicn.org プラグイン"
+      "description": "ブラウザ用 aqicn.org プラグイン",
+      "message": "ブラウザ用 aqicn.org プラグイン"
    },
    "appName": {
       "description": "世界大気質指数",
       "message": "世界大気質指数"
-   },
-   "aqivaluescn": {
-      "message": "\u003Cb> 没有数据 \u003C/b>, \u003Cb>优\u003C/b> , \u003Cb>良\u003C/b>, \u003Cb>轻度污染\u003C/b> , \u003Cb>中度污染\u003C/b>, \u003Cb>重度污染\u003C/b> , \u003Cb>严重污染\u003C/b>"
-   },
-   "aqivaluesen": {
-      "message": "no data, Good, Moderate, Unhealthy\u003Cbr>\u003Cspan style=font-size:18px;>for Sensitive Groups\u003C/span>, Unhealthy, Very Unhealthy, Hazardous"
-   },
-   "aqivalueshk": {
-      "message": "\u003Cb>沒有數據\u003C/b>, \u003Cb>優\u003C/b>, \u003Cb>良\u003C/b>, \u003Cb>輕度污染\u003C/b>, \u003Cb>中度污染\u003C/b>, \u003Cb>重度污染\u003C/b>, \u003Cb>嚴重污染\u003C/b>"
-   },
-   "aqivaluesjp": {
-      "message": "\u003Cb>データなし\u003C/b>, \u003Cb>優\u003C/b>, \u003Cb>良\u003C/b>, \u003Cb>軽微汚染\u003C/b>, \u003Cb>軽度汚染\u003C/b>, \u003Cb>中度汚染\u003C/b>, \u003Cb>重汚染\u003C/b>"
-   },
-   "aqivalueskr": {
-      "message": "\u003Cb>데이터가 없습니다\u003C/b>, \u003Cb>파랑\u003C/b>, \u003Cb>초록\u003C/b>, \u003Cb>노랑\u003C/b>, \u003Cb>주황\u003C/b>, \u003Cb>빨강\u003C/b>, \u003Cb>갈색\u003C/b>"
-   },
-   "lang_cn": {
-      "message": "中国語（簡体）"
-   },
-   "lang_en": {
-      "message": "英語"
-   },
-   "lang_hk": {
-      "message": "中国語（繁体）"
-   },
-   "lang_jp": {
-      "message": "日本語"
-   },
-   "lang_kr": {
-      "message": "韓国語"
    },
    "opt_design": {
       "message": "AQI ウィジェットの表示スタイル："

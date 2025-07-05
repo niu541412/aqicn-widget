@@ -80,21 +80,33 @@
                 return "-" == t ? 0 : t <= 50 ? 1 : t <= 100 ? 2 : t <= 150 ? 3 : t <= 200 ? 4 : t <= 300 ? 5 : 6
             }
                 , i = "aqivalues" + e
-                , r = chrome.i18n.getMessage(i).split(",");
-            return console.log("labels:", i, "->", r),
-                r[n(t)].trim()
+                , r = this.getText("aqi_level", e).split(",");
+            console.log("labels:", i, "->", r);
+            return r[n(t)].trim()
         }
             ,
             t.prototype.getText = function (t, e) {
+                const smallLine = (text, size = 18) => `<br><span style="display:block;font-size:${size}px">${text}</span>`;
                 var n = {
                     air_quality: {
-                        en: " Air Quality",
-                        cn: "空气污染",
-                        hk: "空氣污染",
-                        jp: "大気汚染",
-                        kr: "대기 오염"
-                    }
-                };
+                        en: "Air Quality",
+                        cn: "空气质量",
+                        hk: "空氣質量",
+                        jp: "空気質",
+                        kr: "대기질",
+                        es: "Calidad del aire",
+                        ru: "Внешний вид"
+                    },
+                    aqi_level: {
+                        cn: "<b>没有数据</b>, <b>优</b>, <b>良</b>, <b>轻度污染</b>, <b>中度污染</b>, <b>重度污染</b>, <b>严重污染</b>",
+                        en: "no data, Good, Moderate, Unhealthy" + smallLine("for Sensitive Groups") + ", Unhealthy, Very Unhealthy, Hazardous",
+                        hk: "<b>沒有數據</b>, <b>優</b>, <b>良</b>, <b>輕度污染</b>, <b>中度污染</b>, <b>重度污染</b>, <b>嚴重污染</b>",
+                        jp: "<b>データなし</b>, <b>良い</b>, <b>並</b>, <b>軽微汚染</b>, <b>軽度汚染</b>, <b>中度汚染</b>, <b>重汚染</b>",
+                        kr: "<b>데이터가 없습니다</b>, <b>좋음</b>, <b>보통</b>, <b>민감군영향</b>, <b>나쁨</b>, <b>매우나쁨</b>, <b>위험</b>",
+                        ru: "Нет данных, Хороший, Умеренный, Вредно" + smallLine("для чувствительных групп") + ", Нездоровый, Очень вредно для здоровья, Опасный",
+                        es: "Sin datos,Buena, Moderada, Dañina a la Salud" + smallLine("de los Grupos Sensitivos") + ", Dañina a la Salud, Muy Dañina a la Salud, Arriesgado"
+                    },
+                }
                 return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
             }
             ,
@@ -136,7 +148,7 @@
                         "hk" == t.clang && void 0 !== t.infocn && (t.info = t.infocn),
                         void 0 !== t["utime" + t.clang] && (t.utime = t["utime" + t.clang]),
                         "hk" == t.clang && void 0 !== t.utimecn && (t.utime = t.utimecn),
-                        "cn" == t.clang || "hk" == t.clang || "jp" == t.clang || "kr" == t.clang ? t.name = t.namena : t.name = t.nameen,
+                        "cn" == t.clang || "hk" == t.clang || "jp" == t.clang || "ru" == t.clang || "es" == t.clang || "kr" == t.clang ? t.name = t.namena : t.name = t.nameen,
                         t
             }
             ,
@@ -272,7 +284,7 @@
                 var s = t.rtsettings.design
                     , c = t.rtsettings.lang;
                 var locale_id;
-                "cn" == c ? c = "zh-CN" : "hk" == c ? c = "zh-TW" : "jp" == c ? c = "ja" : "kr" == c && (c = "ko"),
+                "cn" == c ? c = "zh-CN" : "hk" == c ? c = "zh-TW" : "jp" == c ? c = "ja" : "ru" == s ? s = "ru" : "es" == s ? s = "es" : "kr" == c && (c = "ko"),
                     locale_id = c;
                 var u = i.aqiLang.getShortTitle(t)
                     , l = r.s3().c("div", {

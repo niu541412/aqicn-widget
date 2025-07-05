@@ -1,0 +1,43 @@
+{
+   "appDesc": {
+      "description": "Плагин aqicn.org для браузера",
+      "message": "Плагин aqicn.org для браузера"
+   },
+   "appName": {
+      "description": "Мирового индекса качества воздуха",
+      "message": "Мирового индекса качества воздуха"
+   },
+   "opt_design": {
+      "message": "Визуальный стиль виджета AQI:"
+   },
+   "opt_engine": {
+      "message": "Показать информацию AQI на:"
+   },
+   "opt_lang": {
+      "message": "Показать информацию AQI на языке:"
+   },
+   "opt_save": {
+      "message": "Настройки сохранены"
+   },
+   "search_current_city": {
+      "message": "Выбор города: "
+   },
+   "search_enter_city": {
+      "message": "Введите название города "
+   },
+   "search_load_error": {
+      "message": "Извините, произошла ошибка при загрузке данных AQI..."
+   },
+   "search_no_result": {
+      "message": "Извините, результатов нет!"
+   },
+   "search_select_another": {
+      "message": "Выберите другой город..."
+   },
+   "search_selected_city": {
+      "message": "Выбранный город: "
+   },
+   "waqi_title": {
+      "message": "Мирового индекса качества воздуха"
+   }
+}

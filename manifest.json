@@ -464,7 +464,5 @@
     "https://aqicn.org/*",
     "http://aqicn.org/*"
   ],
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvZHIYTBJI97KkQ/mKvzo7vtM6ioEus7B3uOhou9CwxDlknLkFp7K+3tG7joKHenvBl1lf5KJ8jjOHLRBPUYLnt8GNUzpMFoqNq4HwjnwpkwP87R7uoOCFDWCgIc4EjfHZ6DCIQFIbdPFjBUQOEuksDwtQIkRGjbrMjYEooTQFMckciYB+vRSoDzcdxi9vZYMjh5dZRdA2OB/WS9zyq2kyXOMrRD80ozpQ5rCv+PK3ddILFs7Zpg71s9pbf+yD9ZJ6YJZ5dymL4h7Qpt7gz54CGNY81MwPq3+0OkqX1UGhWm+eKwSbBcZ0PZChHMIT5T0+kUhlJe0gVgmEqVx0LUPEwIDAQAB",
-  "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "2.0.2"
+  "version": "2.0.3"
 }
