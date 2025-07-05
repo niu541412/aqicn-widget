@@ -59,11 +59,13 @@
         }, t.prototype.getText = function (t, e) {
             var n = {
                 air_quality: {
-                    en: " Air Quality",
-                    cn: "空气污染",
-                    hk: "空氣污染",
-                    jp: "大気汚染",
-                    kr: "대기 오염"
+                    en: "Air Quality",
+                    cn: "空气质量",
+                    hk: "空氣質量",
+                    jp: "空気質",
+                    kr: "대기질",
+                    es: "Calidad del aire",
+                    ru: "Внешний вид"
                 }
             };
             return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
@@ -90,7 +92,7 @@
                 city: t
             }, function (t) { })
         }, t.prototype.updateAQI = function (t) {
-            if (t) return t.forecast && (void 0 !== t.forecast[t.clang] ? t.weather = t.forecast[t.clang] : t.weather = t.forecast.en), void 0 !== t["info" + t.clang] && (t.info = t["info" + t.clang]), "hk" == t.clang && void 0 !== t.infocn && (t.info = t.infocn), void 0 !== t["utime" + t.clang] && (t.utime = t["utime" + t.clang]), "hk" == t.clang && void 0 !== t.utimecn && (t.utime = t.utimecn), "cn" == t.clang || "hk" == t.clang || "jp" == t.clang || "kr" == t.clang ? t.name = t.namena : t.name = t.nameen, t
+            if (t) return t.forecast && (void 0 !== t.forecast[t.clang] ? t.weather = t.forecast[t.clang] : t.weather = t.forecast.en), void 0 !== t["info" + t.clang] && (t.info = t["info" + t.clang]), "hk" == t.clang && void 0 !== t.infocn && (t.info = t.infocn), void 0 !== t["utime" + t.clang] && (t.utime = t["utime" + t.clang]), "hk" == t.clang && void 0 !== t.utimecn && (t.utime = t.utimecn), "cn" == t.clang || "hk" == t.clang || "jp" == t.clang || "ru" == t.clang || "es" == t.clang || "kr" == t.clang ? t.name = t.namena : t.name = t.nameen, t
         }, t.prototype.updateFeed = function (t) {
             return t
         }, t.prototype.updateData = function (t, e) {
@@ -177,7 +179,7 @@
         var s = t.rtsettings.design,
             u = t.rtsettings.lang;
         var locale_id;
-        "cn" == u ? u = "zh-CN" : "hk" == u ? u = "zh-TW" : "jp" == u ? u = "ja" : "kr" == u && (u = "ko"), locale_id = u;
+        "cn" == u ? u = "zh-CN" : "hk" == u ? u = "zh-TW" : "jp" == u ? u = "ja" : "ru" == s ? s = "ru" : "es" == s ? s = "es" : "kr" == u && (u = "ko"), locale_id = u;
         var c = r.aqiLang.getShortTitle(t),
             l = i.s3().c("div", {
                 fontSize: "13px"

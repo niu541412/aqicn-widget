@@ -1,0 +1,43 @@
+{
+   "appDesc": {
+      "description": "Complemento de aqicn.org para el navegador",
+      "message": "Complemento de aqicn.org para el navegador"
+   },
+   "appName": {
+      "description": "Índice Mundial de Calidad del Aire",
+      "message": "Índice Mundial de Calidad del Aire"
+   },
+   "opt_design": {
+      "message": "Estilo visual del widget de AQI:"
+   },
+   "opt_engine": {
+      "message": "Mostrar la información de AQI en:"
+   },
+   "opt_lang": {
+      "message": "Mostrar la información de AQI en idioma:"
+   },
+   "opt_save": {
+      "message": "Opciones guardadas"
+   },
+   "search_current_city": {
+      "message": "Selección de ciudad: "
+   },
+   "search_enter_city": {
+      "message": "Ingrese el nombre de una ciudad "
+   },
+   "search_load_error": {
+      "message": "Lo sentimos, ocurrió un error al cargar los datos del AQI..."
+   },
+   "search_no_result": {
+      "message": "¡Lo sentimos, no hay resultados!"
+   },
+   "search_select_another": {
+      "message": "Seleccione otra ciudad..."
+   },
+   "search_selected_city": {
+      "message": "Ciudad seleccionada: "
+   },
+   "waqi_title": {
+      "message": "Índice Mundial de Calidad del Aire"
+   }
+}
