@@ -32,7 +32,7 @@ a:hover {
 }
 
 #cityaqiwidget {
-   font-family: Cambria, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', serif;
+   font-family: "Noto Serif", Cambria, "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif;
    display: inline-block;
    /*   border:#835342 solid 1px;
 */

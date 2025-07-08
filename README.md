@@ -1,8 +1,21 @@
 # aqicn-widget
 
-A chrome extension ‘world-air-quality-index’ with bug-fixed.
+The extension ‘world-air-quality-index’ with bug-fixed for modern browsers.
+
+<img src="img/aqicn.128.png" width=96 >
+
+移植自Chrome同名扩展，原扩展下载[地址](https://chromewebstore.google.com/detail/hhhfnanaabgcafkmlplbifbhknnbmidl)。
+由于官方常年未维护(处于过期的manifest v2版本)，联系后也无回复。若有侵权，请联系我删除。
+
+### 下载地址
+
+[Chrome 商店](https://chromewebstore.google.com/detail/ggogokejhhpnbpbgaajaillhlfhghhmp),
+[Firefox Add-on](https://addons.mozilla.org/zh-CN/firefox/addon/world-air-quality-index-fork)
+
+<!-- ，[Edge商店](https://microsoftedge.microsoft.com/addons/detail/jijkhdficgnnikdijnkienfnmfbolmpb) -->
 
 ### 新增功能：
+
 1. 增加自动判断当前位置空气质量的按钮
 2. 兼容Firefox
 
@@ -21,8 +34,3 @@ A chrome extension ‘world-air-quality-index’ with bug-fixed.
 4. 完全移除es6-promise
 5. 使用OffscreenCanvas动态绘制图标，移除静态图片
 6. 迁移同步localStorage到异步chrome.storage.local
-
-### 使用方法：
-
-1. 下载到本地并解压
-2. 打开chrome扩展管理，加载已解压的扩展程序，添加目录即可。
