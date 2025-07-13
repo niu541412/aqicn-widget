@@ -551,7 +551,6 @@
             new o.CitySearch,
                 function () {
                     var t = ["cn", "en", "hk", "jp", "ru", "es", "kr"];
-
                     function e(e) {
                         t.forEach(function (t) {
                             var n = document.getElementById("lang" + t);
@@ -581,9 +580,35 @@
                     });
                 }(),
                 function () {
+                    function setRadioChecked(value) {
+                        ["defaulticon", "badgeicon"].forEach(t => {
+                            var radio = document.getElementById(t);
+                            radio.checked = radio.value === value;
+                        });
+                    }
+                    chrome.storage.local.get('iconType', (result) => {
+                        const iconType = result.iconType || '1';
+                        setRadioChecked(iconType);
+                    });
+                    ["defaulticon", "badgeicon"].forEach(t => {
+                        var s = document.getElementById(t + "_img");
+                        s.src = "../img/icon/" + t + ".png";
+                        var n = document.getElementById(t);
+                        n && (n.onclick = function () {
+                            t = n.value;
+                            setRadioChecked(t);
+                            chrome.storage.local.set({ "iconType": t });
+                            chrome.runtime.sendMessage({
+                                method: "setIcon",
+                                icon: t
+                            }, function (t) { });
+                            saveMessage(chrome.i18n.getMessage("opt_save"));
+                        });
+                    })
+                }(),
+                function () {
                     var t = "design",
                         e = ["tiny", "small", "forecast", "aqi", "iaqi"];
-
                     function n(n) {
                         console.log("Set[" + t + "]: ", n), e.forEach(function (e) {
                             var i = document.getElementById(t + "_" + e);
@@ -600,6 +625,7 @@
                             var r = document.createElement("img");
                             r.src = "../img/design/" + e + ".png", r.style.verticalAlign = "middle", r.style.width = "180px", r.style.cursor = "pointer";
                             var a = function () {
+                                n(e);
                                 chrome.storage.local.set({ [t]: e });
                                 chrome.runtime.sendMessage({
                                     method: "setDesign",

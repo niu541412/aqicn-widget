@@ -13,6 +13,9 @@
    "opt_engine": {
       "message": "Show the AQI information on:"
    },
+   "opt_icon": {
+      "message": "Icon style:"
+   },
    "opt_lang": {
       "message": "Display the AQI information in:"
    },

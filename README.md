@@ -18,6 +18,7 @@ The extension ‘world-air-quality-index’ with bug-fixed for modern browsers.
 
 1. 增加自动判断当前位置空气质量的按钮
 2. 兼容Firefox
+3. 增加图标样式选项
 
 ### 修复内容：
 

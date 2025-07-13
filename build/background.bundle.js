@@ -121,26 +121,48 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                         return { color, textColor };
                     }, Background.prototype.setIcon = function (e) {
                         if (console.log("Set Icon:", e), null != e) {
-                            const aqi = e.aqi;
-                            const { color, textColor } = this.getAqiColor(aqi);
-                            const iconsize = 32;
-                            const cvs = new OffscreenCanvas(iconsize, iconsize);
-                            const ctx = cvs.getContext('2d');
-                            ctx.roundRect(0, 0, iconsize, iconsize, 6);
-                            ctx.fillStyle = color;
-                            ctx.fill();
-                            // ctx.font = 'bold 18px sans-serif, "Noto Serif", Cambria, "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif';
-                            ctx.font = 'bold 17px Arial, sans-serif, Times';
-                            ctx.fillStyle = textColor;
-                            ctx.textAlign = "center";
-                            ctx.textBaseline = "middle";
-                            ctx.fillText(aqi, iconsize / 2, iconsize / 2);
-                            ctx.globalAlpha = 1;
-                            console.log("Setting AQI" + aqi + "icon...");
-                            chrome.action.setIcon({
-                                imageData: { 32: ctx.getImageData(0, 0, iconsize, iconsize) },
-                            });
-                        } else console.log("Draw logo error!")
+                            chrome.storage.local.get("iconType", (result) => {
+                                const aqi = e.aqi;
+                                const { color, textColor } = this.getAqiColor(aqi);
+                                console.log("Setting AQI" + aqi + "icon...");
+                                let k = result.iconType || 1;
+                                chrome.action.setBadgeText({ text: "" });
+                                if (k == 1) {
+                                    const iconsize = 32;
+                                    const cvs = new OffscreenCanvas(iconsize, iconsize);
+                                    const ctx = cvs.getContext('2d');
+                                    ctx.roundRect(0, 0, iconsize, iconsize, 6);
+                                    ctx.fillStyle = color;
+                                    ctx.fill();
+                                    // ctx.font = 'bold 18px sans-serif, "Noto Serif", Cambria, "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif';
+                                    ctx.font = 'bold 17px Arial, sans-serif, Times';
+                                    ctx.fillStyle = textColor;
+                                    ctx.textAlign = "center";
+                                    ctx.textBaseline = "middle";
+                                    ctx.fillText(aqi, iconsize / 2, iconsize / 2);
+                                    ctx.globalAlpha = 1;
+                                    chrome.action.setIcon({
+                                        imageData: { 32: ctx.getImageData(0, 0, iconsize, iconsize) },
+                                    });
+                                } else if (k == 2) {
+                                    chrome.action.setIcon({
+                                        path: {
+                                            "64": "../img/aqicn.64.png",
+                                        }
+                                    });
+                                    chrome.action.setBadgeText({
+                                        text: aqi.toString(),
+                                    });
+                                    chrome.action.setBadgeBackgroundColor({
+                                        color: color,
+                                    });
+                                    chrome.action.setBadgeTextColor({
+                                        color: textColor,
+                                    });
+                                }
+                                else console.log("Draw logo error!")
+                            })
+                        }
                     }, Background.prototype.loadFeed = function (e) {
                         var t = this;
                         void 0 === e && (e = !1);
@@ -267,6 +289,8 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                             background.loadFeed();
                         }
                     })
+                } else if ("setIcon" == request.method) {
+                    background.loadFeed(true);
                 } else if ("setLang" == request.method) {
                     sendResponse(background.setLang(request.lang));
                     background.loadFeed(true);
