@@ -13,6 +13,9 @@
    "opt_engine": {
       "message": "显示 AQI 信息的网站："
    },
+   "opt_icon": {
+      "message": "图标样式："
+   },
    "opt_lang": {
       "message": "AQI 信息的显示语言："
    },

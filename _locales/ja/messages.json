@@ -13,6 +13,9 @@
    "opt_engine": {
       "message": "AQI 情報を表示するサイト："
    },
+   "opt_icon": {
+      "message": "アイコンスタイル："
+   },
    "opt_lang": {
       "message": "AQI 情報の表示言語："
    },
