@@ -35,3 +35,4 @@ The extension ‘world-air-quality-index’ with bug-fixed for modern browsers.
 4. 完全移除es6-promise
 5. 使用OffscreenCanvas动态绘制图标，移除静态图片
 6. 迁移同步localStorage到异步chrome.storage.local
+7. 优化设置页面
