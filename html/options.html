@@ -19,9 +19,9 @@
     <h1><img src="../img/aqicn.128.png" height=36 style="vertical-align:text-top;">
       <span class="i18n" id="waqi_title"></span> <a href="http://aqicn.org">World Air Quality Index - aqicn.org</a>
     </h1>
-    <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
     <div style="font-size:22px;">
-      <span class="i18n" id="search_current_city"></span> <span id="selectedcitytitle" style="color:#888;"></span>
+      <span class="i18n" id="search_current_city"></span>
+      <span id="selectedcitytitle" style="color:#888;"></span>
       <span id="selectedcityextrainfo" style="color:#888;font-size:18px;">...</span>
       <ul>
         <div class="input-wrapper">
@@ -32,21 +32,23 @@
         <br><br>
         <div id="searchresults"></div>
       </ul>
-      <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
 
-      <span class="i18n" id="opt_icon"></span>
+      <div class="section-header">
+        <span class="i18n" id="opt_icon"></span>
+      </div>
       <ul>
         <div class="two-grid">
-          <label><input type="radio" id="defaulticon" value="1" checked><img id="defaulticon_img" alt="Default" style="width:34px">
+          <label><input type="radio" id="defaulticon" value="1" checked><img id="defaulticon_img" alt="Default"
+              style="width:34px">
           </label>
           <label><input type="radio" id="badgeicon" value="2"><img id="badgeicon_img" alt="Badge" style="width:36px">
           </label>
         </div>
       </ul>
 
-      <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
-
-      <span class="i18n" id="opt_engine"></span>
+      <div class="section-header">
+        <span class="i18n" id="opt_engine"></span>
+      </div>
       <ul>
         <div class="two-grid">
           <label><input type="checkbox" id="bing" checked>Bing</label>
@@ -56,14 +58,14 @@
         </div>
       </ul>
 
-      <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
-
-      <span class="i18n" id="opt_design"></span>
+      <div class="section-header">
+        <span class="i18n" id="opt_design"></span>
+      </div>
       <ul id="design_selection"></ul>
 
-      <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
-
-      <span class="i18n" id="opt_lang"></span>
+      <div class="section-header">
+        <span class="i18n" id="opt_lang"></span>
+      </div>
       <ul>
         <div class="two-grid">
           <label>
@@ -97,7 +99,6 @@
         </div>
       </ul>
 
-      <div style="border-top:2px solid #bbb;border-bottom:1px solid #eee;"></div>
     </div>
     <br><br><br><br><br><br>
     <div id="status"></div>
