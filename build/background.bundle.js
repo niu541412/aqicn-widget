@@ -163,7 +163,7 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
                             else {
                                 this.getCityObject().then((o) => {
                                     if (null != o) {
-                                        var i = "http://api.waqi.info/api/feed/";
+                                        var i = "https://api.waqi.info/api/feed/";
                                         t.getLang().then(lang => {
                                             o.idx ? i += "@" + o.idx : i += "!" + o.key, i += "/obs." + lang + ".json", console.log("Loading " + i + " (dt=" + r + ") - type=", o), i += "?_t=" + Date.now(), i += "&from=chrome-extension", this.loadJSON(i).then(
                                                 function (e) {

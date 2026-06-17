@@ -32,7 +32,7 @@
       "message": "データのロード中に申し訳ありませんが、エラーが発生しました..."
    },
    "search_no_result": {
-      "message": "申し訳ありませんが、結果は！"
+      "message": "申し訳ありませんが、結果がありません。"
    },
    "search_select_another": {
       "message": "別の都市を選択してください..."

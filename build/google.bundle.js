@@ -55,7 +55,7 @@
             },
                 r = "aqivalues" + e,
                 o = chrome.i18n.getMessage(r).split(",");
-            return console.log("labels:", r, "->", o), o[n(t = o[n(t)])].trim()
+            return console.log("labels:", r, "->", o), o[n(t)].trim()
         }, t.prototype.getText = function (t, e) {
             var n = {
                 air_quality: {
@@ -65,7 +65,7 @@
                     jp: "空気質",
                     kr: "대기질",
                     es: "Calidad del aire",
-                    ru: "Внешний вид"
+                    ru: "Качество воздуха"
                 }
             };
             return void 0 !== n[t] ? void 0 !== n[t][e] ? n[t][e] : n[t].en : "???"
