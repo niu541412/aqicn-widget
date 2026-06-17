@@ -52,17 +52,7 @@ if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrow
         return Object.prototype.hasOwnProperty.call(e, t)
     }, n.p = "", n(n.s = 7)
 }
-    ([, , ,
-        function (e, t) {
-        },
-        function (e, t) {
-            var n = (typeof globalThis !== 'undefined') ? globalThis :
-                (typeof self !== 'undefined') ? self :
-                    (typeof window !== 'undefined') ? window :
-                        (typeof global !== 'undefined') ? global :
-                            {};
-            e.exports = n;
-        }, , ,
+    ([, , , , , , ,
         function (module, exports, __webpack_require__) {
             "use strict";
             exports.__esModule = !0;

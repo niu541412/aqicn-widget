@@ -32,7 +32,7 @@ The extension ‘world-air-quality-index’ with bug-fixed for modern browsers.
 1. 修正并添加部分翻译
 2. 完全移除moment.js
 3. 完全移除jQuery
-4. 完全移除es6-promise
+4. 完全移除es6-promise及其打包残留
 5. 使用OffscreenCanvas动态绘制图标，移除静态图片
 6. 迁移同步localStorage到异步chrome.storage.local
 7. 优化设置页面

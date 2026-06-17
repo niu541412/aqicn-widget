@@ -154,15 +154,7 @@
     e.S3 = i, e.s3 = function (t) {
         return void 0 === t && (t = null), new i(t)
     }
-}, , function (t, e) {
-}, function (e, t) {
-    var n = (typeof globalThis !== 'undefined') ? globalThis :
-        (typeof self !== 'undefined') ? self :
-            (typeof window !== 'undefined') ? window :
-                (typeof global !== 'undefined') ? global :
-                    {};
-    e.exports = n;
-}, function (t, e, n) {
+}, , , , function (t, e, n) {
     // useless in option.js
     "use strict";
     e.__esModule = !0;

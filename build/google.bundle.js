@@ -154,15 +154,7 @@
     e.S3 = r, e.s3 = function (t) {
         return void 0 === t && (t = null), new r(t)
     }
-}, , function (t, e) {
-}, function (e, t) {
-    var n = (typeof globalThis !== 'undefined') ? globalThis :
-        (typeof self !== 'undefined') ? self :
-            (typeof window !== 'undefined') ? window :
-                (typeof global !== 'undefined') ? global :
-                    {};
-    e.exports = n;
-}, function (t, e, n) {
+}, , , , function (t, e, n) {
     "use strict";
     e.__esModule = !0;
     var r = n(0),
