@@ -17,7 +17,7 @@ python3 scripts/build.py
 python3 scripts/check.py
 ```
 
-构建结果位于 `dist/chrome/`、`dist/firefox/`；同目录会生成两个可发布的 ZIP。Chrome 可在 `chrome://extensions` 开启开发者模式后直接加载项目根目录，也可以加载 `dist/chrome/`。Firefox 可从 `about:debugging` 的“临时载入附加组件”选择 `dist/firefox/manifest.json`。GitHub Actions 在每次 push、PR 和手动触发时构建，并上传两个 ZIP 为工作流 artifact。
+构建结果位于 `dist/chrome/`、`dist/firefox/`；同目录会生成两个可发布的 ZIP。Chrome 可在 `chrome://extensions` 开启开发者模式后直接加载项目根目录，也可以加载 `dist/chrome/`。Firefox 可从 `about:debugging` 的“临时载入附加组件”选择 `dist/firefox/manifest.json`。GitHub Actions 在每次 push、PR 和手动触发时构建，并上传两个 ZIP 为工作流 artifact；推送与清单版本一致的 `vX.Y.Z` 标签时，还会自动发布包含两个 ZIP 的 GitHub Release。
 
 ## 目录
 
