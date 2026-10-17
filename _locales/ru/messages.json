@@ -1,46 +1,133 @@
 {
-   "appDesc": {
-      "description": "Плагин aqicn.org для браузера",
-      "message": "Плагин aqicn.org для браузера"
-   },
-   "appName": {
-      "description": "Мирового индекса качества воздуха",
-      "message": "Мирового индекса качества воздуха"
-   },
-   "opt_design": {
-      "message": "Визуальный стиль виджета AQI:"
-   },
-   "opt_engine": {
-      "message": "Показать информацию AQI на:"
-   },
-   "opt_icon": {
-      "message": "Стиль иконки:"
-   },
-   "opt_lang": {
-      "message": "Показать информацию AQI на языке:"
-   },
-   "opt_save": {
-      "message": "Настройки сохранены"
-   },
-   "search_current_city": {
-      "message": "Выбор города: "
-   },
-   "search_enter_city": {
-      "message": "Введите название города "
-   },
-   "search_load_error": {
-      "message": "Извините, произошла ошибка при загрузке данных AQI..."
-   },
-   "search_no_result": {
-      "message": "Извините, результатов нет!"
-   },
-   "search_select_another": {
-      "message": "Выберите другой город..."
-   },
-   "search_selected_city": {
-      "message": "Выбранный город: "
-   },
-   "waqi_title": {
-      "message": "Мирового индекса качества воздуха"
-   }
+  "alert_enabled": {
+    "message": "Уведомлять при превышении порога AQI"
+  },
+  "alert_help": {
+    "message": "Проверка при каждом обновлении данных. Не более одного уведомления в час."
+  },
+  "alert_message": {
+    "message": "{city}: AQI {aqi} превышает заданный порог {threshold}."
+  },
+  "alert_section": {
+    "message": "Оповещения об AQI"
+  },
+  "alert_threshold": {
+    "message": "Порог AQI"
+  },
+  "alert_title": {
+    "message": "Оповещение о качестве воздуха"
+  },
+  "appDesc": {
+    "description": "Расширение aqicn.org для браузера",
+    "message": "Расширение aqicn.org для браузера"
+  },
+  "appName": {
+    "description": "Мировой индекс качества воздуха",
+    "message": "Мировой индекс качества воздуха"
+  },
+  "detail_current": {
+    "message": "сейчас"
+  },
+  "detail_humidity": {
+    "message": "Влажн."
+  },
+  "detail_live_aqi": {
+    "message": "Индекс качества воздуха (AQI) в реальном времени."
+  },
+  "detail_max": {
+    "message": "макс."
+  },
+  "detail_min": {
+    "message": "мин."
+  },
+  "detail_past_two_days": {
+    "message": "за 2 дня"
+  },
+  "detail_pressure": {
+    "message": "Давление"
+  },
+  "detail_primary_pollutant": {
+    "message": "Основной загрязнитель"
+  },
+  "detail_temperature": {
+    "message": "Темп."
+  },
+  "detail_wind": {
+    "message": "Ветер"
+  },
+  "engine_select_all": {
+    "message": "Выбрать все"
+  },
+  "engine_select_none": {
+    "message": "Снять выделение"
+  },
+  "icon_badge": {
+    "message": "Логотип со значком AQI"
+  },
+  "icon_default": {
+    "message": "Значок с числом"
+  },
+  "location_browser": {
+    "message": "Геолокация браузера (широта и долгота)"
+  },
+  "location_ip": {
+    "message": "Примерное местоположение по IP"
+  },
+  "location_permission_denied": {
+    "message": "Доступ к местоположению запрещён. Разрешите его или выберите определение по IP в настройках."
+  },
+  "location_token": {
+    "message": "Токен API AQICN"
+  },
+  "location_token_help": {
+    "message": "Нужен только для геолокации браузера. Бесплатный токен можно получить на aqicn.org/data-platform/token/. Координаты отправляются в AQICN только после нажатия кнопки поиска местоположения."
+  },
+  "location_token_required": {
+    "message": "Сначала укажите токен API AQICN в настройках расширения."
+  },
+  "opt_design": {
+    "message": "Визуальный стиль виджета AQI:"
+  },
+  "opt_engine": {
+    "message": "Показывать информацию об AQI на сайтах:"
+  },
+  "opt_icon": {
+    "message": "Стиль иконки:"
+  },
+  "opt_lang": {
+    "message": "Язык информации об AQI:"
+  },
+  "opt_location": {
+    "message": "Автоматическое определение местоположения:"
+  },
+  "opt_save": {
+    "message": "Настройки сохранены"
+  },
+  "search_current_city": {
+    "message": "Выбор города:"
+  },
+  "search_enter_city": {
+    "message": "Введите название города"
+  },
+  "search_load_error": {
+    "message": "Не удалось загрузить данные AQI. Попробуйте ещё раз."
+  },
+  "search_loading": {
+    "message": "Загрузка данных о качестве воздуха"
+  },
+  "search_locate": {
+    "message": "Найти качество воздуха рядом"
+  },
+  "search_no_result": {
+    "message": "Ничего не найдено."
+  },
+  "search_select_another": {
+    "message": "Выберите другой город..."
+  },
+  "search_selected_city": {
+    "message": "Выбранный город:"
+  },
+  "waqi_title": {
+    "message": "Мировой индекс качества воздуха"
+  }
 }

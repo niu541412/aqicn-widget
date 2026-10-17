@@ -1,0 +1,133 @@
+{
+  "alert_enabled": {
+    "message": "AQI가 기준값을 넘으면 알림"
+  },
+  "alert_help": {
+    "message": "새 데이터를 받을 때마다 확인하며, 알림은 최대 한 시간에 한 번 표시됩니다."
+  },
+  "alert_message": {
+    "message": "{city}: AQI {aqi}가 설정한 기준값 {threshold}을(를) 넘었습니다."
+  },
+  "alert_section": {
+    "message": "AQI 알림"
+  },
+  "alert_threshold": {
+    "message": "AQI 기준값"
+  },
+  "alert_title": {
+    "message": "대기질 알림"
+  },
+  "appDesc": {
+    "description": "브라우저용 aqicn.org 확장 프로그램",
+    "message": "브라우저용 aqicn.org 확장 프로그램"
+  },
+  "appName": {
+    "description": "세계 대기질 지수",
+    "message": "세계 대기질 지수"
+  },
+  "detail_current": {
+    "message": "현재"
+  },
+  "detail_humidity": {
+    "message": "습도"
+  },
+  "detail_live_aqi": {
+    "message": "실시간 대기질 지수(AQI)."
+  },
+  "detail_max": {
+    "message": "최대"
+  },
+  "detail_min": {
+    "message": "최소"
+  },
+  "detail_past_two_days": {
+    "message": "지난 2일"
+  },
+  "detail_pressure": {
+    "message": "기압"
+  },
+  "detail_primary_pollutant": {
+    "message": "주요 오염물질"
+  },
+  "detail_temperature": {
+    "message": "기온"
+  },
+  "detail_wind": {
+    "message": "풍속"
+  },
+  "engine_select_all": {
+    "message": "모두 선택"
+  },
+  "engine_select_none": {
+    "message": "모두 해제"
+  },
+  "icon_badge": {
+    "message": "로고와 AQI 배지"
+  },
+  "icon_default": {
+    "message": "숫자 아이콘"
+  },
+  "location_browser": {
+    "message": "브라우저 위치(위도와 경도)"
+  },
+  "location_ip": {
+    "message": "IP 주소로 대략적인 위치 확인"
+  },
+  "location_permission_denied": {
+    "message": "위치 권한이 거부되었습니다. 권한을 허용하거나 설정에서 IP 위치를 선택하세요."
+  },
+  "location_token": {
+    "message": "AQICN API 토큰"
+  },
+  "location_token_help": {
+    "message": "브라우저 위치를 사용할 때만 필요합니다. aqicn.org/data-platform/token/에서 무료로 받을 수 있습니다. 좌표는 위치 버튼을 누를 때만 AQICN에 전송됩니다."
+  },
+  "location_token_required": {
+    "message": "먼저 확장 프로그램 설정에 AQICN API 토큰을 입력하세요."
+  },
+  "opt_design": {
+    "message": "AQI 위젯 시각 스타일:"
+  },
+  "opt_engine": {
+    "message": "AQI 정보를 표시할 사이트:"
+  },
+  "opt_icon": {
+    "message": "아이콘 스타일:"
+  },
+  "opt_lang": {
+    "message": "AQI 정보 표시 언어:"
+  },
+  "opt_location": {
+    "message": "자동 위치 확인:"
+  },
+  "opt_save": {
+    "message": "옵션이 저장되었습니다"
+  },
+  "search_current_city": {
+    "message": "도시 선택:"
+  },
+  "search_enter_city": {
+    "message": "도시 이름을 입력하세요"
+  },
+  "search_load_error": {
+    "message": "AQI 데이터를 불러올 수 없습니다. 다시 시도해 주세요."
+  },
+  "search_loading": {
+    "message": "대기질 상세 정보 불러오는 중"
+  },
+  "search_locate": {
+    "message": "내 주변 대기질 찾기"
+  },
+  "search_no_result": {
+    "message": "일치하는 결과가 없습니다."
+  },
+  "search_select_another": {
+    "message": "다른 도시 선택..."
+  },
+  "search_selected_city": {
+    "message": "선택된 도시:"
+  },
+  "waqi_title": {
+    "message": "세계 대기질 지수"
+  }
+}

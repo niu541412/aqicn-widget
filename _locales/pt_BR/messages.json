@@ -1,0 +1,131 @@
+{
+  "alert_enabled": {
+    "message": "Avisar quando o AQI ultrapassar o limite"
+  },
+  "alert_help": {
+    "message": "Verificado a cada nova atualização. No máximo, um alerta por hora."
+  },
+  "alert_message": {
+    "message": "{city}: o AQI {aqi} ultrapassou o limite de {threshold}."
+  },
+  "alert_section": {
+    "message": "Alertas de AQI"
+  },
+  "alert_threshold": {
+    "message": "Limite de AQI"
+  },
+  "alert_title": {
+    "message": "Alerta de qualidade do ar"
+  },
+  "appDesc": {
+    "message": "Extensão aqicn.org para navegador"
+  },
+  "appName": {
+    "message": "Índice Mundial de Qualidade do Ar"
+  },
+  "detail_current": {
+    "message": "atual"
+  },
+  "detail_humidity": {
+    "message": "Umidade"
+  },
+  "detail_live_aqi": {
+    "message": "Índice de Qualidade do Ar (AQI) em tempo real."
+  },
+  "detail_max": {
+    "message": "máx."
+  },
+  "detail_min": {
+    "message": "mín."
+  },
+  "detail_past_two_days": {
+    "message": "últimos 2 dias"
+  },
+  "detail_pressure": {
+    "message": "Pressão"
+  },
+  "detail_primary_pollutant": {
+    "message": "Poluente principal"
+  },
+  "detail_temperature": {
+    "message": "Temp."
+  },
+  "detail_wind": {
+    "message": "Vento"
+  },
+  "engine_select_all": {
+    "message": "Selecionar tudo"
+  },
+  "engine_select_none": {
+    "message": "Desmarcar tudo"
+  },
+  "icon_badge": {
+    "message": "Logotipo com indicador AQI"
+  },
+  "icon_default": {
+    "message": "Ícone com número"
+  },
+  "location_browser": {
+    "message": "Localização do navegador (latitude e longitude)"
+  },
+  "location_ip": {
+    "message": "Localização aproximada pelo endereço IP"
+  },
+  "location_permission_denied": {
+    "message": "Permissão de localização negada. Permita o acesso ou escolha a localização por IP nas configurações."
+  },
+  "location_token": {
+    "message": "Token da API AQICN"
+  },
+  "location_token_help": {
+    "message": "Necessário apenas para a localização do navegador. Obtenha um token gratuito em aqicn.org/data-platform/token/. As coordenadas só são enviadas à AQICN quando você clica no botão de localização."
+  },
+  "location_token_required": {
+    "message": "Primeiro informe seu token da API AQICN nas configurações da extensão."
+  },
+  "opt_design": {
+    "message": "Estilo do widget de AQI:"
+  },
+  "opt_engine": {
+    "message": "Mostrar informações de AQI em:"
+  },
+  "opt_icon": {
+    "message": "Estilo do ícone:"
+  },
+  "opt_lang": {
+    "message": "Idioma das informações de AQI:"
+  },
+  "opt_location": {
+    "message": "Localização automática:"
+  },
+  "opt_save": {
+    "message": "Opções salvas"
+  },
+  "search_current_city": {
+    "message": "Seleção de cidade:"
+  },
+  "search_enter_city": {
+    "message": "Digite o nome de uma cidade"
+  },
+  "search_load_error": {
+    "message": "Não foi possível carregar os dados de AQI."
+  },
+  "search_loading": {
+    "message": "Carregando detalhes da qualidade do ar"
+  },
+  "search_locate": {
+    "message": "Encontrar a qualidade do ar perto de mim"
+  },
+  "search_no_result": {
+    "message": "Nenhum resultado"
+  },
+  "search_select_another": {
+    "message": "Selecionar outra cidade"
+  },
+  "search_selected_city": {
+    "message": "Cidade selecionada:"
+  },
+  "waqi_title": {
+    "message": "Índice Mundial de Qualidade do Ar"
+  }
+}

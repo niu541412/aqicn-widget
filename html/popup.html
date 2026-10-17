@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <title>aqicn.org - Chrome Options</title>
-   <link rel="stylesheet" href="../css/common.css">
-   <link rel="stylesheet" href="../css/options.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AQICN</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/popup.css">
 </head>
 <body>
-
-   <div id='errorinfo'></div>
-
-   <form id='searchform'>
-      <img src='../img/aqicn.128.png' height="36" style='float:left;margin-right:5px;'>
-
-      <div class="input-wrapper">
-         <input type="text" autocomplete="off" id='cityinput' name="q" placeholder="Select another city ..." value="" />
-         <img id="locate-btn" alt="find AQI for my location" />
-      </div>
-
-      <input id="searchbutton" type="submit" value="" />
-   </form>
-
-   <div id='searchresults'></div>
-   <div id='selectedcity'></div>
-   <div id='cityaqiwidget'></div>
-
-   <script type="text/javascript" src="../js/date-tools.js"></script>
-   <script type="text/javascript" src="../build/popup.bundle.js"></script>
-
-
-
+  <form id="searchform">
+    <img src="../img/aqicn.128.png" width="36" height="36" alt="AQICN">
+    <div class="input-wrapper">
+      <input id="cityinput" name="q" type="search" autocomplete="off">
+      <button id="locate-btn" type="button" data-i18n-aria-label="search_locate" data-i18n-title="search_locate">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="7"></circle>
+          <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+          <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+  <div id="searchresults" hidden></div>
+  <div id="selectedcity"></div>
+  <div id="cityaqiwidget" hidden></div>
+  <script src="../src/shared.js"></script>
+  <script src="../src/search.js"></script>
+  <script src="../src/popup.js"></script>
 </body>
 </html>
