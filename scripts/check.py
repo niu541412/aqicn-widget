@@ -21,6 +21,8 @@ for browser in ('chrome', 'firefox'):
     assert manifest['manifest_version'] == 3
     assert 'alarms' in manifest['permissions']
     assert 'notifications' in manifest['permissions']
+    assert 'tabs' not in manifest['permissions']
+    assert 'http://aqicn.org/*' not in manifest['host_permissions']
     assert len(manifest['content_scripts']) == 5
     assert all(entry['js'] == ['src/shared.js', 'src/widget.js', 'src/content.js'] for entry in manifest['content_scripts'])
     google = manifest['content_scripts'][4]['matches']
@@ -32,6 +34,9 @@ for browser in ('chrome', 'firefox'):
     else:
         assert manifest['background'] == {'scripts': ['src/shared.js', 'src/background.js']}
         assert manifest['browser_specific_settings']['gecko']['id']
+        assert manifest['browser_specific_settings']['gecko']['data_collection_permissions'] == {
+            'required': ['locationInfo'],
+        }
     archive = next((root / 'dist').glob(f'aqicn-widget-{browser}-*.zip'))
     with ZipFile(archive) as zipped:
         expected = {str(path.relative_to(package)) for path in package.rglob('*') if path.is_file()}

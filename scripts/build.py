@@ -18,7 +18,10 @@ def make_manifest(browser: str) -> dict:
     if browser == 'firefox':
         manifest['background'] = {'scripts': ['src/shared.js', 'src/background.js']}
         manifest['browser_specific_settings'] = {
-            'gecko': {'id': '{fc8371f0-d3cb-4a84-964f-3f5b805f5ab2}'},
+            'gecko': {
+                'id': '{fc8371f0-d3cb-4a84-964f-3f5b805f5ab2}',
+                'data_collection_permissions': {'required': ['locationInfo']},
+            },
         }
     return manifest
 
