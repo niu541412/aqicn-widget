@@ -1,46 +1,133 @@
 {
-   "appDesc": {
-      "description": "适用于浏览器的 aqicn.org 插件",
-      "message": "适用于浏览器的 aqicn.org 插件"
-   },
-   "appName": {
-      "description": "世界空气质量指数",
-      "message": "世界空气质量指数"
-   },
-   "opt_design": {
-      "message": "AQI 小部件的显示样式："
-   },
-   "opt_engine": {
-      "message": "显示 AQI 信息的网站："
-   },
-   "opt_icon": {
-      "message": "图标样式："
-   },
-   "opt_lang": {
-      "message": "AQI 信息的显示语言："
-   },
-   "opt_save": {
-      "message": "选项已保存"
-   },
-   "search_current_city": {
-      "message": "城市选择："
-   },
-   "search_enter_city": {
-      "message": "输入城市名称"
-   },
-   "search_load_error": {
-      "message": "很抱歉，加载 AQI 数据时发生错误..."
-   },
-   "search_no_result": {
-      "message": "很抱歉，没有找到结果！"
-   },
-   "search_select_another": {
-      "message": "选择另一个城市..."
-   },
-   "search_selected_city": {
-      "message": "已选择城市："
-   },
-   "waqi_title": {
-      "message": "世界空气质量指数"
-   }
+  "alert_enabled": {
+    "message": "超过阈值时通知我"
+  },
+  "alert_help": {
+    "message": "每次获取新数据后检查，最多每小时提醒一次。"
+  },
+  "alert_message": {
+    "message": "{city}：AQI 为 {aqi}，超过设定阈值 {threshold}。"
+  },
+  "alert_section": {
+    "message": "AQI 超标提醒"
+  },
+  "alert_threshold": {
+    "message": "AQI 提醒阈值"
+  },
+  "alert_title": {
+    "message": "空气质量提醒"
+  },
+  "appDesc": {
+    "description": "适用于浏览器的 aqicn.org 插件",
+    "message": "适用于浏览器的 aqicn.org 插件"
+  },
+  "appName": {
+    "description": "世界空气质量指数",
+    "message": "世界空气质量指数"
+  },
+  "detail_current": {
+    "message": "当前"
+  },
+  "detail_humidity": {
+    "message": "湿度"
+  },
+  "detail_live_aqi": {
+    "message": "实时空气质量指数（AQI）。"
+  },
+  "detail_max": {
+    "message": "最高"
+  },
+  "detail_min": {
+    "message": "最低"
+  },
+  "detail_past_two_days": {
+    "message": "过去两天"
+  },
+  "detail_pressure": {
+    "message": "气压"
+  },
+  "detail_primary_pollutant": {
+    "message": "主要污染物"
+  },
+  "detail_temperature": {
+    "message": "气温"
+  },
+  "detail_wind": {
+    "message": "风速"
+  },
+  "engine_select_all": {
+    "message": "全选"
+  },
+  "engine_select_none": {
+    "message": "全不选"
+  },
+  "icon_badge": {
+    "message": "标志加 AQI 徽章"
+  },
+  "icon_default": {
+    "message": "数字图标"
+  },
+  "location_browser": {
+    "message": "使用浏览器定位（经纬度）"
+  },
+  "location_ip": {
+    "message": "按 IP 地址估算位置"
+  },
+  "location_permission_denied": {
+    "message": "未获得定位权限。请允许定位，或在设置中选择 IP 定位。"
+  },
+  "location_token": {
+    "message": "AQICN API Token"
+  },
+  "location_token_help": {
+    "message": "仅浏览器定位需要。可在 aqicn.org/data-platform/token/ 免费获取。只有点击定位按钮时才会向 AQICN 发送经纬度。"
+  },
+  "location_token_required": {
+    "message": "请先在扩展设置中填写 AQICN API Token。"
+  },
+  "opt_design": {
+    "message": "AQI 小部件的显示样式："
+  },
+  "opt_engine": {
+    "message": "显示 AQI 信息的网站："
+  },
+  "opt_icon": {
+    "message": "图标样式："
+  },
+  "opt_lang": {
+    "message": "AQI 信息的显示语言："
+  },
+  "opt_location": {
+    "message": "自动定位方式："
+  },
+  "opt_save": {
+    "message": "选项已保存"
+  },
+  "search_current_city": {
+    "message": "城市选择："
+  },
+  "search_enter_city": {
+    "message": "输入城市名称"
+  },
+  "search_load_error": {
+    "message": "无法加载 AQI 数据，请重试。"
+  },
+  "search_loading": {
+    "message": "正在加载空气质量详情"
+  },
+  "search_locate": {
+    "message": "查找附近的空气质量"
+  },
+  "search_no_result": {
+    "message": "未找到匹配结果。"
+  },
+  "search_select_another": {
+    "message": "选择另一个城市..."
+  },
+  "search_selected_city": {
+    "message": "已选择城市："
+  },
+  "waqi_title": {
+    "message": "世界空气质量指数"
+  }
 }

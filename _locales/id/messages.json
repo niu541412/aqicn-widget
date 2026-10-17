@@ -1,0 +1,131 @@
+{
+  "alert_enabled": {
+    "message": "Beri tahu saat AQI melebihi ambang batas"
+  },
+  "alert_help": {
+    "message": "Diperiksa setiap kali ada pembaruan data. Maksimal satu peringatan per jam."
+  },
+  "alert_message": {
+    "message": "{city}: AQI {aqi} melebihi ambang batas {threshold}."
+  },
+  "alert_section": {
+    "message": "Peringatan AQI"
+  },
+  "alert_threshold": {
+    "message": "Ambang batas AQI"
+  },
+  "alert_title": {
+    "message": "Peringatan kualitas udara"
+  },
+  "appDesc": {
+    "message": "Ekstensi aqicn.org untuk peramban"
+  },
+  "appName": {
+    "message": "Indeks Kualitas Udara Dunia"
+  },
+  "detail_current": {
+    "message": "saat ini"
+  },
+  "detail_humidity": {
+    "message": "Kelembapan"
+  },
+  "detail_live_aqi": {
+    "message": "Indeks Kualitas Udara (AQI) waktu nyata."
+  },
+  "detail_max": {
+    "message": "maks."
+  },
+  "detail_min": {
+    "message": "min."
+  },
+  "detail_past_two_days": {
+    "message": "2 hari lalu"
+  },
+  "detail_pressure": {
+    "message": "Tekanan"
+  },
+  "detail_primary_pollutant": {
+    "message": "Polutan utama"
+  },
+  "detail_temperature": {
+    "message": "Suhu"
+  },
+  "detail_wind": {
+    "message": "Angin"
+  },
+  "engine_select_all": {
+    "message": "Pilih semua"
+  },
+  "engine_select_none": {
+    "message": "Batalkan semua pilihan"
+  },
+  "icon_badge": {
+    "message": "Logo dengan lencana AQI"
+  },
+  "icon_default": {
+    "message": "Ikon angka"
+  },
+  "location_browser": {
+    "message": "Lokasi peramban (lintang dan bujur)"
+  },
+  "location_ip": {
+    "message": "Perkiraan lokasi berdasarkan alamat IP"
+  },
+  "location_permission_denied": {
+    "message": "Izin lokasi ditolak. Izinkan akses lokasi atau pilih lokasi berdasarkan IP di pengaturan."
+  },
+  "location_token": {
+    "message": "Token API AQICN"
+  },
+  "location_token_help": {
+    "message": "Hanya diperlukan untuk lokasi peramban. Dapatkan token gratis di aqicn.org/data-platform/token/. Koordinat hanya dikirim ke AQICN saat Anda menekan tombol lokasi."
+  },
+  "location_token_required": {
+    "message": "Masukkan token API AQICN terlebih dahulu di pengaturan ekstensi."
+  },
+  "opt_design": {
+    "message": "Gaya widget AQI:"
+  },
+  "opt_engine": {
+    "message": "Tampilkan informasi AQI di:"
+  },
+  "opt_icon": {
+    "message": "Gaya ikon:"
+  },
+  "opt_lang": {
+    "message": "Bahasa informasi AQI:"
+  },
+  "opt_location": {
+    "message": "Lokasi otomatis:"
+  },
+  "opt_save": {
+    "message": "Pengaturan disimpan"
+  },
+  "search_current_city": {
+    "message": "Pilih kota:"
+  },
+  "search_enter_city": {
+    "message": "Masukkan nama kota"
+  },
+  "search_load_error": {
+    "message": "Data AQI tidak dapat dimuat."
+  },
+  "search_loading": {
+    "message": "Memuat detail kualitas udara"
+  },
+  "search_locate": {
+    "message": "Cari kualitas udara di dekat saya"
+  },
+  "search_no_result": {
+    "message": "Tidak ada hasil"
+  },
+  "search_select_another": {
+    "message": "Pilih kota lain"
+  },
+  "search_selected_city": {
+    "message": "Kota terpilih:"
+  },
+  "waqi_title": {
+    "message": "Indeks Kualitas Udara Dunia"
+  }
+}

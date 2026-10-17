@@ -1,108 +1,99 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>aqicn.org - Chrome Options</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AQICN options</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/options.css">
-  <script type="text/javascript" src="../js/date-tools.js"></script>
-  <style>
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  </style>
 </head>
 <body>
-
-  <div class="container">
-    <h1><img src="../img/aqicn.128.png" height=36 style="vertical-align:text-top;">
-      <span class="i18n" id="waqi_title"></span> <a href="http://aqicn.org">World Air Quality Index - aqicn.org</a>
-    </h1>
-    <div style="font-size:22px;">
-      <span class="i18n" id="search_current_city"></span>
-      <span id="selectedcitytitle" style="color:#888;"></span>
-      <span id="selectedcityextrainfo" style="color:#888;font-size:18px;">...</span>
-      <ul>
-        <div class="input-wrapper">
-          <input type="text" autocomplete="off" id="cityinput" name="q" placeholder="Select another city ..."
-            value="" />
-          <img id="locate-btn" alt="find AQI for my location" />
-        </div>
-        <br><br>
-        <div id="searchresults"></div>
-      </ul>
-
-      <div class="section-header">
-        <span class="i18n" id="opt_icon"></span>
+  <main class="container">
+    <h1><img src="../img/aqicn.128.png" alt=""><span class="i18n" id="waqi_title"></span><a href="https://aqicn.org/">AQICN</a></h1>
+    <h2 class="i18n" id="search_current_city"></h2>
+    <div id="selectedcitytitle"></div>
+    <form id="searchform">
+      <div class="input-wrapper">
+        <input id="cityinput" name="q" type="search" autocomplete="off">
+        <button id="locate-btn" type="button" data-i18n-aria-label="search_locate" data-i18n-title="search_locate">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="7"></circle>
+            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+            <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
+          </svg>
+        </button>
       </div>
-      <ul>
-        <div class="two-grid">
-          <label><input type="radio" id="defaulticon" value="1" checked><img id="defaulticon_img" alt="Default"
-              style="width:34px">
-          </label>
-          <label><input type="radio" id="badgeicon" value="2"><img id="badgeicon_img" alt="Badge" style="width:36px">
-          </label>
-        </div>
-      </ul>
+    </form>
+    <div id="searchresults" hidden></div>
+    <div id="cityaqiwidget" hidden></div>
 
-      <div class="section-header">
-        <span class="i18n" id="opt_engine"></span>
-      </div>
-      <ul>
-        <div class="two-grid">
-          <label><input type="checkbox" id="bing" checked>Bing</label>
-          <label><input type="checkbox" id="google" checked>Google</label>
-          <label><input type="checkbox" id="baidu" checked>Baidu</label>
-          <label><input type="checkbox" id="qwant" checked>Qwant</label>
-        </div>
-      </ul>
-
-      <div class="section-header">
-        <span class="i18n" id="opt_design"></span>
-      </div>
-      <ul id="design_selection"></ul>
-
-      <div class="section-header">
-        <span class="i18n" id="opt_lang"></span>
-      </div>
-      <ul>
-        <div class="two-grid">
-          <label>
-            <input type="radio" id="langen" checked>
-            <span class="flag-emoji">🇬🇧</span><span>English</span>
-          </label>
-          <label>
-            <input type="radio" id="langcn">
-            <span class="flag-emoji">🇨🇳</span><span>简体中文</span>
-          </label>
-          <label>
-            <input type="radio" id="langhk">
-            <span class="flag-emoji">🇭🇰</span><span>繁體中文</span>
-          </label>
-          <label>
-            <input type="radio" id="langjp">
-            <span class="flag-emoji">🇯🇵</span><span>日本語</span>
-          </label>
-          <label>
-            <input type="radio" id="langes">
-            <span class="flag-emoji">🇪🇸</span><span>Español</span>
-          </label>
-          <label>
-            <input type="radio" id="langru">
-            <span class="flag-emoji">🇷🇺</span><span>Русский</span>
-          </label>
-          <label>
-            <input type="radio" id="langkr">
-            <span class="flag-emoji">🇰🇷</span><span>한국어</span>
-          </label>
-        </div>
-      </ul>
-
+    <h2 class="section-header"><span class="i18n" id="opt_location"></span></h2>
+    <div class="location-options">
+      <label><input type="radio" name="locationMode" id="location-ip" value="ip"><span class="i18n" id="location_ip"></span></label>
+      <label><input type="radio" name="locationMode" id="location-browser" value="browser"><span class="i18n" id="location_browser"></span></label>
+      <label for="waqi-token"><span class="i18n" id="location_token"></span></label>
+      <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
+      <small class="i18n" id="location_token_help"></small>
     </div>
-    <br><br><br><br><br><br>
-    <div id="status"></div>
-  </div>
-  <script type="text/javascript" src="../build/options.bundle.js"></script>
+
+    <h2 class="section-header i18n" id="alert_section"></h2>
+    <div class="alert-options">
+      <label><input type="checkbox" id="alert-enabled"><span class="i18n" id="alert_enabled"></span></label>
+      <label for="alert-threshold" class="i18n" id="alert_threshold"></label>
+      <input id="alert-threshold" type="number" min="0" max="1000" step="1" inputmode="numeric" required>
+      <small class="i18n" id="alert_help"></small>
+    </div>
+
+    <h2 class="section-header"><span class="i18n" id="opt_icon"></span></h2>
+    <div class="two-grid">
+      <label><input type="radio" id="defaulticon" value="1"><img id="defaulticon_img" data-i18n-alt="icon_default"></label>
+      <label><input type="radio" id="badgeicon" value="2"><img id="badgeicon_img" data-i18n-alt="icon_badge"></label>
+    </div>
+
+    <div class="section-header section-header--actions">
+      <h2 class="i18n" id="opt_engine"></h2>
+      <div class="engine-actions">
+        <button type="button" class="i18n" id="engine_select_all"></button>
+        <button type="button" class="i18n" id="engine_select_none"></button>
+      </div>
+    </div>
+    <div class="two-grid">
+      <label><input type="checkbox" id="bing"><a href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">Bing</a></label>
+      <label><input type="checkbox" id="google"><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a></label>
+      <label><input type="checkbox" id="baidu"><a href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer">Baidu</a></label>
+      <label><input type="checkbox" id="qwant"><a href="https://www.qwant.com/" target="_blank" rel="noopener noreferrer">Qwant</a></label>
+      <label><input type="checkbox" id="duckduckgo"><a href="https://duckduckgo.com/" target="_blank" rel="noopener noreferrer">DuckDuckGo</a></label>
+      <label><input type="checkbox" id="brave"><a href="https://search.brave.com/" target="_blank" rel="noopener noreferrer">Brave Search</a></label>
+      <label><input type="checkbox" id="ecosia"><a href="https://www.ecosia.org/" target="_blank" rel="noopener noreferrer">Ecosia</a></label>
+      <label><input type="checkbox" id="startpage"><a href="https://www.startpage.com/" target="_blank" rel="noopener noreferrer">Startpage</a></label>
+      <label><input type="checkbox" id="yahoo"><a href="https://search.yahoo.com/" target="_blank" rel="noopener noreferrer">Yahoo</a></label>
+      <label><input type="checkbox" id="sogou"><a href="https://www.sogou.com/" target="_blank" rel="noopener noreferrer">搜狗</a></label>
+    </div>
+
+    <h2 class="section-header"><span class="i18n" id="opt_design"></span></h2>
+    <div id="design_selection"></div>
+
+    <h2 class="section-header"><span class="i18n" id="opt_lang"></span></h2>
+    <div class="two-grid">
+      <label><input type="radio" id="langen"><span class="flag-emoji">🇬🇧</span>English</label>
+      <label><input type="radio" id="langcn"><span class="flag-emoji">🇨🇳</span>简体中文</label>
+      <label><input type="radio" id="langhk"><span class="flag-emoji">🇭🇰</span>繁體中文</label>
+      <label><input type="radio" id="langjp"><span class="flag-emoji">🇯🇵</span>日本語</label>
+      <label><input type="radio" id="langes"><span class="flag-emoji">🇪🇸</span>Español</label>
+      <label><input type="radio" id="langru"><span class="flag-emoji">🇷🇺</span>Русский</label>
+      <label><input type="radio" id="langkr"><span class="flag-emoji">🇰🇷</span>한국어</label>
+      <label><input type="radio" id="langfr"><span class="flag-emoji">🇫🇷</span>Français</label>
+      <label><input type="radio" id="langde"><span class="flag-emoji">🇩🇪</span>Deutsch</label>
+      <label><input type="radio" id="langpt"><span class="flag-emoji">🇧🇷</span>Português</label>
+      <label><input type="radio" id="langit"><span class="flag-emoji">🇮🇹</span>Italiano</label>
+      <label><input type="radio" id="langid"><span class="flag-emoji">🇮🇩</span>Bahasa Indonesia</label>
+      <label><input type="radio" id="langar"><span class="flag-emoji">🇸🇦</span>العربية</label>
+      <label><input type="radio" id="langhi"><span class="flag-emoji">🇮🇳</span>हिन्दी</label>
+    </div>
+    <div id="status" hidden></div>
+  </main>
+  <script src="../src/shared.js"></script>
+  <script src="../src/search.js"></script>
+  <script src="../src/options.js"></script>
 </body>
 </html>

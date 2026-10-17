@@ -1,0 +1,29 @@
+name: Build extensions
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          for file in src/*.js; do node --check "$file"; done
+      - name: Build Chrome and Firefox packages
+        run: python scripts/build.py
+      - name: Check package contents
+        run: python scripts/check.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aqicn-widget-extensions
+          path: dist/*.zip

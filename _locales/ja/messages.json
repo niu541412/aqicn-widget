@@ -1,46 +1,133 @@
 {
-   "appDesc": {
-      "description": "ブラウザ用 aqicn.org プラグイン",
-      "message": "ブラウザ用 aqicn.org プラグイン"
-   },
-   "appName": {
-      "description": "世界大気質指数",
-      "message": "世界大気質指数"
-   },
-   "opt_design": {
-      "message": "AQI ウィジェットの表示スタイル："
-   },
-   "opt_engine": {
-      "message": "AQI 情報を表示するサイト："
-   },
-   "opt_icon": {
-      "message": "アイコンスタイル："
-   },
-   "opt_lang": {
-      "message": "AQI 情報の表示言語："
-   },
-   "opt_save": {
-      "message": "オプションが保存されました"
-   },
-   "search_current_city": {
-      "message": "都市選択："
-   },
-   "search_enter_city": {
-      "message": "都市名を入力してください"
-   },
-   "search_load_error": {
-      "message": "データのロード中に申し訳ありませんが、エラーが発生しました..."
-   },
-   "search_no_result": {
-      "message": "申し訳ありませんが、結果は！"
-   },
-   "search_select_another": {
-      "message": "別の都市を選択してください..."
-   },
-   "search_selected_city": {
-      "message": "選択した都市："
-   },
-   "waqi_title": {
-      "message": "世界大気質指数"
-   }
+  "alert_enabled": {
+    "message": "AQI がしきい値を超えたら通知する"
+  },
+  "alert_help": {
+    "message": "新しいデータの取得時に確認し、通知は最大で 1 時間に 1 回です。"
+  },
+  "alert_message": {
+    "message": "{city}：AQI {aqi} がしきい値 {threshold} を超えました。"
+  },
+  "alert_section": {
+    "message": "AQI アラート"
+  },
+  "alert_threshold": {
+    "message": "AQI のしきい値"
+  },
+  "alert_title": {
+    "message": "大気質アラート"
+  },
+  "appDesc": {
+    "description": "aqicn.org のブラウザー拡張機能",
+    "message": "aqicn.org のブラウザー拡張機能"
+  },
+  "appName": {
+    "description": "世界大気質指数",
+    "message": "世界大気質指数"
+  },
+  "detail_current": {
+    "message": "現在"
+  },
+  "detail_humidity": {
+    "message": "湿度"
+  },
+  "detail_live_aqi": {
+    "message": "リアルタイム大気質指数（AQI）。"
+  },
+  "detail_max": {
+    "message": "最大"
+  },
+  "detail_min": {
+    "message": "最小"
+  },
+  "detail_past_two_days": {
+    "message": "過去2日"
+  },
+  "detail_pressure": {
+    "message": "気圧"
+  },
+  "detail_primary_pollutant": {
+    "message": "主な汚染物質"
+  },
+  "detail_temperature": {
+    "message": "気温"
+  },
+  "detail_wind": {
+    "message": "風速"
+  },
+  "engine_select_all": {
+    "message": "すべて選択"
+  },
+  "engine_select_none": {
+    "message": "すべて解除"
+  },
+  "icon_badge": {
+    "message": "ロゴと AQI バッジ"
+  },
+  "icon_default": {
+    "message": "数値アイコン"
+  },
+  "location_browser": {
+    "message": "ブラウザーの位置情報（緯度・経度）"
+  },
+  "location_ip": {
+    "message": "IP アドレスからおおよその位置を取得"
+  },
+  "location_permission_denied": {
+    "message": "位置情報へのアクセスが拒否されました。許可するか、設定で IP による位置取得を選択してください。"
+  },
+  "location_token": {
+    "message": "AQICN API トークン"
+  },
+  "location_token_help": {
+    "message": "ブラウザーの位置情報を使う場合のみ必要です。aqicn.org/data-platform/token/ で無料で取得できます。座標は位置取得ボタンを押したときだけ AQICN に送信します。"
+  },
+  "location_token_required": {
+    "message": "先に拡張機能の設定で AQICN API トークンを入力してください。"
+  },
+  "opt_design": {
+    "message": "AQI ウィジェットの表示スタイル："
+  },
+  "opt_engine": {
+    "message": "AQI 情報を表示するサイト："
+  },
+  "opt_icon": {
+    "message": "アイコンスタイル："
+  },
+  "opt_lang": {
+    "message": "AQI 情報の表示言語："
+  },
+  "opt_location": {
+    "message": "自動位置取得："
+  },
+  "opt_save": {
+    "message": "オプションが保存されました"
+  },
+  "search_current_city": {
+    "message": "都市選択："
+  },
+  "search_enter_city": {
+    "message": "都市名を入力してください"
+  },
+  "search_load_error": {
+    "message": "AQI データを読み込めませんでした。もう一度お試しください。"
+  },
+  "search_loading": {
+    "message": "大気質の詳細を読み込み中"
+  },
+  "search_locate": {
+    "message": "近くの大気質を調べる"
+  },
+  "search_no_result": {
+    "message": "該当する結果が見つかりませんでした。"
+  },
+  "search_select_another": {
+    "message": "別の都市を選択してください..."
+  },
+  "search_selected_city": {
+    "message": "選択した都市："
+  },
+  "waqi_title": {
+    "message": "世界大気質指数"
+  }
 }

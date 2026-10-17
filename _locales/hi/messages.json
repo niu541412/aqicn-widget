@@ -1,0 +1,131 @@
+{
+  "alert_enabled": {
+    "message": "AQI सीमा से अधिक होने पर सूचित करें"
+  },
+  "alert_help": {
+    "message": "हर नए डेटा अपडेट पर जाँच होती है। अधिकतम एक अलर्ट प्रति घंटा।"
+  },
+  "alert_message": {
+    "message": "{city}: AQI {aqi} निर्धारित सीमा {threshold} से अधिक है।"
+  },
+  "alert_section": {
+    "message": "AQI अलर्ट"
+  },
+  "alert_threshold": {
+    "message": "AQI सीमा"
+  },
+  "alert_title": {
+    "message": "वायु गुणवत्ता अलर्ट"
+  },
+  "appDesc": {
+    "message": "ब्राउज़र के लिए aqicn.org एक्सटेंशन"
+  },
+  "appName": {
+    "message": "विश्व वायु गुणवत्ता सूचकांक"
+  },
+  "detail_current": {
+    "message": "वर्तमान"
+  },
+  "detail_humidity": {
+    "message": "नमी"
+  },
+  "detail_live_aqi": {
+    "message": "वास्तविक समय वायु गुणवत्ता सूचकांक (AQI)।"
+  },
+  "detail_max": {
+    "message": "अधि."
+  },
+  "detail_min": {
+    "message": "न्यून."
+  },
+  "detail_past_two_days": {
+    "message": "पिछले 2 दिन"
+  },
+  "detail_pressure": {
+    "message": "दाब"
+  },
+  "detail_primary_pollutant": {
+    "message": "मुख्य प्रदूषक"
+  },
+  "detail_temperature": {
+    "message": "तापमान"
+  },
+  "detail_wind": {
+    "message": "हवा"
+  },
+  "engine_select_all": {
+    "message": "सभी चुनें"
+  },
+  "engine_select_none": {
+    "message": "सभी का चयन हटाएँ"
+  },
+  "icon_badge": {
+    "message": "AQI बैज वाला लोगो"
+  },
+  "icon_default": {
+    "message": "संख्या वाला आइकन"
+  },
+  "location_browser": {
+    "message": "ब्राउज़र स्थान (अक्षांश और देशांतर)"
+  },
+  "location_ip": {
+    "message": "IP पते से अनुमानित स्थान"
+  },
+  "location_permission_denied": {
+    "message": "स्थान की अनुमति अस्वीकार कर दी गई। अनुमति दें या सेटिंग में IP से स्थान चुनें।"
+  },
+  "location_token": {
+    "message": "AQICN API टोकन"
+  },
+  "location_token_help": {
+    "message": "केवल ब्राउज़र स्थान के लिए आवश्यक। aqicn.org/data-platform/token/ से मुफ़्त टोकन प्राप्त करें। निर्देशांक केवल स्थान बटन दबाने पर AQICN को भेजे जाते हैं।"
+  },
+  "location_token_required": {
+    "message": "पहले एक्सटेंशन सेटिंग में अपना AQICN API टोकन दर्ज करें।"
+  },
+  "opt_design": {
+    "message": "AQI विजेट की शैली:"
+  },
+  "opt_engine": {
+    "message": "इन साइटों पर AQI जानकारी दिखाएँ:"
+  },
+  "opt_icon": {
+    "message": "आइकन की शैली:"
+  },
+  "opt_lang": {
+    "message": "AQI जानकारी की भाषा:"
+  },
+  "opt_location": {
+    "message": "स्वचालित स्थान:"
+  },
+  "opt_save": {
+    "message": "विकल्प सहेजे गए"
+  },
+  "search_current_city": {
+    "message": "शहर चुनें:"
+  },
+  "search_enter_city": {
+    "message": "शहर का नाम दर्ज करें"
+  },
+  "search_load_error": {
+    "message": "AQI डेटा लोड नहीं हो सका।"
+  },
+  "search_loading": {
+    "message": "वायु गुणवत्ता का विवरण लोड हो रहा है"
+  },
+  "search_locate": {
+    "message": "मेरे आस-पास की वायु गुणवत्ता खोजें"
+  },
+  "search_no_result": {
+    "message": "कोई परिणाम नहीं"
+  },
+  "search_select_another": {
+    "message": "दूसरा शहर चुनें"
+  },
+  "search_selected_city": {
+    "message": "चुना हुआ शहर:"
+  },
+  "waqi_title": {
+    "message": "विश्व वायु गुणवत्ता सूचकांक"
+  }
+}

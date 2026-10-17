@@ -1,0 +1,131 @@
+{
+  "alert_enabled": {
+    "message": "أبلغني عندما يتجاوز مؤشر جودة الهواء الحد المحدد"
+  },
+  "alert_help": {
+    "message": "يُفحص عند كل تحديث جديد. تنبيه واحد كحد أقصى في الساعة."
+  },
+  "alert_message": {
+    "message": "{city}: مؤشر جودة الهواء {aqi} يتجاوز الحد المحدد {threshold}."
+  },
+  "alert_section": {
+    "message": "تنبيهات مؤشر جودة الهواء"
+  },
+  "alert_threshold": {
+    "message": "حد مؤشر جودة الهواء"
+  },
+  "alert_title": {
+    "message": "تنبيه جودة الهواء"
+  },
+  "appDesc": {
+    "message": "إضافة aqicn.org للمتصفح"
+  },
+  "appName": {
+    "message": "مؤشر جودة الهواء العالمي"
+  },
+  "detail_current": {
+    "message": "الحالي"
+  },
+  "detail_humidity": {
+    "message": "الرطوبة"
+  },
+  "detail_live_aqi": {
+    "message": "مؤشر جودة الهواء (AQI) في الوقت الفعلي."
+  },
+  "detail_max": {
+    "message": "أعلى"
+  },
+  "detail_min": {
+    "message": "أدنى"
+  },
+  "detail_past_two_days": {
+    "message": "آخر يومين"
+  },
+  "detail_pressure": {
+    "message": "الضغط"
+  },
+  "detail_primary_pollutant": {
+    "message": "الملوث الرئيسي"
+  },
+  "detail_temperature": {
+    "message": "الحرارة"
+  },
+  "detail_wind": {
+    "message": "الرياح"
+  },
+  "engine_select_all": {
+    "message": "تحديد الكل"
+  },
+  "engine_select_none": {
+    "message": "إلغاء تحديد الكل"
+  },
+  "icon_badge": {
+    "message": "الشعار مع شارة جودة الهواء"
+  },
+  "icon_default": {
+    "message": "أيقونة رقمية"
+  },
+  "location_browser": {
+    "message": "موقع المتصفح (خط العرض وخط الطول)"
+  },
+  "location_ip": {
+    "message": "موقع تقريبي حسب عنوان IP"
+  },
+  "location_permission_denied": {
+    "message": "تم رفض إذن الموقع. اسمح بالوصول أو اختر تحديد الموقع عبر IP من الإعدادات."
+  },
+  "location_token": {
+    "message": "رمز واجهة AQICN البرمجية"
+  },
+  "location_token_help": {
+    "message": "مطلوب فقط لتحديد الموقع عبر المتصفح. احصل على رمز مجاني من aqicn.org/data-platform/token/. تُرسل الإحداثيات إلى AQICN فقط عند الضغط على زر تحديد الموقع."
+  },
+  "location_token_required": {
+    "message": "أدخل رمز واجهة AQICN البرمجية في إعدادات الإضافة أولاً."
+  },
+  "opt_design": {
+    "message": "نمط أداة مؤشر جودة الهواء:"
+  },
+  "opt_engine": {
+    "message": "عرض معلومات جودة الهواء على:"
+  },
+  "opt_icon": {
+    "message": "نمط الأيقونة:"
+  },
+  "opt_lang": {
+    "message": "لغة معلومات جودة الهواء:"
+  },
+  "opt_location": {
+    "message": "تحديد الموقع تلقائياً:"
+  },
+  "opt_save": {
+    "message": "تم حفظ الخيارات"
+  },
+  "search_current_city": {
+    "message": "اختيار المدينة:"
+  },
+  "search_enter_city": {
+    "message": "أدخل اسم مدينة"
+  },
+  "search_load_error": {
+    "message": "تعذر تحميل بيانات جودة الهواء."
+  },
+  "search_loading": {
+    "message": "جارٍ تحميل تفاصيل جودة الهواء"
+  },
+  "search_locate": {
+    "message": "ابحث عن جودة الهواء بالقرب مني"
+  },
+  "search_no_result": {
+    "message": "لا توجد نتائج"
+  },
+  "search_select_another": {
+    "message": "اختر مدينة أخرى"
+  },
+  "search_selected_city": {
+    "message": "المدينة المحددة:"
+  },
+  "waqi_title": {
+    "message": "مؤشر جودة الهواء العالمي"
+  }
+}

@@ -1,0 +1,15 @@
+body {
+  width: 480px;
+  min-height: 180px;
+  padding: 10px;
+  font-family: Cambria, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', serif;
+}
+
+#cityaqiwidget {
+  display: inline-block;
+  max-width: none;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
