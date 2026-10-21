@@ -81,9 +81,22 @@
     const handle = document.createElement('button');
     handle.type = 'button';
     handle.className = 'aqicn-widget__drag-handle';
-    handle.textContent = '⋮⋮';
     handle.setAttribute('aria-label', AqiWidget.text('drag', feed?.rtsettings?.lang));
     handle.title = AqiWidget.text('dragHint', feed?.rtsettings?.lang);
+    const grip = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    grip.setAttribute('viewBox', '0 0 12 18');
+    grip.setAttribute('aria-hidden', 'true');
+    grip.setAttribute('focusable', 'false');
+    for (const y of [4, 9, 14]) {
+      for (const x of [3, 9]) {
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', y);
+        dot.setAttribute('r', 1);
+        grip.append(dot);
+      }
+    }
+    handle.append(grip);
     const link = document.createElement('a');
     link.className = 'aqicn-widget__link';
     link.target = '_blank';
