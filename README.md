@@ -17,7 +17,7 @@ World Air Quality Index 浏览器扩展的维护版本，支持 Chrome 和 Firef
 ## 功能与设置
 
 - 在工具栏图标和弹窗中查看所选城市的 AQI 与详情，并搜索、切换城市。
-- 在 Google、Bing、百度、Qwant、DuckDuckGo、Brave Search、Ecosia、Startpage、Yahoo 和搜狗的搜索首页显示 AQI 小部件。小部件默认位于左上角，可拖动；位置按搜索引擎保存。设置页可选择网站并一键全选或全不选。
+- 在 Google、Bing、百度、Qwant、DuckDuckGo、Brave Search、Ecosia、Startpage、Yahoo、搜狗和 360 搜索的搜索首页显示 AQI 小部件。小部件默认位于左上角，可拖动；位置按搜索引擎保存。设置页可选择网站并一键全选或全不选。
 - 提供 `tiny`、`small`、`forecast`、`aqi`、`iaqi` 五种小部件样式和两种工具栏图标样式。
 - 支持简体中文、繁体中文、英语、日语、韩语、西班牙语、俄语、法语、德语、葡萄牙语、意大利语、印尼语、阿拉伯语和印地语。语言切换后，设置页和弹窗会立即更新。
 - 可设置 AQI 超标提醒阈值（0–1000）。只有新数据的 AQI 严格高于阈值时才通知，同一浏览器最多每 60 分钟通知一次；默认关闭。
