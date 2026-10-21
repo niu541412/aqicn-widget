@@ -55,11 +55,20 @@
   "detail_wind": {
     "message": "Ветер"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "Выбрать все"
   },
   "engine_select_none": {
     "message": "Снять выделение"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "Логотип со значком AQI"

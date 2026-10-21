@@ -55,11 +55,20 @@
   "detail_wind": {
     "message": "풍속"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "모두 선택"
   },
   "engine_select_none": {
     "message": "모두 해제"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "로고와 AQI 배지"

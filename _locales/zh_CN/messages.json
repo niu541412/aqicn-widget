@@ -55,11 +55,20 @@
   "detail_wind": {
     "message": "风速"
   },
+  "engine_baidu": {
+    "message": "百度"
+  },
   "engine_select_all": {
     "message": "全选"
   },
   "engine_select_none": {
     "message": "全不选"
+  },
+  "engine_so": {
+    "message": "360 搜索"
+  },
+  "engine_sogou": {
+    "message": "搜狗"
   },
   "icon_badge": {
     "message": "标志加 AQI 徽章"

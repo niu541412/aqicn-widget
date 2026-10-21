@@ -53,11 +53,20 @@
   "detail_wind": {
     "message": "Angin"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "Pilih semua"
   },
   "engine_select_none": {
     "message": "Batalkan semua pilihan"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "Logo dengan lencana AQI"

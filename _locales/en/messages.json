@@ -55,11 +55,20 @@
   "detail_wind": {
     "message": "Wind"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "Select all"
   },
   "engine_select_none": {
     "message": "Clear all"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "Logo with AQI badge"

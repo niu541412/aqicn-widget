@@ -55,11 +55,20 @@
   "detail_wind": {
     "message": "Viento"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "Seleccionar todo"
   },
   "engine_select_none": {
     "message": "Quitar selección"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "Logotipo con indicador AQI"

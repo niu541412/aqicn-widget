@@ -53,11 +53,20 @@
   "detail_wind": {
     "message": "الرياح"
   },
+  "engine_baidu": {
+    "message": "Baidu"
+  },
   "engine_select_all": {
     "message": "تحديد الكل"
   },
   "engine_select_none": {
     "message": "إلغاء تحديد الكل"
+  },
+  "engine_so": {
+    "message": "360 Search"
+  },
+  "engine_sogou": {
+    "message": "Sogou"
   },
   "icon_badge": {
     "message": "الشعار مع شارة جودة الهواء"
