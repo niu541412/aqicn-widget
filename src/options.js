@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const tokenVisibility = document.getElementById('token-visibility');
   function updateTokenVisibilityLabel() {
     const label = Aqi.t(token.type === 'password' ? 'location_token_show' : 'location_token_hide');
-    tokenVisibility.textContent = label;
     tokenVisibility.setAttribute('aria-label', label);
     tokenVisibility.title = label;
   }

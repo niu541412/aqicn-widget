@@ -32,20 +32,10 @@ h1 img { width: 36px; height: 36px; }
 }
 .token-input-wrapper { position: relative; }
 #waqi-token { width: 100%; padding: 8px; border: 1px solid #c6cbd0; border-radius: 6px; }
-.token-input-wrapper #waqi-token { padding-right: 76px; }
-#token-visibility {
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  padding: 3px 7px;
-  transform: translateY(-50%);
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-  color: #1769aa;
-}
-#token-visibility:hover { background: #e8f0fe; }
-#token-visibility:focus-visible { outline: 2px solid #4c86dd; }
+.token-input-wrapper #waqi-token { padding-right: 42px; }
+#token-visibility svg { stroke-linecap: round; stroke-linejoin: round; }
+#token-visibility .eye-slash { display: none; }
+#token-visibility[aria-pressed="true"] .eye-slash { display: initial; }
 .location-options small { color: #5f6368; }
 .location-options small a { color: #1769aa; text-decoration: underline; text-underline-offset: 2px; }
 .alert-options { display: grid; gap: 10px; max-width: 460px; }
@@ -58,8 +48,8 @@ h1 img { width: 36px; height: 36px; }
   #alert-threshold { background: #303134; color: #f1f3f4; }
   #waqi-token { background: #303134; color: #f1f3f4; }
   .location-recommended { background: #303f56; color: #9dc3ff; }
-  #token-visibility, .location-options small a { color: #9dc3ff; }
-  #token-visibility:hover { background: #303f56; }
+  #locate-btn, #token-visibility, .location-options small a { color: #9dc3ff; }
+  #locate-btn:hover, #token-visibility:hover { background: #303f56; }
   .city-result:hover { background: #3c4656; }
   .design-choice:has(input:checked) { background: #303f56; }
 }

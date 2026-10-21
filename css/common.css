@@ -24,7 +24,7 @@ button { cursor: pointer; }
   color: #202124;
 }
 #cityinput:focus { border-color: #4c86dd; outline: 2px solid #4c86dd33; }
-#locate-btn {
+#locate-btn, #token-visibility {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -39,9 +39,9 @@ button { cursor: pointer; }
   background: transparent;
   color: #5f6368;
 }
-#locate-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
-#locate-btn:hover { background: #e8f0fe; color: #1769aa; }
-#locate-btn:focus-visible { outline: 2px solid #4c86dd; outline-offset: 1px; }
+#locate-btn svg, #token-visibility svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+#locate-btn:hover, #token-visibility:hover { background: #e8f0fe; color: #1769aa; }
+#locate-btn:focus-visible, #token-visibility:focus-visible { outline: 2px solid #4c86dd; outline-offset: 1px; }
 #searchresults { margin: 8px 0; border: 1px solid #dadce0; border-radius: 10px; overflow: hidden; }
 .city-result {
   display: flex;

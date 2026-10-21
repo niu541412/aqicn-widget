@@ -34,7 +34,13 @@
       <label for="waqi-token"><span class="i18n" id="location_token"></span></label>
       <div class="token-input-wrapper">
         <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
-        <button id="token-visibility" type="button" aria-controls="waqi-token" aria-pressed="false"></button>
+        <button id="token-visibility" type="button" aria-controls="waqi-token" aria-pressed="false" aria-label="Show token" title="Show token">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M2 12s3.5-5.5 10-5.5S22 12 22 12s-3.5 5.5-10 5.5S2 12 2 12Z"></path>
+            <circle cx="12" cy="12" r="2.5"></circle>
+            <path class="eye-slash" d="M3 3l18 18"></path>
+          </svg>
+        </button>
       </div>
       <small id="location_token_help" data-i18n-link="https://aqicn.org/data-platform/token/"></small>
     </div>
