@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const engines = ['bing', 'google', 'baidu', 'qwant', 'duckduckgo', 'brave', 'ecosia', 'startpage', 'yahoo', 'sogou'];
+  const engines = ['bing', 'google', 'baidu', 'qwant', 'duckduckgo', 'brave', 'ecosia', 'startpage', 'yahoo', 'sogou', 'so'];
   const keys = ['lang', 'iconType', 'design', 'locationMode', 'waqiToken',
     'aqiAlertEnabled', 'aqiAlertThreshold',
     ...engines.map((id) => `optchecked${id}`)];

@@ -61,7 +61,9 @@
         "*://www.startpage.com/*",
         "*://startpage.com/*",
         "*://search.yahoo.com/*",
-        "*://www.sogou.com/*"
+        "*://www.sogou.com/*",
+        "*://so.com/*",
+        "*://www.so.com/*"
       ],
       "css": [
         "css/content.css"

@@ -1,11 +1,12 @@
 /* Floating AQI widget on supported search engine home pages. */
 (() => {
   const hostname = location.hostname;
-  const engine = hostname.includes('bing.') ? 'bing' : hostname.includes('baidu.') ? 'baidu'
-    : hostname.includes('qwant.') ? 'qwant' : hostname.includes('duckduckgo.') ? 'duckduckgo'
-      : hostname === 'search.brave.com' ? 'brave' : hostname.includes('ecosia.') ? 'ecosia'
-        : hostname.includes('startpage.') ? 'startpage' : hostname === 'search.yahoo.com' ? 'yahoo'
-          : hostname.includes('sogou.') ? 'sogou' : 'google';
+  const engine = hostname === 'so.com' || hostname === 'www.so.com' ? 'so'
+    : hostname.includes('bing.') ? 'bing' : hostname.includes('baidu.') ? 'baidu'
+      : hostname.includes('qwant.') ? 'qwant' : hostname.includes('duckduckgo.') ? 'duckduckgo'
+        : hostname === 'search.brave.com' ? 'brave' : hostname.includes('ecosia.') ? 'ecosia'
+          : hostname.includes('startpage.') ? 'startpage' : hostname === 'search.yahoo.com' ? 'yahoo'
+            : hostname.includes('sogou.') ? 'sogou' : 'google';
   const positionKey = `aqicnWidgetPosition:${engine}`;
   let feed = null;
   let overlay = null;
