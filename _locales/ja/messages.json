@@ -9,7 +9,7 @@
     "message": "{city}：AQI {aqi} がしきい値 {threshold} を超えました。"
   },
   "alert_section": {
-    "message": "AQI アラート"
+    "message": "AQI アラート："
   },
   "alert_threshold": {
     "message": "AQI のしきい値"
@@ -68,7 +68,7 @@
     "message": "数値アイコン"
   },
   "location_browser": {
-    "message": "ブラウザーの位置情報（緯度・経度）"
+    "message": "ブラウザーの位置情報"
   },
   "location_ip": {
     "message": "IP アドレスからおおよその位置を取得"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "位置情報へのアクセスが拒否されました。許可するか、設定で IP による位置取得を選択してください。"
   },
+  "location_recommended": {
+    "message": "おすすめ"
+  },
   "location_token": {
     "message": "AQICN API トークン"
   },
   "location_token_help": {
     "message": "ブラウザーの位置情報を使う場合のみ必要です。aqicn.org/data-platform/token/ で無料で取得できます。座標は位置取得ボタンを押したときだけ AQICN に送信します。"
   },
+  "location_token_hide": {
+    "message": "隠す"
+  },
   "location_token_required": {
     "message": "先に拡張機能の設定で AQICN API トークンを入力してください。"
+  },
+  "location_token_show": {
+    "message": "表示"
   },
   "opt_design": {
     "message": "AQI ウィジェットの表示スタイル："

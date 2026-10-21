@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} निर्धारित सीमा {threshold} से अधिक है।"
   },
   "alert_section": {
-    "message": "AQI अलर्ट"
+    "message": "AQI अलर्ट:"
   },
   "alert_threshold": {
     "message": "AQI सीमा"
@@ -66,7 +66,7 @@
     "message": "संख्या वाला आइकन"
   },
   "location_browser": {
-    "message": "ब्राउज़र स्थान (अक्षांश और देशांतर)"
+    "message": "ब्राउज़र स्थान"
   },
   "location_ip": {
     "message": "IP पते से अनुमानित स्थान"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "स्थान की अनुमति अस्वीकार कर दी गई। अनुमति दें या सेटिंग में IP से स्थान चुनें।"
   },
+  "location_recommended": {
+    "message": "अनुशंसित"
+  },
   "location_token": {
     "message": "AQICN API टोकन"
   },
   "location_token_help": {
     "message": "केवल ब्राउज़र स्थान के लिए आवश्यक। aqicn.org/data-platform/token/ से मुफ़्त टोकन प्राप्त करें। निर्देशांक केवल स्थान बटन दबाने पर AQICN को भेजे जाते हैं।"
   },
+  "location_token_hide": {
+    "message": "छिपाएँ"
+  },
   "location_token_required": {
     "message": "पहले एक्सटेंशन सेटिंग में अपना AQICN API टोकन दर्ज करें।"
+  },
+  "location_token_show": {
+    "message": "दिखाएँ"
   },
   "opt_design": {
     "message": "AQI विजेट की शैली:"

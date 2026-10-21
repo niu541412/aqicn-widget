@@ -9,7 +9,7 @@
     "message": "{city} : l’AQI {aqi} dépasse le seuil de {threshold}."
   },
   "alert_section": {
-    "message": "Alertes AQI"
+    "message": "Alertes AQI:"
   },
   "alert_threshold": {
     "message": "Seuil AQI"
@@ -66,7 +66,7 @@
     "message": "Icône avec chiffre"
   },
   "location_browser": {
-    "message": "Position du navigateur (latitude et longitude)"
+    "message": "Position du navigateur"
   },
   "location_ip": {
     "message": "Position approximative par adresse IP"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "Accès à la position refusé. Autorisez-le ou choisissez la localisation par IP dans les paramètres."
   },
+  "location_recommended": {
+    "message": "Recommandé"
+  },
   "location_token": {
     "message": "Jeton API AQICN"
   },
   "location_token_help": {
     "message": "Nécessaire uniquement pour la position du navigateur. Obtenez un jeton gratuit sur aqicn.org/data-platform/token/. Les coordonnées ne sont envoyées à AQICN que lorsque vous cliquez sur le bouton de localisation."
   },
+  "location_token_hide": {
+    "message": "Masquer"
+  },
   "location_token_required": {
     "message": "Saisissez d’abord votre jeton API AQICN dans les paramètres de l’extension."
+  },
+  "location_token_show": {
+    "message": "Afficher"
   },
   "opt_design": {
     "message": "Style du widget AQI :"

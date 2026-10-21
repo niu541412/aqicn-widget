@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} превышает заданный порог {threshold}."
   },
   "alert_section": {
-    "message": "Оповещения об AQI"
+    "message": "Оповещения об AQI:"
   },
   "alert_threshold": {
     "message": "Порог AQI"
@@ -68,7 +68,7 @@
     "message": "Значок с числом"
   },
   "location_browser": {
-    "message": "Геолокация браузера (широта и долгота)"
+    "message": "Геолокация браузера"
   },
   "location_ip": {
     "message": "Примерное местоположение по IP"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "Доступ к местоположению запрещён. Разрешите его или выберите определение по IP в настройках."
   },
+  "location_recommended": {
+    "message": "Рекомендуется"
+  },
   "location_token": {
     "message": "Токен API AQICN"
   },
   "location_token_help": {
     "message": "Нужен только для геолокации браузера. Бесплатный токен можно получить на aqicn.org/data-platform/token/. Координаты отправляются в AQICN только после нажатия кнопки поиска местоположения."
   },
+  "location_token_hide": {
+    "message": "Скрыть"
+  },
   "location_token_required": {
     "message": "Сначала укажите токен API AQICN в настройках расширения."
+  },
+  "location_token_show": {
+    "message": "Показать"
   },
   "opt_design": {
     "message": "Визуальный стиль виджета AQI:"

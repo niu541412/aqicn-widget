@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} exceeds your threshold of {threshold}."
   },
   "alert_section": {
-    "message": "AQI alerts"
+    "message": "AQI alerts:"
   },
   "alert_threshold": {
     "message": "AQI threshold"
@@ -68,7 +68,7 @@
     "message": "Number icon"
   },
   "location_browser": {
-    "message": "Browser location (latitude and longitude)"
+    "message": "Browser location"
   },
   "location_ip": {
     "message": "Approximate location from IP address"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "Location permission was denied. Allow location access or choose IP location in options."
   },
+  "location_recommended": {
+    "message": "Recommended"
+  },
   "location_token": {
     "message": "AQICN API token"
   },
   "location_token_help": {
     "message": "Required only for browser location. Get a free token from aqicn.org/data-platform/token/. Coordinates are sent to AQICN only when you click locate."
   },
+  "location_token_hide": {
+    "message": "Hide"
+  },
   "location_token_required": {
     "message": "Enter your AQICN API token in the extension options first."
+  },
+  "location_token_show": {
+    "message": "Show"
   },
   "opt_design": {
     "message": "AQI widget visual style:"

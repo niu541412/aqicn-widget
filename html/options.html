@@ -30,10 +30,13 @@
     <h2 class="section-header"><span class="i18n" id="opt_location"></span></h2>
     <div class="location-options">
       <label><input type="radio" name="locationMode" id="location-ip" value="ip"><span class="i18n" id="location_ip"></span></label>
-      <label><input type="radio" name="locationMode" id="location-browser" value="browser"><span class="i18n" id="location_browser"></span></label>
+      <label><input type="radio" name="locationMode" id="location-browser" value="browser"><span class="i18n" id="location_browser"></span><span class="location-recommended i18n" id="location_recommended"></span></label>
       <label for="waqi-token"><span class="i18n" id="location_token"></span></label>
-      <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
-      <small class="i18n" id="location_token_help"></small>
+      <div class="token-input-wrapper">
+        <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
+        <button id="token-visibility" type="button" aria-controls="waqi-token" aria-pressed="false"></button>
+      </div>
+      <small id="location_token_help" data-i18n-link="https://aqicn.org/data-platform/token/"></small>
     </div>
 
     <h2 class="section-header i18n" id="alert_section"></h2>

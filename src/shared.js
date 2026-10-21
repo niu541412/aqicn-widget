@@ -58,6 +58,22 @@ const Aqi = (() => {
 
   function localize(root = document) {
     for (const element of root.querySelectorAll('.i18n')) element.textContent = t(element.id);
+    for (const element of root.querySelectorAll('[data-i18n-link]')) {
+      const url = element.dataset.i18nLink;
+      const label = url.replace(/^https?:\/\//, '');
+      const message = t(element.id);
+      const position = message.indexOf(label);
+      if (position < 0) {
+        element.textContent = message;
+        continue;
+      }
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = label;
+      element.replaceChildren(message.slice(0, position), link, message.slice(position + label.length));
+    }
     for (const element of root.querySelectorAll('[data-i18n-aria-label]')) {
       element.setAttribute('aria-label', t(element.dataset.i18nAriaLabel));
     }

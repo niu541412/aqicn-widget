@@ -9,7 +9,7 @@
     "message": "{city}: مؤشر جودة الهواء {aqi} يتجاوز الحد المحدد {threshold}."
   },
   "alert_section": {
-    "message": "تنبيهات مؤشر جودة الهواء"
+    "message": "تنبيهات مؤشر جودة الهواء:"
   },
   "alert_threshold": {
     "message": "حد مؤشر جودة الهواء"
@@ -66,7 +66,7 @@
     "message": "أيقونة رقمية"
   },
   "location_browser": {
-    "message": "موقع المتصفح (خط العرض وخط الطول)"
+    "message": "موقع المتصفح"
   },
   "location_ip": {
     "message": "موقع تقريبي حسب عنوان IP"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "تم رفض إذن الموقع. اسمح بالوصول أو اختر تحديد الموقع عبر IP من الإعدادات."
   },
+  "location_recommended": {
+    "message": "موصى به"
+  },
   "location_token": {
     "message": "رمز واجهة AQICN البرمجية"
   },
   "location_token_help": {
     "message": "مطلوب فقط لتحديد الموقع عبر المتصفح. احصل على رمز مجاني من aqicn.org/data-platform/token/. تُرسل الإحداثيات إلى AQICN فقط عند الضغط على زر تحديد الموقع."
   },
+  "location_token_hide": {
+    "message": "إخفاء"
+  },
   "location_token_required": {
     "message": "أدخل رمز واجهة AQICN البرمجية في إعدادات الإضافة أولاً."
+  },
+  "location_token_show": {
+    "message": "إظهار"
   },
   "opt_design": {
     "message": "نمط أداة مؤشر جودة الهواء:"

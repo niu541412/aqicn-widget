@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} überschreitet den Grenzwert {threshold}."
   },
   "alert_section": {
-    "message": "AQI-Benachrichtigungen"
+    "message": "AQI-Benachrichtigungen:"
   },
   "alert_threshold": {
     "message": "AQI-Grenzwert"
@@ -66,7 +66,7 @@
     "message": "Symbol mit Zahl"
   },
   "location_browser": {
-    "message": "Browserstandort (Breiten- und Längengrad)"
+    "message": "Browserstandort"
   },
   "location_ip": {
     "message": "Ungefährer Standort anhand der IP-Adresse"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "Standortzugriff verweigert. Erlauben Sie den Zugriff oder wählen Sie in den Einstellungen die IP-Ortung."
   },
+  "location_recommended": {
+    "message": "Empfohlen"
+  },
   "location_token": {
     "message": "AQICN-API-Token"
   },
   "location_token_help": {
     "message": "Nur für die Browserortung erforderlich. Ein kostenloses Token erhalten Sie auf aqicn.org/data-platform/token/. Koordinaten werden nur beim Klicken auf die Ortungsschaltfläche an AQICN gesendet."
   },
+  "location_token_hide": {
+    "message": "Verbergen"
+  },
   "location_token_required": {
     "message": "Geben Sie zuerst Ihr AQICN-API-Token in den Erweiterungseinstellungen ein."
+  },
+  "location_token_show": {
+    "message": "Anzeigen"
   },
   "opt_design": {
     "message": "Darstellung des AQI-Widgets:"

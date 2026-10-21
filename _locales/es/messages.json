@@ -9,7 +9,7 @@
     "message": "{city}: el AQI {aqi} supera el umbral de {threshold}."
   },
   "alert_section": {
-    "message": "Alertas de AQI"
+    "message": "Alertas de AQI:"
   },
   "alert_threshold": {
     "message": "Umbral de AQI"
@@ -68,7 +68,7 @@
     "message": "Icono con número"
   },
   "location_browser": {
-    "message": "Ubicación del navegador (latitud y longitud)"
+    "message": "Ubicación del navegador"
   },
   "location_ip": {
     "message": "Ubicación aproximada por IP"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "Se rechazó el permiso de ubicación. Permítelo o elige la ubicación por IP en los ajustes."
   },
+  "location_recommended": {
+    "message": "Recomendado"
+  },
   "location_token": {
     "message": "Token de la API de AQICN"
   },
   "location_token_help": {
     "message": "Solo se necesita para la ubicación del navegador. Consigue uno gratis en aqicn.org/data-platform/token/. Las coordenadas se envían a AQICN solo al pulsar el botón de ubicación."
   },
+  "location_token_hide": {
+    "message": "Ocultar"
+  },
   "location_token_required": {
     "message": "Introduce primero tu token de la API de AQICN en los ajustes."
+  },
+  "location_token_show": {
+    "message": "Mostrar"
   },
   "opt_design": {
     "message": "Estilo visual del widget de AQI:"

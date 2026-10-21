@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       await Aqi.setLanguage(code);
       if (!input.checked) return;
       Aqi.localize();
+      updateTokenVisibilityLabel();
       search.updateLanguage(code);
       await BrowserApi.storage.local.set({ lang: code });
       await Aqi.message('setLang', { lang: code });
@@ -92,7 +93,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   const token = document.getElementById('waqi-token');
+  const tokenVisibility = document.getElementById('token-visibility');
+  function updateTokenVisibilityLabel() {
+    const label = Aqi.t(token.type === 'password' ? 'location_token_show' : 'location_token_hide');
+    tokenVisibility.textContent = label;
+    tokenVisibility.setAttribute('aria-label', label);
+    tokenVisibility.title = label;
+  }
   token.value = stored.waqiToken || '';
+  updateTokenVisibilityLabel();
+  tokenVisibility.addEventListener('click', () => {
+    token.type = token.type === 'password' ? 'text' : 'password';
+    tokenVisibility.setAttribute('aria-pressed', String(token.type === 'text'));
+    updateTokenVisibilityLabel();
+  });
   token.addEventListener('change', async () => {
     await BrowserApi.storage.local.set({ waqiToken: token.value.trim() });
     saved();

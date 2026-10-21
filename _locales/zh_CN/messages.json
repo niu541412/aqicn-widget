@@ -9,7 +9,7 @@
     "message": "{city}：AQI 为 {aqi}，超过设定阈值 {threshold}。"
   },
   "alert_section": {
-    "message": "AQI 超标提醒"
+    "message": "AQI 超标提醒："
   },
   "alert_threshold": {
     "message": "AQI 提醒阈值"
@@ -68,7 +68,7 @@
     "message": "数字图标"
   },
   "location_browser": {
-    "message": "使用浏览器定位（经纬度）"
+    "message": "使用浏览器定位"
   },
   "location_ip": {
     "message": "按 IP 地址估算位置"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "未获得定位权限。请允许定位，或在设置中选择 IP 定位。"
   },
+  "location_recommended": {
+    "message": "推荐"
+  },
   "location_token": {
     "message": "AQICN API Token"
   },
   "location_token_help": {
     "message": "仅浏览器定位需要。可在 aqicn.org/data-platform/token/ 免费获取。只有点击定位按钮时才会向 AQICN 发送经纬度。"
   },
+  "location_token_hide": {
+    "message": "隐藏"
+  },
   "location_token_required": {
     "message": "请先在扩展设置中填写 AQICN API Token。"
+  },
+  "location_token_show": {
+    "message": "显示"
   },
   "opt_design": {
     "message": "AQI 小部件的显示样式："

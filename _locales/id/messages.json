@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} melebihi ambang batas {threshold}."
   },
   "alert_section": {
-    "message": "Peringatan AQI"
+    "message": "Peringatan AQI:"
   },
   "alert_threshold": {
     "message": "Ambang batas AQI"
@@ -66,7 +66,7 @@
     "message": "Ikon angka"
   },
   "location_browser": {
-    "message": "Lokasi peramban (lintang dan bujur)"
+    "message": "Lokasi peramban"
   },
   "location_ip": {
     "message": "Perkiraan lokasi berdasarkan alamat IP"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "Izin lokasi ditolak. Izinkan akses lokasi atau pilih lokasi berdasarkan IP di pengaturan."
   },
+  "location_recommended": {
+    "message": "Disarankan"
+  },
   "location_token": {
     "message": "Token API AQICN"
   },
   "location_token_help": {
     "message": "Hanya diperlukan untuk lokasi peramban. Dapatkan token gratis di aqicn.org/data-platform/token/. Koordinat hanya dikirim ke AQICN saat Anda menekan tombol lokasi."
   },
+  "location_token_hide": {
+    "message": "Sembunyikan"
+  },
   "location_token_required": {
     "message": "Masukkan token API AQICN terlebih dahulu di pengaturan ekstensi."
+  },
+  "location_token_show": {
+    "message": "Tampilkan"
   },
   "opt_design": {
     "message": "Gaya widget AQI:"

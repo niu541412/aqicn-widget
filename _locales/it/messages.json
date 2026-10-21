@@ -9,7 +9,7 @@
     "message": "{city}: l’AQI {aqi} supera la soglia di {threshold}."
   },
   "alert_section": {
-    "message": "Avvisi AQI"
+    "message": "Avvisi AQI:"
   },
   "alert_threshold": {
     "message": "Soglia AQI"
@@ -66,7 +66,7 @@
     "message": "Icona con numero"
   },
   "location_browser": {
-    "message": "Posizione del browser (latitudine e longitudine)"
+    "message": "Posizione del browser"
   },
   "location_ip": {
     "message": "Posizione approssimativa tramite indirizzo IP"
@@ -74,14 +74,23 @@
   "location_permission_denied": {
     "message": "Accesso alla posizione negato. Consenti l’accesso o scegli la posizione tramite IP nelle impostazioni."
   },
+  "location_recommended": {
+    "message": "Consigliato"
+  },
   "location_token": {
     "message": "Token API AQICN"
   },
   "location_token_help": {
     "message": "Necessario solo per la posizione del browser. Ottieni un token gratuito su aqicn.org/data-platform/token/. Le coordinate vengono inviate ad AQICN solo quando premi il pulsante di localizzazione."
   },
+  "location_token_hide": {
+    "message": "Nascondi"
+  },
   "location_token_required": {
     "message": "Inserisci prima il tuo token API AQICN nelle impostazioni dell’estensione."
+  },
+  "location_token_show": {
+    "message": "Mostra"
   },
   "opt_design": {
     "message": "Stile del widget AQI:"

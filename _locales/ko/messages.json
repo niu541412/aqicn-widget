@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi}가 설정한 기준값 {threshold}을(를) 넘었습니다."
   },
   "alert_section": {
-    "message": "AQI 알림"
+    "message": "AQI 알림:"
   },
   "alert_threshold": {
     "message": "AQI 기준값"
@@ -68,7 +68,7 @@
     "message": "숫자 아이콘"
   },
   "location_browser": {
-    "message": "브라우저 위치(위도와 경도)"
+    "message": "브라우저 위치"
   },
   "location_ip": {
     "message": "IP 주소로 대략적인 위치 확인"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "위치 권한이 거부되었습니다. 권한을 허용하거나 설정에서 IP 위치를 선택하세요."
   },
+  "location_recommended": {
+    "message": "추천"
+  },
   "location_token": {
     "message": "AQICN API 토큰"
   },
   "location_token_help": {
     "message": "브라우저 위치를 사용할 때만 필요합니다. aqicn.org/data-platform/token/에서 무료로 받을 수 있습니다. 좌표는 위치 버튼을 누를 때만 AQICN에 전송됩니다."
   },
+  "location_token_hide": {
+    "message": "숨기기"
+  },
   "location_token_required": {
     "message": "먼저 확장 프로그램 설정에 AQICN API 토큰을 입력하세요."
+  },
+  "location_token_show": {
+    "message": "표시"
   },
   "opt_design": {
     "message": "AQI 위젯 시각 스타일:"

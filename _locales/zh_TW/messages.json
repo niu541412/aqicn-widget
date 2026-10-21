@@ -9,7 +9,7 @@
     "message": "{city}：AQI 為 {aqi}，超過設定門檻 {threshold}。"
   },
   "alert_section": {
-    "message": "AQI 超標提醒"
+    "message": "AQI 超標提醒："
   },
   "alert_threshold": {
     "message": "AQI 提醒門檻"
@@ -68,7 +68,7 @@
     "message": "數字圖示"
   },
   "location_browser": {
-    "message": "使用瀏覽器定位（經緯度）"
+    "message": "使用瀏覽器定位"
   },
   "location_ip": {
     "message": "依 IP 位址估算位置"
@@ -76,14 +76,23 @@
   "location_permission_denied": {
     "message": "未取得定位權限。請允許定位，或在設定中選擇 IP 定位。"
   },
+  "location_recommended": {
+    "message": "推薦"
+  },
   "location_token": {
     "message": "AQICN API Token"
   },
   "location_token_help": {
     "message": "僅瀏覽器定位需要。可在 aqicn.org/data-platform/token/ 免費取得。只有點擊定位按鈕時才會向 AQICN 傳送經緯度。"
   },
+  "location_token_hide": {
+    "message": "隱藏"
+  },
   "location_token_required": {
     "message": "請先在擴充功能設定中填入 AQICN API Token。"
+  },
+  "location_token_show": {
+    "message": "顯示"
   },
   "opt_design": {
     "message": "AQI 小工具的顯示樣式："
