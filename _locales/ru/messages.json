@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} превышает заданный порог {threshold}."
   },
   "alert_section": {
-    "message": "Оповещения об AQI:"
+    "message": "Оповещения о превышении порога:"
   },
   "alert_threshold": {
     "message": "Порог AQI"
@@ -104,19 +104,19 @@
     "message": "Показать"
   },
   "opt_design": {
-    "message": "Визуальный стиль виджета AQI:"
+    "message": "Стиль виджета:"
   },
   "opt_engine": {
-    "message": "Показывать информацию об AQI на сайтах:"
+    "message": "Сайты с виджетом:"
   },
   "opt_icon": {
-    "message": "Стиль иконки:"
+    "message": "Стиль значка:"
   },
   "opt_lang": {
-    "message": "Язык информации об AQI:"
+    "message": "Язык отображения:"
   },
   "opt_location": {
-    "message": "Автоматическое определение местоположения:"
+    "message": "Способ автоматического определения местоположения:"
   },
   "opt_save": {
     "message": "Настройки сохранены"
@@ -141,9 +141,6 @@
   },
   "search_select_another": {
     "message": "Выберите другой город..."
-  },
-  "search_selected_city": {
-    "message": "Выбранный город:"
   },
   "waqi_title": {
     "message": "Мировой индекс качества воздуха"

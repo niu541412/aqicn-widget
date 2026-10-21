@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} निर्धारित सीमा {threshold} से अधिक है।"
   },
   "alert_section": {
-    "message": "AQI अलर्ट:"
+    "message": "सीमा पार होने पर अलर्ट:"
   },
   "alert_threshold": {
     "message": "AQI सीमा"
@@ -102,19 +102,19 @@
     "message": "दिखाएँ"
   },
   "opt_design": {
-    "message": "AQI विजेट की शैली:"
+    "message": "विजेट शैली:"
   },
   "opt_engine": {
-    "message": "इन साइटों पर AQI जानकारी दिखाएँ:"
+    "message": "विजेट दिखाने वाली साइटें:"
   },
   "opt_icon": {
-    "message": "आइकन की शैली:"
+    "message": "आइकन शैली:"
   },
   "opt_lang": {
-    "message": "AQI जानकारी की भाषा:"
+    "message": "प्रदर्शन भाषा:"
   },
   "opt_location": {
-    "message": "स्वचालित स्थान:"
+    "message": "स्वचालित स्थान विधि:"
   },
   "opt_save": {
     "message": "विकल्प सहेजे गए"
@@ -139,9 +139,6 @@
   },
   "search_select_another": {
     "message": "दूसरा शहर चुनें"
-  },
-  "search_selected_city": {
-    "message": "चुना हुआ शहर:"
   },
   "waqi_title": {
     "message": "विश्व वायु गुणवत्ता सूचकांक"

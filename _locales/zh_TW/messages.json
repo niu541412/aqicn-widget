@@ -9,7 +9,7 @@
     "message": "{city}：AQI 為 {aqi}，超過設定門檻 {threshold}。"
   },
   "alert_section": {
-    "message": "AQI 超標提醒："
+    "message": "超標提醒："
   },
   "alert_threshold": {
     "message": "AQI 提醒門檻"
@@ -104,16 +104,16 @@
     "message": "顯示"
   },
   "opt_design": {
-    "message": "AQI 小工具的顯示樣式："
+    "message": "小工具樣式："
   },
   "opt_engine": {
-    "message": "顯示 AQI 資訊的網站："
+    "message": "顯示小工具的網站："
   },
   "opt_icon": {
     "message": "圖示樣式："
   },
   "opt_lang": {
-    "message": "顯示 AQI 資訊的語言："
+    "message": "顯示語言："
   },
   "opt_location": {
     "message": "自動定位方式："
@@ -141,9 +141,6 @@
   },
   "search_select_another": {
     "message": "選擇另一個城市..."
-  },
-  "search_selected_city": {
-    "message": "已選擇城市："
   },
   "waqi_title": {
     "message": "世界空氣品質指數"

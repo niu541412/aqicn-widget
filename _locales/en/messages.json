@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} exceeds your threshold of {threshold}."
   },
   "alert_section": {
-    "message": "AQI alerts:"
+    "message": "Threshold alerts:"
   },
   "alert_threshold": {
     "message": "AQI threshold"
@@ -104,25 +104,25 @@
     "message": "Show"
   },
   "opt_design": {
-    "message": "AQI widget visual style:"
+    "message": "Widget style:"
   },
   "opt_engine": {
-    "message": "Show the AQI information on:"
+    "message": "Sites showing the widget:"
   },
   "opt_icon": {
     "message": "Icon style:"
   },
   "opt_lang": {
-    "message": "Display the AQI information in:"
+    "message": "Display language:"
   },
   "opt_location": {
-    "message": "Automatic location:"
+    "message": "Automatic location method:"
   },
   "opt_save": {
     "message": "Settings saved"
   },
   "search_current_city": {
-    "message": "Select a city:"
+    "message": "City selection:"
   },
   "search_enter_city": {
     "message": "Enter a city name"
@@ -141,9 +141,6 @@
   },
   "search_select_another": {
     "message": "Select another city..."
-  },
-  "search_selected_city": {
-    "message": "Selected city:"
   },
   "waqi_title": {
     "message": "World Air Quality Index"

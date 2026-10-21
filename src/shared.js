@@ -57,7 +57,11 @@ const Aqi = (() => {
   }
 
   function localize(root = document) {
-    for (const element of root.querySelectorAll('.i18n')) element.textContent = t(element.id);
+    for (const element of root.querySelectorAll('.i18n')) {
+      const message = t(element.dataset.i18nKey || element.id);
+      element.textContent = element.hasAttribute('data-i18n-strip-colon')
+        ? message.replace(/\s*[:：]\s*$/, '') : message;
+    }
     for (const element of root.querySelectorAll('[data-i18n-link]')) {
       const url = element.dataset.i18nLink;
       const label = url.replace(/^https?:\/\//, '');

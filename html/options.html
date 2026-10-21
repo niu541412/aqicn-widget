@@ -10,97 +10,110 @@
 <body>
   <main class="container">
     <h1><img src="../img/aqicn.128.png" alt=""><span class="i18n" id="waqi_title"></span><a href="https://aqicn.org/">AQICN</a></h1>
-    <h2 class="i18n" id="search_current_city"></h2>
-    <div id="selectedcitytitle"></div>
-    <form id="searchform">
-      <div class="input-wrapper">
-        <input id="cityinput" name="q" type="search" autocomplete="off">
-        <button id="locate-btn" type="button" data-i18n-aria-label="search_locate" data-i18n-title="search_locate">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <circle cx="12" cy="12" r="7"></circle>
-            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
-            <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
-          </svg>
-        </button>
+    <div class="settings-layout">
+      <nav class="settings-nav">
+        <a href="#search_current_city" class="i18n" data-i18n-key="search_current_city" data-i18n-strip-colon></a>
+        <a href="#location-settings" class="i18n" data-i18n-key="opt_location" data-i18n-strip-colon></a>
+        <a href="#alert_section" class="i18n" data-i18n-key="alert_section" data-i18n-strip-colon></a>
+        <a href="#icon-settings" class="i18n" data-i18n-key="opt_icon" data-i18n-strip-colon></a>
+        <a href="#engine-settings" class="i18n" data-i18n-key="opt_engine" data-i18n-strip-colon></a>
+        <a href="#design-settings" class="i18n" data-i18n-key="opt_design" data-i18n-strip-colon></a>
+        <a href="#language-settings" class="i18n" data-i18n-key="opt_lang" data-i18n-strip-colon></a>
+      </nav>
+      <div class="settings-content">
+        <h2 class="section-header i18n" id="search_current_city"></h2>
+        <div id="selectedcitytitle"></div>
+        <form id="searchform">
+          <div class="input-wrapper">
+            <input id="cityinput" name="q" type="search" autocomplete="off">
+            <button id="locate-btn" type="button" data-i18n-aria-label="search_locate" data-i18n-title="search_locate">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="7"></circle>
+                <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+                <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div id="searchresults" hidden></div>
+        <div id="cityaqiwidget" hidden></div>
+
+        <h2 class="section-header" id="location-settings"><span class="i18n" id="opt_location"></span></h2>
+        <div class="location-options">
+          <label><input type="radio" name="locationMode" id="location-ip" value="ip"><span class="i18n" id="location_ip"></span></label>
+          <label><input type="radio" name="locationMode" id="location-browser" value="browser"><span class="i18n" id="location_browser"></span><span class="location-recommended i18n" id="location_recommended"></span></label>
+          <label for="waqi-token"><span class="i18n" id="location_token"></span></label>
+          <div class="token-input-wrapper">
+            <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
+            <button id="token-visibility" type="button" aria-controls="waqi-token" aria-pressed="false" aria-label="Show token" title="Show token">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M2 12s3.5-5.5 10-5.5S22 12 22 12s-3.5 5.5-10 5.5S2 12 2 12Z"></path>
+                <circle cx="12" cy="12" r="2.5"></circle>
+                <path class="eye-slash" d="M3 3l18 18"></path>
+              </svg>
+            </button>
+          </div>
+          <small id="location_token_help" data-i18n-link="https://aqicn.org/data-platform/token/"></small>
+        </div>
+
+        <h2 class="section-header i18n" id="alert_section"></h2>
+        <div class="alert-options">
+          <label><input type="checkbox" id="alert-enabled"><span class="i18n" id="alert_enabled"></span></label>
+          <label for="alert-threshold" class="i18n" id="alert_threshold"></label>
+          <input id="alert-threshold" type="number" min="0" max="1000" step="1" inputmode="numeric" required>
+          <small class="i18n" id="alert_help"></small>
+        </div>
+
+        <h2 class="section-header" id="icon-settings"><span class="i18n" id="opt_icon"></span></h2>
+        <div class="two-grid">
+          <label><input type="radio" id="defaulticon" value="1"><img id="defaulticon_img" data-i18n-alt="icon_default"></label>
+          <label><input type="radio" id="badgeicon" value="2"><img id="badgeicon_img" data-i18n-alt="icon_badge"></label>
+        </div>
+
+        <div class="section-header section-header--actions" id="engine-settings">
+          <h2 class="i18n" id="opt_engine"></h2>
+          <div class="engine-actions">
+            <button type="button" class="i18n" id="engine_select_all"></button>
+            <button type="button" class="i18n" id="engine_select_none"></button>
+          </div>
+        </div>
+        <div class="two-grid">
+          <label><input type="checkbox" id="bing"><a href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">Bing</a></label>
+          <label><input type="checkbox" id="google"><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a></label>
+          <label><input type="checkbox" id="baidu"><a class="i18n" id="engine_baidu" href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer">Baidu</a></label>
+          <label><input type="checkbox" id="qwant"><a href="https://www.qwant.com/" target="_blank" rel="noopener noreferrer">Qwant</a></label>
+          <label><input type="checkbox" id="duckduckgo"><a href="https://duckduckgo.com/" target="_blank" rel="noopener noreferrer">DuckDuckGo</a></label>
+          <label><input type="checkbox" id="brave"><a href="https://search.brave.com/" target="_blank" rel="noopener noreferrer">Brave Search</a></label>
+          <label><input type="checkbox" id="ecosia"><a href="https://www.ecosia.org/" target="_blank" rel="noopener noreferrer">Ecosia</a></label>
+          <label><input type="checkbox" id="startpage"><a href="https://www.startpage.com/" target="_blank" rel="noopener noreferrer">Startpage</a></label>
+          <label><input type="checkbox" id="yahoo"><a href="https://search.yahoo.com/" target="_blank" rel="noopener noreferrer">Yahoo</a></label>
+          <label><input type="checkbox" id="sogou"><a class="i18n" id="engine_sogou" href="https://www.sogou.com/" target="_blank" rel="noopener noreferrer">Sogou</a></label>
+          <label><input type="checkbox" id="so"><a class="i18n" id="engine_so" href="https://www.so.com/" target="_blank" rel="noopener noreferrer">360 Search</a></label>
+        </div>
+
+        <h2 class="section-header" id="design-settings"><span class="i18n" id="opt_design"></span></h2>
+        <div id="design_selection"></div>
+
+        <h2 class="section-header" id="language-settings"><span class="i18n" id="opt_lang"></span></h2>
+        <div class="two-grid language-grid">
+          <label><input type="radio" id="langen"><span class="flag-emoji">🇬🇧</span>English</label>
+          <label><input type="radio" id="langcn"><span class="flag-emoji">🇨🇳</span>简体中文</label>
+          <label><input type="radio" id="langhk"><span class="flag-emoji">🇭🇰</span>繁體中文</label>
+          <label><input type="radio" id="langjp"><span class="flag-emoji">🇯🇵</span>日本語</label>
+          <label><input type="radio" id="langes"><span class="flag-emoji">🇪🇸</span>Español</label>
+          <label><input type="radio" id="langru"><span class="flag-emoji">🇷🇺</span>Русский</label>
+          <label><input type="radio" id="langkr"><span class="flag-emoji">🇰🇷</span>한국어</label>
+          <label><input type="radio" id="langfr"><span class="flag-emoji">🇫🇷</span>Français</label>
+          <label><input type="radio" id="langde"><span class="flag-emoji">🇩🇪</span>Deutsch</label>
+          <label><input type="radio" id="langpt"><span class="flag-emoji">🇧🇷</span>Português</label>
+          <label><input type="radio" id="langit"><span class="flag-emoji">🇮🇹</span>Italiano</label>
+          <label><input type="radio" id="langid"><span class="flag-emoji">🇮🇩</span>Bahasa Indonesia</label>
+          <label><input type="radio" id="langar"><span class="flag-emoji">🇸🇦</span>العربية</label>
+          <label><input type="radio" id="langhi"><span class="flag-emoji">🇮🇳</span>हिन्दी</label>
+        </div>
+        <div id="status" hidden></div>
       </div>
-    </form>
-    <div id="searchresults" hidden></div>
-    <div id="cityaqiwidget" hidden></div>
-
-    <h2 class="section-header"><span class="i18n" id="opt_location"></span></h2>
-    <div class="location-options">
-      <label><input type="radio" name="locationMode" id="location-ip" value="ip"><span class="i18n" id="location_ip"></span></label>
-      <label><input type="radio" name="locationMode" id="location-browser" value="browser"><span class="i18n" id="location_browser"></span><span class="location-recommended i18n" id="location_recommended"></span></label>
-      <label for="waqi-token"><span class="i18n" id="location_token"></span></label>
-      <div class="token-input-wrapper">
-        <input id="waqi-token" type="password" autocomplete="off" spellcheck="false">
-        <button id="token-visibility" type="button" aria-controls="waqi-token" aria-pressed="false" aria-label="Show token" title="Show token">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M2 12s3.5-5.5 10-5.5S22 12 22 12s-3.5 5.5-10 5.5S2 12 2 12Z"></path>
-            <circle cx="12" cy="12" r="2.5"></circle>
-            <path class="eye-slash" d="M3 3l18 18"></path>
-          </svg>
-        </button>
-      </div>
-      <small id="location_token_help" data-i18n-link="https://aqicn.org/data-platform/token/"></small>
     </div>
-
-    <h2 class="section-header i18n" id="alert_section"></h2>
-    <div class="alert-options">
-      <label><input type="checkbox" id="alert-enabled"><span class="i18n" id="alert_enabled"></span></label>
-      <label for="alert-threshold" class="i18n" id="alert_threshold"></label>
-      <input id="alert-threshold" type="number" min="0" max="1000" step="1" inputmode="numeric" required>
-      <small class="i18n" id="alert_help"></small>
-    </div>
-
-    <h2 class="section-header"><span class="i18n" id="opt_icon"></span></h2>
-    <div class="two-grid">
-      <label><input type="radio" id="defaulticon" value="1"><img id="defaulticon_img" data-i18n-alt="icon_default"></label>
-      <label><input type="radio" id="badgeicon" value="2"><img id="badgeicon_img" data-i18n-alt="icon_badge"></label>
-    </div>
-
-    <div class="section-header section-header--actions">
-      <h2 class="i18n" id="opt_engine"></h2>
-      <div class="engine-actions">
-        <button type="button" class="i18n" id="engine_select_all"></button>
-        <button type="button" class="i18n" id="engine_select_none"></button>
-      </div>
-    </div>
-    <div class="two-grid">
-      <label><input type="checkbox" id="bing"><a href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">Bing</a></label>
-      <label><input type="checkbox" id="google"><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a></label>
-      <label><input type="checkbox" id="baidu"><a class="i18n" id="engine_baidu" href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer">Baidu</a></label>
-      <label><input type="checkbox" id="qwant"><a href="https://www.qwant.com/" target="_blank" rel="noopener noreferrer">Qwant</a></label>
-      <label><input type="checkbox" id="duckduckgo"><a href="https://duckduckgo.com/" target="_blank" rel="noopener noreferrer">DuckDuckGo</a></label>
-      <label><input type="checkbox" id="brave"><a href="https://search.brave.com/" target="_blank" rel="noopener noreferrer">Brave Search</a></label>
-      <label><input type="checkbox" id="ecosia"><a href="https://www.ecosia.org/" target="_blank" rel="noopener noreferrer">Ecosia</a></label>
-      <label><input type="checkbox" id="startpage"><a href="https://www.startpage.com/" target="_blank" rel="noopener noreferrer">Startpage</a></label>
-      <label><input type="checkbox" id="yahoo"><a href="https://search.yahoo.com/" target="_blank" rel="noopener noreferrer">Yahoo</a></label>
-      <label><input type="checkbox" id="sogou"><a class="i18n" id="engine_sogou" href="https://www.sogou.com/" target="_blank" rel="noopener noreferrer">Sogou</a></label>
-      <label><input type="checkbox" id="so"><a class="i18n" id="engine_so" href="https://www.so.com/" target="_blank" rel="noopener noreferrer">360 Search</a></label>
-    </div>
-
-    <h2 class="section-header"><span class="i18n" id="opt_design"></span></h2>
-    <div id="design_selection"></div>
-
-    <h2 class="section-header"><span class="i18n" id="opt_lang"></span></h2>
-    <div class="two-grid language-grid">
-      <label><input type="radio" id="langen"><span class="flag-emoji">🇬🇧</span>English</label>
-      <label><input type="radio" id="langcn"><span class="flag-emoji">🇨🇳</span>简体中文</label>
-      <label><input type="radio" id="langhk"><span class="flag-emoji">🇭🇰</span>繁體中文</label>
-      <label><input type="radio" id="langjp"><span class="flag-emoji">🇯🇵</span>日本語</label>
-      <label><input type="radio" id="langes"><span class="flag-emoji">🇪🇸</span>Español</label>
-      <label><input type="radio" id="langru"><span class="flag-emoji">🇷🇺</span>Русский</label>
-      <label><input type="radio" id="langkr"><span class="flag-emoji">🇰🇷</span>한국어</label>
-      <label><input type="radio" id="langfr"><span class="flag-emoji">🇫🇷</span>Français</label>
-      <label><input type="radio" id="langde"><span class="flag-emoji">🇩🇪</span>Deutsch</label>
-      <label><input type="radio" id="langpt"><span class="flag-emoji">🇧🇷</span>Português</label>
-      <label><input type="radio" id="langit"><span class="flag-emoji">🇮🇹</span>Italiano</label>
-      <label><input type="radio" id="langid"><span class="flag-emoji">🇮🇩</span>Bahasa Indonesia</label>
-      <label><input type="radio" id="langar"><span class="flag-emoji">🇸🇦</span>العربية</label>
-      <label><input type="radio" id="langhi"><span class="flag-emoji">🇮🇳</span>हिन्दी</label>
-    </div>
-    <div id="status" hidden></div>
   </main>
   <script src="../src/shared.js"></script>
   <script src="../src/search.js"></script>

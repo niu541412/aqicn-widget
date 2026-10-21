@@ -9,7 +9,7 @@
     "message": "{city}: l’AQI {aqi} supera la soglia di {threshold}."
   },
   "alert_section": {
-    "message": "Avvisi AQI:"
+    "message": "Avvisi di superamento soglia:"
   },
   "alert_threshold": {
     "message": "Soglia AQI"
@@ -102,19 +102,19 @@
     "message": "Mostra"
   },
   "opt_design": {
-    "message": "Stile del widget AQI:"
+    "message": "Stile del widget:"
   },
   "opt_engine": {
-    "message": "Mostra le informazioni AQI su:"
+    "message": "Siti che mostrano il widget:"
   },
   "opt_icon": {
     "message": "Stile dell’icona:"
   },
   "opt_lang": {
-    "message": "Lingua delle informazioni AQI:"
+    "message": "Lingua di visualizzazione:"
   },
   "opt_location": {
-    "message": "Posizione automatica:"
+    "message": "Metodo di localizzazione automatica:"
   },
   "opt_save": {
     "message": "Opzioni salvate"
@@ -139,9 +139,6 @@
   },
   "search_select_another": {
     "message": "Seleziona un’altra città"
-  },
-  "search_selected_city": {
-    "message": "Città selezionata:"
   },
   "waqi_title": {
     "message": "Indice mondiale della qualità dell’aria"

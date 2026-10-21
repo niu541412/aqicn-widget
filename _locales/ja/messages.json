@@ -9,7 +9,7 @@
     "message": "{city}：AQI {aqi} がしきい値 {threshold} を超えました。"
   },
   "alert_section": {
-    "message": "AQI アラート："
+    "message": "しきい値超過通知："
   },
   "alert_threshold": {
     "message": "AQI のしきい値"
@@ -104,19 +104,19 @@
     "message": "表示"
   },
   "opt_design": {
-    "message": "AQI ウィジェットの表示スタイル："
+    "message": "ウィジェットのスタイル："
   },
   "opt_engine": {
-    "message": "AQI 情報を表示するサイト："
+    "message": "ウィジェットを表示するサイト："
   },
   "opt_icon": {
     "message": "アイコンスタイル："
   },
   "opt_lang": {
-    "message": "AQI 情報の表示言語："
+    "message": "表示言語："
   },
   "opt_location": {
-    "message": "自動位置取得："
+    "message": "自動位置取得方法："
   },
   "opt_save": {
     "message": "オプションが保存されました"
@@ -141,9 +141,6 @@
   },
   "search_select_another": {
     "message": "別の都市を選択してください..."
-  },
-  "search_selected_city": {
-    "message": "選択した都市："
   },
   "waqi_title": {
     "message": "世界大気質指数"

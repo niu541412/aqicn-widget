@@ -9,7 +9,7 @@
     "message": "{city}: مؤشر جودة الهواء {aqi} يتجاوز الحد المحدد {threshold}."
   },
   "alert_section": {
-    "message": "تنبيهات مؤشر جودة الهواء:"
+    "message": "تنبيهات تجاوز الحد:"
   },
   "alert_threshold": {
     "message": "حد مؤشر جودة الهواء"
@@ -102,19 +102,19 @@
     "message": "إظهار"
   },
   "opt_design": {
-    "message": "نمط أداة مؤشر جودة الهواء:"
+    "message": "نمط الأداة:"
   },
   "opt_engine": {
-    "message": "عرض معلومات جودة الهواء على:"
+    "message": "المواقع التي تعرض الأداة:"
   },
   "opt_icon": {
     "message": "نمط الأيقونة:"
   },
   "opt_lang": {
-    "message": "لغة معلومات جودة الهواء:"
+    "message": "لغة العرض:"
   },
   "opt_location": {
-    "message": "تحديد الموقع تلقائياً:"
+    "message": "طريقة تحديد الموقع تلقائياً:"
   },
   "opt_save": {
     "message": "تم حفظ الخيارات"
@@ -139,9 +139,6 @@
   },
   "search_select_another": {
     "message": "اختر مدينة أخرى"
-  },
-  "search_selected_city": {
-    "message": "المدينة المحددة:"
   },
   "waqi_title": {
     "message": "مؤشر جودة الهواء العالمي"

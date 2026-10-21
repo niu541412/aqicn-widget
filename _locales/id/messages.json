@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} melebihi ambang batas {threshold}."
   },
   "alert_section": {
-    "message": "Peringatan AQI:"
+    "message": "Peringatan ambang batas:"
   },
   "alert_threshold": {
     "message": "Ambang batas AQI"
@@ -102,19 +102,19 @@
     "message": "Tampilkan"
   },
   "opt_design": {
-    "message": "Gaya widget AQI:"
+    "message": "Gaya widget:"
   },
   "opt_engine": {
-    "message": "Tampilkan informasi AQI di:"
+    "message": "Situs yang menampilkan widget:"
   },
   "opt_icon": {
     "message": "Gaya ikon:"
   },
   "opt_lang": {
-    "message": "Bahasa informasi AQI:"
+    "message": "Bahasa tampilan:"
   },
   "opt_location": {
-    "message": "Lokasi otomatis:"
+    "message": "Metode lokasi otomatis:"
   },
   "opt_save": {
     "message": "Pengaturan disimpan"
@@ -139,9 +139,6 @@
   },
   "search_select_another": {
     "message": "Pilih kota lain"
-  },
-  "search_selected_city": {
-    "message": "Kota terpilih:"
   },
   "waqi_title": {
     "message": "Indeks Kualitas Udara Dunia"

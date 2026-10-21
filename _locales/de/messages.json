@@ -9,7 +9,7 @@
     "message": "{city}: AQI {aqi} überschreitet den Grenzwert {threshold}."
   },
   "alert_section": {
-    "message": "AQI-Benachrichtigungen:"
+    "message": "Grenzwertwarnungen:"
   },
   "alert_threshold": {
     "message": "AQI-Grenzwert"
@@ -102,19 +102,19 @@
     "message": "Anzeigen"
   },
   "opt_design": {
-    "message": "Darstellung des AQI-Widgets:"
+    "message": "Widget-Stil:"
   },
   "opt_engine": {
-    "message": "AQI-Informationen anzeigen auf:"
+    "message": "Websites mit Widget:"
   },
   "opt_icon": {
     "message": "Symbolstil:"
   },
   "opt_lang": {
-    "message": "Sprache der AQI-Informationen:"
+    "message": "Anzeigesprache:"
   },
   "opt_location": {
-    "message": "Automatische Ortung:"
+    "message": "Methode der automatischen Ortung:"
   },
   "opt_save": {
     "message": "Einstellungen gespeichert"
@@ -139,9 +139,6 @@
   },
   "search_select_another": {
     "message": "Andere Stadt auswählen"
-  },
-  "search_selected_city": {
-    "message": "Ausgewählte Stadt:"
   },
   "waqi_title": {
     "message": "Weltweiter Luftqualitätsindex"

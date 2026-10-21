@@ -9,7 +9,7 @@
     "message": "{city}：AQI 为 {aqi}，超过设定阈值 {threshold}。"
   },
   "alert_section": {
-    "message": "AQI 超标提醒："
+    "message": "超标提醒："
   },
   "alert_threshold": {
     "message": "AQI 提醒阈值"
@@ -104,16 +104,16 @@
     "message": "显示"
   },
   "opt_design": {
-    "message": "AQI 小部件的显示样式："
+    "message": "小部件样式："
   },
   "opt_engine": {
-    "message": "显示 AQI 信息的网站："
+    "message": "显示小部件的网站："
   },
   "opt_icon": {
     "message": "图标样式："
   },
   "opt_lang": {
-    "message": "AQI 信息的显示语言："
+    "message": "显示语言："
   },
   "opt_location": {
     "message": "自动定位方式："
@@ -141,9 +141,6 @@
   },
   "search_select_another": {
     "message": "选择另一个城市..."
-  },
-  "search_selected_city": {
-    "message": "已选择城市："
   },
   "waqi_title": {
     "message": "世界空气质量指数"
