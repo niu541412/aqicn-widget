@@ -10,6 +10,7 @@ h1 img { width: 36px; height: 36px; }
 .engine-actions button:hover { background: #edf4ff; }
 .two-grid { display: flex; flex-wrap: wrap; gap: 12px 22px; }
 .two-grid label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.language-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 .two-grid label a { color: inherit; text-decoration: underline; text-decoration-color: #8a9aad; text-underline-offset: 3px; }
 .two-grid label a:hover { color: #1769aa; text-decoration-color: currentColor; }
 .two-grid img { width: 34px; height: 34px; object-fit: contain; }
