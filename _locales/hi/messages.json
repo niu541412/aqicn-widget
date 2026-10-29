@@ -90,7 +90,7 @@
     "message": "AQICN API टोकन"
   },
   "location_token_help": {
-    "message": "केवल ब्राउज़र स्थान के लिए आवश्यक। aqicn.org/data-platform/token/ से मुफ़्त टोकन प्राप्त करें। निर्देशांक केवल स्थान बटन दबाने पर AQICN को भेजे जाते हैं।"
+    "message": "केवल ब्राउज़र स्थान के लिए आवश्यक। aqicn.org/data-platform/token/ से मुफ़्त टोकन प्राप्त करें। ब्राउज़र स्थान चालू होने पर पास का स्टेशन खोजने के लिए निर्देशांक AQICN को भेजे जाते हैं।"
   },
   "location_token_hide": {
     "message": "छिपाएँ"

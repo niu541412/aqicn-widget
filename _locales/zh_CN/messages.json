@@ -92,7 +92,7 @@
     "message": "AQICN API Token"
   },
   "location_token_help": {
-    "message": "仅浏览器定位需要。可在 aqicn.org/data-platform/token/ 免费获取。只有点击定位按钮时才会向 AQICN 发送经纬度。"
+    "message": "仅浏览器定位需要。可在 aqicn.org/data-platform/token/ 免费获取。启用浏览器定位后，将经纬度发送给 AQICN 查询附近站点。"
   },
   "location_token_hide": {
     "message": "隐藏"

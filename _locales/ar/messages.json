@@ -90,7 +90,7 @@
     "message": "رمز واجهة AQICN البرمجية"
   },
   "location_token_help": {
-    "message": "مطلوب فقط لتحديد الموقع عبر المتصفح. احصل على رمز مجاني من aqicn.org/data-platform/token/. تُرسل الإحداثيات إلى AQICN فقط عند الضغط على زر تحديد الموقع."
+    "message": "مطلوب فقط لتحديد الموقع عبر المتصفح. احصل على رمز مجاني من aqicn.org/data-platform/token/. عند تفعيل تحديد الموقع عبر المتصفح، تُرسل الإحداثيات إلى AQICN للعثور على محطة قريبة."
   },
   "location_token_hide": {
     "message": "إخفاء"

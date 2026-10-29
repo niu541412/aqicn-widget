@@ -92,7 +92,7 @@
     "message": "AQICN API トークン"
   },
   "location_token_help": {
-    "message": "ブラウザーの位置情報を使う場合のみ必要です。aqicn.org/data-platform/token/ で無料で取得できます。座標は位置取得ボタンを押したときだけ AQICN に送信します。"
+    "message": "ブラウザー位置情報を使う場合のみ必要です。aqicn.org/data-platform/token/ で無料で取得できます。ブラウザー位置情報を有効にすると、近くの測定局を検索するために座標を AQICN に送信します。"
   },
   "location_token_hide": {
     "message": "隠す"

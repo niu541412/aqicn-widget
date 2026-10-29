@@ -90,7 +90,7 @@
     "message": "Token API AQICN"
   },
   "location_token_help": {
-    "message": "Necessario solo per la posizione del browser. Ottieni un token gratuito su aqicn.org/data-platform/token/. Le coordinate vengono inviate ad AQICN solo quando premi il pulsante di localizzazione."
+    "message": "Necessario solo per la posizione del browser. Ottieni un token gratuito su aqicn.org/data-platform/token/. Quando questa opzione è attiva, le coordinate vengono inviate ad AQICN per trovare una stazione vicina."
   },
   "location_token_hide": {
     "message": "Nascondi"

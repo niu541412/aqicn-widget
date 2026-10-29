@@ -92,7 +92,7 @@
     "message": "AQICN API token"
   },
   "location_token_help": {
-    "message": "Required only for browser location. Get a free token from aqicn.org/data-platform/token/. Coordinates are sent to AQICN only when you click locate."
+    "message": "Required only for browser location. Get a free token from aqicn.org/data-platform/token/. When browser location is enabled, coordinates are sent to AQICN to find a nearby station."
   },
   "location_token_hide": {
     "message": "Hide"

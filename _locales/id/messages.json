@@ -90,7 +90,7 @@
     "message": "Token API AQICN"
   },
   "location_token_help": {
-    "message": "Hanya diperlukan untuk lokasi peramban. Dapatkan token gratis di aqicn.org/data-platform/token/. Koordinat hanya dikirim ke AQICN saat Anda menekan tombol lokasi."
+    "message": "Hanya diperlukan untuk lokasi browser. Dapatkan token gratis di aqicn.org/data-platform/token/. Saat lokasi browser aktif, koordinat dikirim ke AQICN untuk mencari stasiun terdekat."
   },
   "location_token_hide": {
     "message": "Sembunyikan"

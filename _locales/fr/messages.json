@@ -90,7 +90,7 @@
     "message": "Jeton API AQICN"
   },
   "location_token_help": {
-    "message": "Nécessaire uniquement pour la position du navigateur. Obtenez un jeton gratuit sur aqicn.org/data-platform/token/. Les coordonnées ne sont envoyées à AQICN que lorsque vous cliquez sur le bouton de localisation."
+    "message": "Nécessaire uniquement pour la localisation du navigateur. Obtenez un jeton gratuit sur aqicn.org/data-platform/token/. Lorsque cette option est activée, les coordonnées sont envoyées à AQICN pour trouver une station proche."
   },
   "location_token_hide": {
     "message": "Masquer"

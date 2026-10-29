@@ -92,7 +92,7 @@
     "message": "AQICN API 토큰"
   },
   "location_token_help": {
-    "message": "브라우저 위치를 사용할 때만 필요합니다. aqicn.org/data-platform/token/에서 무료로 받을 수 있습니다. 좌표는 위치 버튼을 누를 때만 AQICN에 전송됩니다."
+    "message": "브라우저 위치 확인에만 필요합니다. aqicn.org/data-platform/token/에서 무료로 받을 수 있습니다. 브라우저 위치를 사용하면 주변 측정소를 찾기 위해 좌표를 AQICN에 전송합니다."
   },
   "location_token_hide": {
     "message": "숨기기"

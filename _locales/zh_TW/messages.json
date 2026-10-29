@@ -92,7 +92,7 @@
     "message": "AQICN API Token"
   },
   "location_token_help": {
-    "message": "僅瀏覽器定位需要。可在 aqicn.org/data-platform/token/ 免費取得。只有點擊定位按鈕時才會向 AQICN 傳送經緯度。"
+    "message": "僅瀏覽器定位需要。可在 aqicn.org/data-platform/token/ 免費取得。啟用瀏覽器定位後，會將經緯度傳送給 AQICN 查詢附近測站。"
   },
   "location_token_hide": {
     "message": "隱藏"

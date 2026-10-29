@@ -16,6 +16,7 @@ ASSETS = ('_locales', 'css', 'html', 'img', 'src')
 def make_manifest(browser: str) -> dict:
     manifest = json.loads((ROOT / 'manifest.json').read_text())
     if browser == 'firefox':
+        manifest['permissions'].remove('offscreen')
         manifest['background'] = {'scripts': ['src/shared.js', 'src/background.js']}
         manifest['browser_specific_settings'] = {
             'gecko': {
@@ -44,6 +45,9 @@ def build(browser: str) -> Path:
     package.mkdir(parents=True)
     for directory in ASSETS:
         shutil.copytree(ROOT / directory, package / directory)
+    if browser == 'firefox':
+        (package / 'html' / 'offscreen.html').unlink()
+        (package / 'src' / 'offscreen.js').unlink()
     manifest = make_manifest(browser)
     (package / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     validate(package)

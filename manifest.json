@@ -483,6 +483,7 @@
     "alarms",
     "geolocation",
     "notifications",
+    "offscreen",
     "storage"
   ],
   "host_permissions": [
@@ -490,5 +491,5 @@
     "https://aqicn.org/*",
     "https://mapq.waqi.info/*"
   ],
-  "version": "2.1.2"
+  "version": "2.1.3"
 }

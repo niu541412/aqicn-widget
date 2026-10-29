@@ -6,7 +6,10 @@ if (typeof importScripts === 'function') {
 const FEED_INTERVAL_MINUTES = 1;
 const FEED_CACHE_MS = 60_000;
 const ALERT_COOLDOWN_MS = 60 * 60_000;
+const LOCATION_REFRESH_MS = 10 * 60_000;
+const OFFSCREEN_DOCUMENT = 'html/offscreen.html';
 let feedRequest = null;
+let offscreenDocumentCreation = null;
 
 function decodeHistory(iaqi = {}) {
   const history = {};
@@ -72,6 +75,162 @@ async function selectedCity() {
   } catch (error) {
     console.error('Invalid saved city', error);
     return null;
+  }
+}
+
+function stationIdentifier(city) {
+  if (city?.idx != null) return `idx:${city.idx}`;
+  if (city?.key) return `key:${city.key}`;
+  return null;
+}
+
+async function hasOffscreenDocument() {
+  const url = BrowserApi.runtime.getURL(OFFSCREEN_DOCUMENT);
+  if (BrowserApi.runtime.getContexts) {
+    const contexts = await BrowserApi.runtime.getContexts({
+      contextTypes: ['OFFSCREEN_DOCUMENT'],
+      documentUrls: [url],
+    });
+    return contexts.length > 0;
+  }
+  if (typeof clients !== 'undefined') {
+    const extensionClients = await clients.matchAll({ includeUncontrolled: true, type: 'window' });
+    return extensionClients.some((client) => client.url === url);
+  }
+  return false;
+}
+
+async function ensureOffscreenDocument() {
+  if (!BrowserApi.offscreen?.createDocument) {
+    throw new Error('Background geolocation is unavailable in this browser context');
+  }
+  if (await hasOffscreenDocument()) return;
+  if (!offscreenDocumentCreation) {
+    offscreenDocumentCreation = BrowserApi.offscreen.createDocument({
+      url: OFFSCREEN_DOCUMENT,
+      reasons: [BrowserApi.offscreen.Reason?.GEOLOCATION || 'DOM_SCRAPING'],
+      justification: 'Access navigator.geolocation from the MV3 service worker and refresh the nearby AQI station when browser location is enabled.',
+    });
+  }
+  try {
+    await offscreenDocumentCreation;
+  } finally {
+    offscreenDocumentCreation = null;
+  }
+}
+
+function readGeolocation(geolocation) {
+  return new Promise((resolve, reject) => {
+    geolocation.getCurrentPosition((position) => {
+      resolve({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    }, reject, {
+      enableHighAccuracy: false,
+      timeout: 12_000,
+      maximumAge: 60_000,
+    });
+  });
+}
+
+async function currentCoordinates() {
+  if (BrowserApi.offscreen?.createDocument) {
+    await ensureOffscreenDocument();
+    try {
+      const position = await BrowserApi.runtime.sendMessage({
+        target: 'aqicn-offscreen',
+        method: 'getCurrentLocation',
+      });
+      if (position?.error) {
+        const error = new Error(position.error.message || 'Could not get browser location');
+        error.code = position.error.code;
+        throw error;
+      }
+      if (!Number.isFinite(position?.latitude) || !Number.isFinite(position?.longitude)) {
+        throw new Error('Browser location returned invalid coordinates');
+      }
+      return { latitude: position.latitude, longitude: position.longitude };
+    } finally {
+      try {
+        await BrowserApi.offscreen.closeDocument();
+      } catch (error) {
+        console.warn('Could not close location helper document', error);
+      }
+    }
+  }
+  if (typeof navigator !== 'undefined' && navigator.geolocation) {
+    return readGeolocation(navigator.geolocation);
+  }
+  throw new Error('Browser geolocation is unavailable');
+}
+
+async function automaticLocation(locationMode, token) {
+  if (locationMode === 'browser') {
+    if (!token?.trim()) throw new Error('Browser location requires an AQICN API token');
+    const { latitude, longitude } = await currentCoordinates();
+    const url = `https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=${encodeURIComponent(token.trim())}`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Location API HTTP ${response.status}`);
+    const result = await response.json();
+    if (result.status !== 'ok' || result.data?.idx == null
+      || !Number.isFinite(Number(result.data.idx))) {
+      throw new Error(result.data?.message || String(result.data || 'Location lookup failed'));
+    }
+    return {
+      name: result.data.city?.name || '',
+      aqi: result.data.aqi,
+      idx: result.data.idx,
+      utime: result.data.time?.v,
+    };
+  }
+
+  const response = await fetch('https://mapq.waqi.info/mapq/nearest/?n=10');
+  if (!response.ok) throw new Error(`Location API HTTP ${response.status}`);
+  const result = await response.json();
+  const station = result.d?.find((item) => Number.isFinite(Number(item.v)));
+  if (!station) throw new Error('No nearby station found from IP location');
+  return {
+    name: `${station.nlo || station.nna} (${station.nna || station.nlo})`,
+    aqi: station.v,
+    idx: station.x,
+    utime: station.t,
+  };
+}
+
+async function refreshAutomaticLocation(city) {
+  const stored = await BrowserApi.storage.local.get([
+    'locationMode', 'waqiToken', 'locationCheckedAt',
+  ]);
+  const locationMode = stored.locationMode || 'ip';
+  if (Date.now() - (stored.locationCheckedAt || 0) < LOCATION_REFRESH_MS) {
+    return { city, changed: false };
+  }
+
+  const checkedAt = Date.now();
+  try {
+    const locatedCity = await automaticLocation(locationMode, stored.waqiToken);
+    const latestSettings = await BrowserApi.storage.local.get(['locationMode', 'waqiToken']);
+    const latestCity = await selectedCity();
+    if ((latestSettings.locationMode || 'ip') !== locationMode
+      || (locationMode === 'browser' && latestSettings.waqiToken !== stored.waqiToken)
+      || stationIdentifier(latestCity) !== stationIdentifier(city)) {
+      return { city: latestCity || city, changed: false };
+    }
+
+    const changed = stationIdentifier(locatedCity) !== stationIdentifier(city);
+    const update = { selectedCity: locatedCity, locationCheckedAt: checkedAt };
+    if (changed) Object.assign(update, { FeedData: null, FeedTime: 0, FeedSource: null });
+    await BrowserApi.storage.local.set(update);
+    return { city: locatedCity, changed };
+  } catch (error) {
+    console.warn(`Could not refresh ${locationMode} location; keeping the current station`, error);
+    const latestSettings = await BrowserApi.storage.local.get(['locationMode', 'waqiToken']);
+    if ((latestSettings.locationMode || 'ip') === locationMode
+      && (locationMode !== 'browser' || latestSettings.waqiToken === stored.waqiToken)) {
+      await BrowserApi.storage.local.set({ locationCheckedAt: checkedAt });
+    }
+    return { city, changed: false };
   }
 }
 
@@ -227,7 +386,10 @@ async function loadFeed(force = false) {
       await updateIconSafely(previous);
       return previous;
     }
-    const city = await selectedCity();
+    let city = await selectedCity();
+    const location = await refreshAutomaticLocation(city);
+    city = location.city;
+    if (location.changed) previous = null;
     if (!city?.idx && !city?.key) {
       await updateIconSafely(previous);
       return previous;
@@ -265,11 +427,18 @@ async function loadFeed(force = false) {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.target === 'aqicn-offscreen') return false;
   (async () => {
     switch (request.method) {
       case 'getSelectedCity': return selectedCity();
       case 'setSelectedCity':
-        await BrowserApi.storage.local.set({ selectedCity: request.city, FeedData: null, FeedTime: 0, FeedSource: null });
+        await BrowserApi.storage.local.set({
+          selectedCity: request.city,
+          FeedData: null,
+          FeedTime: 0,
+          FeedSource: null,
+          locationCheckedAt: Date.now(),
+        });
         await clearIcon();
         return loadFeed(true);
       case 'loadFeed': return loadFeed();
@@ -308,6 +477,18 @@ chrome.alarms.create('refreshFeed', { periodInMinutes: FEED_INTERVAL_MINUTES });
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'refreshFeed') loadFeed();
 });
+
+BrowserApi.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName !== 'local' || (!changes.locationMode && !changes.waqiToken)) return;
+  (async () => {
+    const { locationMode } = await BrowserApi.storage.local.get('locationMode');
+    if (changes.locationMode || locationMode === 'browser') {
+      await BrowserApi.storage.local.set({ locationCheckedAt: 0 });
+      await loadFeed(true);
+    }
+  })().catch((error) => console.error('Could not refresh after location settings changed', error));
+});
+
 chrome.runtime.onStartup.addListener(() => {
   chrome.alarms.create('refreshFeed', { periodInMinutes: FEED_INTERVAL_MINUTES });
   loadFeed();

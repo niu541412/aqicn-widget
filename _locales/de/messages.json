@@ -90,7 +90,7 @@
     "message": "AQICN-API-Token"
   },
   "location_token_help": {
-    "message": "Nur für die Browserortung erforderlich. Ein kostenloses Token erhalten Sie auf aqicn.org/data-platform/token/. Koordinaten werden nur beim Klicken auf die Ortungsschaltfläche an AQICN gesendet."
+    "message": "Nur für die Browserortung erforderlich. Ein kostenloses Token erhalten Sie auf aqicn.org/data-platform/token/. Bei aktivierter Browserortung werden die Koordinaten an AQICN gesendet, um eine nahegelegene Messstation zu finden."
   },
   "location_token_hide": {
     "message": "Verbergen"
